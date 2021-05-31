@@ -37,6 +37,9 @@ public class StaffController {
 
 	  @DeleteMapping(value ="/removeStaffDetails/{fullname}")
 	    public void removeStaffDetails(@PathVariable("fullname")StaffDetails fullName){
+		  System.out.println("git test");
 		  staffService.removeStaffDetails(fullName);
+		  
 	    }
+	  
 }
