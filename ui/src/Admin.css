@@ -1,0 +1,11 @@
+.dashbox{
+    float: left;
+    width: fit-content;
+    margin: 15px, 0px, 6px 15px;
+    padding-left: 5px;
+}
+.dashbox.inner{
+    padding: 8px;
+    margin: 0, 0, 6px, 0;
+    border-radius: 15px;
+}
