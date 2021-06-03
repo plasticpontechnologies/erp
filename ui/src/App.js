@@ -16,7 +16,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React<br/>
-          hello edted
+          hello
         </a>
       </header>
     </div>
