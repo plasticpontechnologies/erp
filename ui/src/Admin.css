@@ -1,11 +1,32 @@
 .dashbox{
     float: left;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: 'Times New Roman';
     width: fit-content;
     margin: 15px, 0px, 6px 15px;
-    padding-left: 5px;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;   
 }
-.dashbox.inner{
-    padding: 8px;
+
+.dashbox .inner{
+    padding: 10px;
+    color: rgb(0, 0, 0);
     margin: 0, 0, 6px, 0;
-    border-radius: 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px 4px rgb(200 0 0 / 25%);
+
+}
+.dashbox .inner:hover{
+    color: rgb(189, 17, 17);
+    
+}
+.dashbox .inner .icon_color{
+    color: red;
+    font-size: 110%;
+    padding: 1px;
+}
+a{
+    text-decoration: none;
 }
