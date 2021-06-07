@@ -48,25 +48,25 @@ export default class Notice extends Component {
                         Choose file
                     </label>
                     <input type="file"  accept=".pdf,.png,.jpeg" className="custom-file-input"id="" />
-                </div>
-            </div>
-        </div>
-        <div >
-        <FormLabel  component="legend">Status</FormLabel>
-        <Select className="age_select"
-        placeholder="select"
-        
-        id=""
-        value="Select"
-          onChange=""
-          >
-          <MenuItem value=""><em>none</em></MenuItem>
-          <MenuItem value="">Active</MenuItem>
-          <MenuItem value="">In Active</MenuItem>
+                </div> 
+                <div className="age_session">
+                <FormLabel  component="legend">Status</FormLabel>
+                        <Select className="age_select"
+                         placeholder="select"
+                         id=""
+                         value="Select"
+                         onChange=""
+                        >
+                    <MenuItem value="none"><em>none</em></MenuItem>
+                    <MenuItem value="Active">Active</MenuItem>
+                    <MenuItem value="In Active">In Active</MenuItem>
           
         </Select>
         <FormHelperText>Label + placeholder</FormHelperText>
         </div>
+            </div>
+        </div>
+       
 
     </FormControl>
     </div>
