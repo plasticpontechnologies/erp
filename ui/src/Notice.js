@@ -1,75 +1,77 @@
-import React, { Component } from "react"
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import TextField from '@material-ui/core/TextField';
-import Select from '@material-ui/core/Select';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
-
-
+import React, { Component } from "react";
 
 export default class Notice extends Component {
     render () {
   return (
       <div className="form_radio">
-    <FormControl component="fieldset">
-      <FormLabel  component="legend">Type Of Notification</FormLabel>
-      <RadioGroup row aria-label="position" name="position" defaultValue="top">        
-            <FormControlLabel value="Circular" control={<Radio color="primary" />} label="Circular" />
-            <FormControlLabel value="Class_Dairy" control={<Radio color="primary" />} label="Class Dairy" />
-            <FormControlLabel value="Syllabus" control={<Radio color="primary" />} label="Syllabus" />
-      </RadioGroup>
+        <div>
+          <label for="formGroupExampleInput">Type Of Notice</label><br/>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="radio" id="" value="Circular"/>
+            <label class="form-check-label"  for="inlineRadio1">Circular</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="Class Diary"/>
+           <label class="form-check-label" for="inlineRadio2">Class Diary</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="radio" id="inlineRadio3" value="Syllabus" />
+            <label class="form-check-label" for="inlineRadio3">Syllabus</label>
+          </div>
+        </div>
+        <br/>
 
-      <FormLabel component="legend1">Send Notification To</FormLabel>
-      <RadioGroup row aria-label="position" name="position" defaultValue="top">        
-            <FormControlLabel value="EveryOne" control={<Radio color="primary" />} label="Every One" />
-            <FormControlLabel value="OnlyStaff" control={<Radio color="primary" />} label="Only Staff" />
-            <FormControlLabel value="OnlyStudent" control={<Radio color="primary" />} label="Only Student" />
-      </RadioGroup>
-      <TextField  id="outlined-full-width" label="Description" style={{ margin: 10, width:'200%' }} 
-          placeholder="Please provide Information "
-          helperText="*requirded"
-          fullWidth
-          
-          InputLabelProps={{
-            shrink: true,
-          }}
-          variant="outlined"
-          
-        />
-        <div className="input-group">
-            <div className="input-group-prepend">
-                <div className="custom-file">
-                    <label className="custom-file-label" htmlFor="inputGroupFile01">
-                        Choose file
-                    </label>
-                    <input type="file"  accept=".pdf,.png,.jpeg" className="custom-file-input"id="" />
-                </div> 
+        <div>
+          <label for="formGroupExampleInput">Send Notice To</label><br/>
+          <div class="form-check form-check-inline">
+            <input className="form-check-input"  type="radio" name="radio" id="" value="Every Oner"/>
+            <label class="form-check-label"  for="inlineRadio1">Every One</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="Only Staff"/>
+            <label class="form-check-label" for="inlineRadio2">Only For Staff</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="radio" id="inlineRadio3" value="Only Student" />
+            <label class="form-check-label" for="inlineRadio3">Only For Student</label>
+          </div>
+        </div>
+
+
+
+            
+        <div class="form-group">
+              <label for="formGroupExampleInput">Description</label>
+              <input type="text" class="form-control" required id="" placeholder=""/>
+        </div>
+            <tr>
+              <td>
+                <div class="form-group">
+                  <label for="exampleFormControlFile1">Upload File(img/pdf)</label>
+                  <input type="file" class="form-control-file" id="exampleFormControlFile1" label=""/>
+                </div>
+              </td>
+              <td>                 
                 <div className="age_session">
-                <FormLabel  component="legend">Status</FormLabel>
-                        <Select className="age_select"
-                         placeholder="select"
-                         id=""
-                         value="Select"
-                         onChange=""
-                        >
-                    <MenuItem value="none"><em>none</em></MenuItem>
-                    <MenuItem value="Active">Active</MenuItem>
-                    <MenuItem value="In Active">In Active</MenuItem>
-          
-        </Select>
-        <FormHelperText>Label + placeholder</FormHelperText>
-        </div>
-            </div>
-        </div>
-       
-
-    </FormControl>
-    </div>
-  );
-}
+                  <tr>
+                    Status<br/>
+                    <select name="" id="activestatus">
+                      <option value="active">Active</option>
+                      <option value="inactive">In-Active</option>
+                    </select>
+                    
+                  </tr>
+                </div>
+              </td>
+            </tr>
+            <div class="form-group">
+                  <label for="exampleFormControlFile1">Expiry Date</label>
+                  <input type="date" class="form-control-file" id="exampleFormControlFile1" label="" placeholder="dd-mmm-yyyy"/>
+                </div>
+              
+            
+        
+      </div>
+    );
+  }
 }

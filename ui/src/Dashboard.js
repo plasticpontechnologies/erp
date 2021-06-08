@@ -2,6 +2,7 @@ import react, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Exmp from "./Exmp";
 import Notice from "./Notice";
+import Expense from "./Expense";
 import { BsBookHalf,BsCardList,BsClipboardData,BsBuilding,BsFillPersonCheckFill,
         BsFillPeopleFill,BsFillChatDotsFill,BsFillPersonPlusFill } from "react-icons/bs";
 import { MdEventAvailable, MdPayment,MdTrendingUp,MdTrendingDown } from "react-icons/md";
@@ -19,84 +20,84 @@ export default class Dashboard extends Component{
                     <div className="dashbox" >
                    <Link to="/Exmp" >
                     <div className="inner" >
-                    <BsBookHalf className="icon_color"  /> <h5>Create HomeWork</h5> 
+                    <BsBookHalf className="icon_color"  /> Create HomeWork 
                     </div>
                     </Link>
                     </div>
                     <div className="dashbox">
                     <a href="">
                     <div className="inner">
-                    <BsCardList className="icon_color" /> <h5>Create Subject</h5> 
+                    <BsCardList className="icon_color" /> Create Subject 
                     </div>
                     </a>
                     </div>
                     <div className="dashbox">
                     <a href="">
                     <div className="inner">
-                    < MdEventAvailable className="icon_color" /> <h5>Events & Holiday</h5> 
+                    < MdEventAvailable className="icon_color" /> Events & Holiday 
                     </div>
                     </a>
                     </div>
                     <div className="dashbox">
                     <a href="">
                     <div className="inner">
-                    <MdPayment className="icon_color" /> <h5>Fee Payment</h5>
+                    <MdPayment className="icon_color" /> Fee Payment
                     </div>
                     </a>
                     </div>
                     <div className="dashbox">
                     <a href="">
                     <div className="inner">
-                    <BsBuilding className="icon_color"/> <h5>New Admission</h5> 
+                    <BsBuilding className="icon_color"/> New Admission 
                     </div>
                     </a>
                     </div>
                     <div className="dashbox">
                     <Link to="/Notice" >
                     <div className="inner">
-                    <BsClipboardData className="icon_color"/> <h5>Notice-Board</h5> 
+                    <BsClipboardData className="icon_color"/> Notice-Board 
+                    </div>
+                    </Link>
+                    </div>
+                    <div className="dashbox">
+                    <Link to="/Expense" >
+                    <div className="inner">
+                    <MdTrendingDown className="icon_color"/> Record Expense
                     </div>
                     </Link>
                     </div>
                     <div className="dashbox">
                     <a href="">
                     <div className="inner">
-                    <MdTrendingDown className="icon_color"/> <h5>Record Expense</h5>
+                    <MdTrendingUp className="icon_color"/> Record Income 
                     </div>
                     </a>
                     </div>
                     <div className="dashbox">
                     <a href="">
                     <div className="inner">
-                    <MdTrendingUp className="icon_color"/> <h5>Record Income</h5> 
+                    <BsFillPersonCheckFill className="icon_color"/> Staff Attendance 
                     </div>
                     </a>
                     </div>
                     <div className="dashbox">
                     <a href="">
                     <div className="inner">
-                    <BsFillPersonCheckFill className="icon_color"/> <h5>Staff Attendance</h5> 
+                    <BsFillPeopleFill className="icon_color"/> Student Attendance
                     </div>
                     </a>
                     </div>
                     <div className="dashbox">
                     <a href="">
                     <div className="inner">
-                    <BsFillPeopleFill className="icon_color"/> <h5>Student Attendance</h5>
+                    <BsFillChatDotsFill className="icon_color"/> Send Message 
                     </div>
                     </a>
                     </div>
                     <div className="dashbox">
                     <a href="">
                     <div className="inner">
-                    <BsFillChatDotsFill className="icon_color"/> <h5>Send Message</h5> 
-                    </div>
-                    </a>
-                    </div>
-                    <div className="dashbox">
-                    <a href="">
-                    <div className="inner">
-                    <BsFillPersonPlusFill className="icon_color"/> <h5>Staff Registration</h5>
+                    <BsFillPersonPlusFill className="icon_color"/> Staff Registration
                     </div>
                     </a>
                     </div>
@@ -106,6 +107,7 @@ export default class Dashboard extends Component{
                
                <Route path="/Exmp" exact component={Exmp} />
                <Route path="/Notice" exact component={Notice} />
+               <Route path="/Expense" exact component={Expense} />
                
                </Switch>
             </Router>
