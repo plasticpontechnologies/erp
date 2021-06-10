@@ -58,7 +58,7 @@
 }
 #ribbon {
   min-height: 40px;
-  background: #474544;
+  background: #dfd7d3;
   padding: 0 13px;
   position: relative;
 }
@@ -116,7 +116,7 @@
 }
 .smart-style-3 #ribbon .breadcrumb,
 .smart-style-3 #ribbon .breadcrumb a {
-  color: #7c7c7c !important;
+  color: #000000 !important;
 }
 @media only screen and (min-width: 320px) and (max-width: 479px) {
   #ribbon .breadcrumb,
@@ -132,8 +132,9 @@
 }
 #ribbon .breadcrumb,
 #ribbon .breadcrumb a {
-  color: #bbb !important;
+  color: rgb(0, 0, 0) !important;
   text-decoration: none !important;
+  font-size: 20px;
 }
 #ribbon .breadcrumb {
   display: inline-block;
@@ -190,7 +191,7 @@
 .breadcrumb > li + li:before {
   content: "/\00a0";
   padding: 0 5px;
-  color: #ccc;
+  color: rgb(0, 0, 0);
 }
 a {
   color: #3276b1;

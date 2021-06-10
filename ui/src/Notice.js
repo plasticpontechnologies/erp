@@ -1,10 +1,38 @@
 import React, { Component } from "react";
+import { BiBook, BiStar } from "react-icons/bi"
 
 export default class Notice extends Component {
     render () {
   return (
+    <div>
+      <div id="ribbon">
+              <span className="ribbon-button-alignment">
+                <span id="refresh" className="btn btn-ribbon">
+                 <i ><BiBook /></i>
+                </span>
+              </span>
+              <ol className="breadcrumb">
+                <li>Homework</li>
+                <li>Create Homework</li>
+              </ol>
+        
+              <div style={{float: "right"}}>
+                <span className="ribbon-button-alignment">
+                  <span className="btn btn-ribbon">
+                    <a href="javascript:;" title="Add To Favorite">
+                      <i className="fa"><BiStar /></i>
+                    </a>
+                  </span>
+                </span>
+                <div id="MyFavorite" ng-init="MyFavorite='MyFavorite'" title="MyFavorite"  style={{zIndex:9999, right:"0",float: "right", marginTop: "10px"}}>
+                  <span>
+                    <a hre="javascript:;" className="ng-binding">My Favorite</a>
+                  </span>
+                </div>
+              </div>
+            </div>
       <div className="form_radio">
-        <form>  
+        <form>          
           <div>
             <label for=""><h4>Type Of Notice</h4></label><br/>
             <div class="form-check form-check-inline">
@@ -72,6 +100,7 @@ export default class Notice extends Component {
             <input type="button" className="notice_back" value="Back"/>
           </div>
         </form>
+      </div>
       </div>
     );
   }

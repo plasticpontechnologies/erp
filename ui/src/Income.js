@@ -1,4 +1,5 @@
 import { Component } from "react";
+import './'
 
 
 export default class Income extends Component{
@@ -23,7 +24,7 @@ export default class Income extends Component{
 						<label for="iamount">Amount</label>
 						<input type="text" id="iamount" name="iamount" required placeholder="Enter The Amount That you Spent"/>
 
-                        <label for="bankaccount">Income Head</label>
+                        <label for="bankaccount">Account</label>
 						<select id="bankaccount" name="bankaccount" required>
 							<option value="sbi">State Bank Of India</option>
 							<option value="icici">ICICI</option>
@@ -43,8 +44,7 @@ export default class Income extends Component{
 						<label for="remarks">Expense Remark(optional*)</label>
 						<input type="text" id="remark" name="remark"  placeholder="Remarks....!"/>
 						
-						<label for="recept">Payment Recept( Id / No ) </label>
-						<input type="text" id="recept" name="recept" required placeholder="Id (or) Number"/>
+						
 						
 						
 						<br/><input type="submit" className="expense_submit" value="Submit"/>

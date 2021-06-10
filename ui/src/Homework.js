@@ -31,7 +31,7 @@ function Homework() {
           <label className="input">
             
             <select className="select2-container select2" id="bankaccount" name="bankaccount" required>
-							<option value="">Select...!!</option>
+							<option value="0">Select...!!</option>
 							<option value="1st">1st Class</option>
               <option value="2nd">2nd Class</option>
               <option value="3rd">3rd Class</option>
@@ -46,29 +46,27 @@ function Homework() {
           </label>
           </section>
           <section class="col col-1 form group">
-          <label className="label ng-binding">Section</label>
-          <label className="input">
-            
-            <select className="select2-container select2" id="bankaccount" name="bankaccount" required style={{width:"60px"}} >
-							<option value="sbi">Select...!!</option>
-							<option value="a">A</option>
-              <option value="b">B</option>
-              							
-						</select>             
-          </label>
+            <label className="label ng-binding">Section</label>
+            <label className="input">            
+              <select className="select2-container select2" id="bankaccount" name="bankaccount" required style={{width:"60px"}} >
+                <option value="0">Select...!!</option>
+                <option value="a">A</option>
+                <option value="b">B</option>                              
+              </select>             
+            </label>
           </section>
 
         <section className="col col-4 from-group">
           <label className="label ng-binding" ng-init="Subject='Subject'">Subject</label>
           <label className="input">
           <select className="select2-container select2" id="bankaccount" name="bankaccount" required >
-							<option value="sbi">Subject.....</option>
-							<option value="icici">Telugu</option>
-              <option value="icici">Hindi</option>
-              <option value="icici">English</option>
-              <option value="icici">Maths</option>
-              <option value="icici">Science</option>
-              <option value="icici">Social</option>
+							<option value="o">Subject.....</option>
+							<option value="telugu">Telugu</option>
+              <option value="hindi">Hindi</option>
+              <option value="english">English</option>
+              <option value="maths">Maths</option>
+              <option value="science">Science</option>
+              <option value="social">Social</option>
 							
 						</select>
           </label>
