@@ -1,4 +1,5 @@
-import react, { Component } from "react";
+import { Component } from "react";
+
 
 export default class Expense extends Component{
     render(){
@@ -9,25 +10,36 @@ export default class Expense extends Component{
 					
   					<form>
 					  <label for="country">Expense Head</label>
-						<select id="ExpenseHead" name="ExpenseHead">
+						<select id="ExpenseHead" name="ExpenseHead" required>
 							<option value="">Select..</option>
-							<option value="canada">Canada</option>
-							<option value="usa">USA</option>
-						</select>
-						<label for="fname">First Name</label>
-						<input type="text" id="fname" name="firstname" placeholder="Your name.."/>
+							<option value="books">Books</option>
+							<option value="rent">rent</option>
+							<option value="repair">repair</option>
+							<option value="stationary">Stationary</option>
 
-						<label for="lname">Last Name</label>
-						<input type="text" id="lname" name="lastname" placeholder="Your last name.."/>
-
-						<label for="country">Country</label>
-						<select id="country" name="country">
-							<option value="australia">Australia</option>
-							<option value="canada">Canada</option>
-							<option value="usa">USA</option>
 						</select>
-	
-						<input type="submit" value="Submit"/>
+						<label for="amount">Amount</label>
+						<input type="text" id="amount" name="amount" required placeholder="Enter The Amount That you Spent"/>
+
+						<label for="expensedate">Expense Date</label>
+						<input type="date" id="expensedate" name="expensedate" required placeholder="expensedate"/>
+
+						<label for="student">Student</label>
+						<select id="student" name="student" required>
+						<option value="select">Select....</option>
+							<option value="ravi">ravi</option>
+							<option value="siva">Siva</option>
+							<option value="bhanu">Bhanu</option>
+						</select>
+						<label for="remarks">Expense Remark(optional*)</label>
+						<input type="text" id="remark" name="remark"  placeholder="Remarks....!"/>
+						
+						<label for="recept">Payment Recept( Id / No ) </label>
+						<input type="text" id="recept" name="recept" required placeholder="Id (or) Number"/>
+						
+						
+						<br/><input type="submit" className="expense_submit" value="Submit"/>
+						<input type="button" className="expense_back" value="Back"/>
   					</form>
 				</div>               
 			

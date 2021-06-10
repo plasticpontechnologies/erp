@@ -24,7 +24,7 @@ h5 {
 }
 
 .dashbox .inner:hover {
-  color: rgb(255, 0, 0);
+  color: rgb(8, 11, 187);
   background-color: rgb(229, 229, 231);
   font-weight: 900;
   box-shadow: 5px 2px 4px 4px rgb(0 0 255 / 50%);
@@ -32,7 +32,7 @@ h5 {
 .dashbox .inner .icon_color {
   display: block;
   text-align: center;
-  color: red;
+  color: rgb(60, 151, 47);
   font-size: 100px;
   padding-left:30px;
 }
