@@ -1,8 +1,11 @@
-import react, { Component } from "react";
+import { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Exmp from "./Exmp";
+
 import Notice from "./Notice";
 import Expense from "./Expense";
+import Income from './Income';
+import Homework from './Homework';
+import Subject from './Subject';
 
 import { BsBookHalf,BsCardList,BsClipboardData,BsBuilding,BsFillPersonCheckFill,
         BsFillPeopleFill,BsFillChatDotsFill,BsFillPersonPlusFill } from "react-icons/bs";
@@ -19,18 +22,18 @@ export default class Dashboard extends Component{
                 <div className="dashcontainer">
                 
                     <div className="dashbox" >
-                   <Link to="/Exmp" >
+                    <Link to="/Homework">
                     <div className="inner" >
                     <BsBookHalf className="icon_color"  /> Create HomeWork 
                     </div>
                     </Link>
                     </div>
                     <div className="dashbox">
-                    <a href="">
+                    <Link to="/Createsubject">
                     <div className="inner">
                     <BsCardList className="icon_color" /> Create Subject 
                     </div>
-                    </a>
+                    </Link>
                     </div>
                     <div className="dashbox">
                     <a href="">
@@ -68,11 +71,11 @@ export default class Dashboard extends Component{
                     </Link>
                     </div>
                     <div className="dashbox">
-                    <a href="">
+                    <Link to="/Income" >
                     <div className="inner">
                     <MdTrendingUp className="icon_color"/> Record Income 
                     </div>
-                    </a>
+                    </Link>
                     </div>
                     <div className="dashbox">
                     <a href="">
@@ -106,9 +109,11 @@ export default class Dashboard extends Component{
              </div>
             <Switch>
                
-               <Route path="/Exmp" exact component={Exmp} />
+               <Route path="/Homework" exact component={Homework} />
+               <Route path="/Createsubject" exact component={Subject} />
                <Route path="/Notice" exact component={Notice} />
                <Route path="/Expense" exact component={Expense} />
+               <Route path="/Income" exact component={Income} />
                
                </Switch>
             </Router>
