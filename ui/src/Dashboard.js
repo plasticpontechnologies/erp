@@ -6,10 +6,13 @@ import Expense from "./Expense";
 import Income from './Income';
 import Homework from './Homework';
 import Subject from './Subject';
+import Admission from './Admission';
 
 import { BsBookHalf,BsCardList,BsClipboardData,BsBuilding,BsFillPersonCheckFill,
         BsFillPeopleFill,BsFillChatDotsFill,BsFillPersonPlusFill } from "react-icons/bs";
 import { MdEventAvailable, MdPayment,MdTrendingUp,MdTrendingDown } from "react-icons/md";
+import Staffattend from "./Staff_Attendance";
+import Studentattend from "./Student_attendance";
 
 
  
@@ -50,11 +53,11 @@ export default class Dashboard extends Component{
                     </a>
                     </div>
                     <div className="dashbox">
-                    <a href="">
+                    <Link to="/Admission">
                     <div className="inner">
                     <BsBuilding className="icon_color"/> New Admission 
                     </div>
-                    </a>
+                    </Link>
                     </div>
                     <div className="dashbox">
                     <Link to="/Notice" >
@@ -78,18 +81,18 @@ export default class Dashboard extends Component{
                     </Link>
                     </div>
                     <div className="dashbox">
-                    <a href="">
+                    <Link to="/Staffattend">
                     <div className="inner">
                     <BsFillPersonCheckFill className="icon_color"/> Staff Attendance 
                     </div>
-                    </a>
+                    </Link>
                     </div>
                     <div className="dashbox">
-                    <a href="">
+                    <Link to="/Studentattend">
                     <div className="inner">
                     <BsFillPeopleFill className="icon_color"/> Student Attendance
                     </div>
-                    </a>
+                    </Link>
                     </div>
                     <div className="dashbox">
                     <a href="">
@@ -114,6 +117,10 @@ export default class Dashboard extends Component{
                <Route path="/Notice" exact component={Notice} />
                <Route path="/Expense" exact component={Expense} />
                <Route path="/Income" exact component={Income} />
+               <Route path="/Admission" exact component={Admission} />
+               <Route path="/Staffattend" exact component={Staffattend} />
+               <Route path="/Studentattend" exact component={Studentattend} />
+
                
                </Switch>
             </Router>

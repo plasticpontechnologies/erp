@@ -16,9 +16,9 @@ function Homework() {
         <i ><BiX /></i></a>
         </div>
         <span className="widget-icon">
-        <i className="fa"><BiEdit /></i>
+        <i className=""><BiEdit /></i>
 					</span>
-          <h2 ng-init="CreateHomeWork='Create Home Work'" className="ng-binding">Create Home Work</h2>
+          <h2>Create Home Work</h2>
           <span className="jarviswidget-loader"><i className="fa fa-refresh fa-spin"></i></span>
       </header>
 <div role="content">
@@ -26,11 +26,11 @@ function Homework() {
   <form action="#" id=""  className="smart-form ng-pristine ng-valid">
     <fieldset>
       <div className="row">
-        <section class="col col-4 form group">
+        <section class="col col-2 form group">
           <label className="label ng-binding" >Class</label>
           <label className="input">
             
-            <select className="select2-container select2" id="bankaccount" name="bankaccount" required>
+            <select className="select2-container select2" id="class" name="class" required>
 							<option value="0">Select...!!</option>
 							<option value="1st">1st Class</option>
               <option value="2nd">2nd Class</option>
@@ -45,10 +45,10 @@ function Homework() {
 						</select>             
           </label>
           </section>
-          <section class="col col-1 form group">
+          <section >
             <label className="label ng-binding">Section</label>
             <label className="input">            
-              <select className="select2-container select2" id="bankaccount" name="bankaccount" required style={{width:"60px"}} >
+              <select className="select2-container select2" id="section" name="section" required style={{width:"60px"}} >
                 <option value="0">Select...!!</option>
                 <option value="a">A</option>
                 <option value="b">B</option>                              
@@ -56,7 +56,7 @@ function Homework() {
             </label>
           </section>
 
-        <section className="col col-4 from-group">
+        <section >
           <label className="label ng-binding" ng-init="Subject='Subject'">Subject</label>
           <label className="input">
           <select className="select2-container select2" id="bankaccount" name="bankaccount" required >

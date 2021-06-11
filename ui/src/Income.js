@@ -41,7 +41,7 @@ export default class Income extends Component{
 							<option value="siva">Siva</option>
 							<option value="bhanu">Bhanu</option>
 						</select>
-						<label for="remarks">Expense Remark(optional*)</label>
+						<label for="remarks">Remark(optional*)</label>
 						<input type="text" id="remark" name="remark"  placeholder="Remarks....!"/>
 						
 						

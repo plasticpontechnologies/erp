@@ -1,26 +1,27 @@
 import React, { Component } from "react";
-import { BiBook, BiStar } from "react-icons/bi"
+import { BiBook, BiStar, BiEdit } from "react-icons/bi"
 
 export default class Notice extends Component {
     render () {
   return (
     <div>
       <div id="ribbon">
+      
               <span className="ribbon-button-alignment">
                 <span id="refresh" className="btn btn-ribbon">
                  <i ><BiBook /></i>
                 </span>
               </span>
               <ol className="breadcrumb">
-                <li>Homework</li>
-                <li>Create Homework</li>
+                <li>Notice</li>
+                <li>Notice Board</li>
               </ol>
         
               <div style={{float: "right"}}>
                 <span className="ribbon-button-alignment">
                   <span className="btn btn-ribbon">
                     <a href="javascript:;" title="Add To Favorite">
-                      <i className="fa"><BiStar /></i>
+                      <i ><BiStar /></i>
                     </a>
                   </span>
                 </span>
@@ -32,6 +33,7 @@ export default class Notice extends Component {
               </div>
             </div>
       <div className="form_radio">
+        
         <form>          
           <div>
             <label for=""><h4>Type Of Notice</h4></label><br/>
