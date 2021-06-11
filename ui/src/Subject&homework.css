@@ -559,9 +559,9 @@ fieldset {
 
 .smart-form .label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 0px;
   line-height: 19px;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 13px;
   color: green;
   text-align: left;
@@ -587,7 +587,7 @@ label {
   display: inline-block;
   max-width: 100%;
   margin-bottom: 5px;
-  font-weight: 900;
+  font-weight: 700;
 }
 .smart-form .input {
   position: relative;
@@ -778,6 +778,7 @@ footer {
 .smart-form .btn {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
+  
 }
 .btn-primary:hover {
   background-color: #1c9114;

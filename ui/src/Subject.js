@@ -204,7 +204,7 @@ import { BiBook, BiStar, BiMinus, BiExpand, BiX, BiTable, BiSearch, BiPencil, Bi
                                               <tr role="row" className="odd">
                                                 <td>
                                                   <span className="responsiveExpander"></span>
-                                                  <a href="#" data-toggle="Edit" data-placement="bottom" title="Edit" data-original-title="Edit" className="btn btn-secondary btn-sm btn-icon icon-left">
+                                                  <a href="#" data-toggle="Edit" data-placement="bottom" title="Edit" data-original-title="Edit" className="btn btn-secondary btn-sm btn-icon icon-left" style={{backgroundColor:'white'}}>
                                                     <i className="fa">
                                                       <BiPencil />
                                                     </i>
