@@ -46,19 +46,20 @@ import { BiBook, BiStar, BiMinus, BiExpand, BiX, BiTable, BiSearch, BiPencil, Bi
                         <header role="heading">
                             <div className="jarviswidget-ctrls" role="menu">
                             <a href="javascript:void(0);" className="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">
-                                <i class="fa fa-minus ">
-                                  {/* <BiMinus /> */}
-                                  </i>
+                                
+                                  <BiMinus />
+
+                                  
                                 </a>
                                 <a href="javascript:void(0);" className="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen">
-                                    <i className="fa fa-expand">
-                                      {/* <BiExpand /> */}
-                                      </i>
+                                   
+                                    <BiExpand />
+                                      
                                     </a>
                                     <a href="javascript:void(0);" className="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete">
-                                        <i className="fa fa-times">
-                                          {/* <BiX /> */}
-                                          </i>
+                                        
+                                          <BiX />
+                                          
                                         </a>
                                         </div>
                           <span className="widget-icon">
@@ -73,51 +74,39 @@ import { BiBook, BiStar, BiMinus, BiExpand, BiX, BiTable, BiSearch, BiPencil, Bi
                           <div className="jarviswidget-editbox"></div>
                           <div className="widget-body no-padding">
                             <form id="addsubject" method="post" action="#" className="smart-form ng-pristine ng-valid">
-                              <fieldset>
+                              <fieldset className="box_shadow">
                                 <section>
                                   <label className="label ng-binding" ng-init="subjectName='SubjectName'" >Subject Name</label>
                                   <label className="input">
                                     <input type="text" className="input-sm" name="subject_name" id="SubjectName" placeholder="Subject Name"></input>
                                   </label>
                                 </section>
-                              </fieldset>
-        
-                              <fieldset>
+                              
                                 <section>
                                   <label className="label ng-binding" ng-init="Abbreviation='Abbreviation'">Abbreviation</label>
                                   <label className="input">
                                     <input type="text" className="input-sm" name="abbreviation" id="Abbreviation" placeholder="Abbreviation"></input>
                                   </label>
                                 </section>
-                              </fieldset>
-        
-                              <fieldset>
+                              
                                         <section>							
-                                            <div class="form-group">
-                                                <label class="label ng-binding" ng-init="Class='Class'">Class</label>
-                                                <div class="select2-container select2-container-multi select2" id="s2id_SelectClasses" style={{width:"100%"}}>
-                              <ul class="select2-choices"> 
-                               <li class="select2-search-field">   
-                                <label for="s2id_autogen1" class="select2-offscreen"></label>  
-                                  <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" id="s2id_autogen1" placeholder="" style={{width: "10px"}} aria-activedescendant="select2-result-label-63"></input>
-                                    </li></ul>
-                                    </div>
-                                    <select style={{width:"100%"}} multiple="" id="SelectClasses" name="class[]" class="select2 select2-offscreen" tabindex="-1">
-                                      <optgroup label="SPARK1">
-                                          <option value="9">SPARK1 A</option>
-                                          </optgroup>
-                                      <optgroup label="GRADE2">
-                                          <option value="10">GRADE2 A</option>
-                                          </optgroup>
-                                      <optgroup label="GRADE3">
-                                          <option value="11">GRADE3 A</option>
-                                          </optgroup>
-                                      <optgroup label="GRADE4">
-                                          <option value="12">GRADE4 A</option>
-                                          </optgroup>
-                                    </select>
+                                            <div class="">
+                                              <label class="label ng-binding" ng-init="Class='Class'">Class</label>
+                                              <select style={{height:"30px"}}>
+                                                <option value="0">Select...!!</option>
+                                                <option value="1st">1st Class</option>
+                                                <option value="2nd">2nd Class</option>
+                                                <option value="3rd">3rd Class</option>
+                                                <option value="4th">4th Class</option>
+                                                <option value="5th">5th Class</option>
+                                                <option value="6th">6th Class</option>
+                                                <option value="7th">7th Class</option>
+                                                <option value="8th">8th Class</option>
+                                                <option value="9th">9th Class</option>
+                                                <option value="10th">10th Class</option>
+                                              </select>
                                             </div>
-                                        </section>
+                                        </section>    
                                     </fieldset>
 
                                     <footer>

@@ -3,7 +3,7 @@ import { BiMinus, BiExpand, BiX, BiEdit } from "react-icons/bi";
 
 function Homework() {
   return (
-<div className="row">
+<div>
   <article className="col-sm-12 col-md-12 sortable-grid ui-sortable">
     <div className="jarviswidget" id="">
       <header>
@@ -24,7 +24,7 @@ function Homework() {
 <div role="content">
 <div class="widget-body no-padding">
   <form action="#" id=""  className="smart-form ng-pristine ng-valid">
-    <fieldset>
+    <fieldset className="box_shadow">
       <div className="row">
         <section class="col col-2 form group">
           <label className="label ng-binding" >Class</label>

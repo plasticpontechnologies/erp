@@ -7,12 +7,16 @@ import Income from './Income';
 import Homework from './Homework';
 import Subject from './Subject';
 import Admission from './Admission';
+import Events from "./Events";
 
 import { BsBookHalf,BsCardList,BsClipboardData,BsBuilding,BsFillPersonCheckFill,
         BsFillPeopleFill,BsFillChatDotsFill,BsFillPersonPlusFill } from "react-icons/bs";
 import { MdEventAvailable, MdPayment,MdTrendingUp,MdTrendingDown } from "react-icons/md";
 import Staffattend from "./Staff_Attendance";
 import Studentattend from "./Student_attendance";
+import Feepayment from "./Feepayment";
+import Staff_reg from "./Staff_reg";
+import Staffattendence from "./Staffattendence";
 
 
  
@@ -39,18 +43,18 @@ export default class Dashboard extends Component{
                     </Link>
                     </div>
                     <div className="dashbox">
-                    <a href="">
+                    <Link to="/Events">
                     <div className="inner">
                     < MdEventAvailable className="icon_color" /> Events & Holiday 
                     </div>
-                    </a>
+                    </Link>
                     </div>
                     <div className="dashbox">
-                    <a href="">
+                    <Link to="/Feepayment">
                     <div className="inner">
                     <MdPayment className="icon_color" /> Fee Payment
                     </div>
-                    </a>
+                    </Link>
                     </div>
                     <div className="dashbox">
                     <Link to="/Admission">
@@ -81,7 +85,7 @@ export default class Dashboard extends Component{
                     </Link>
                     </div>
                     <div className="dashbox">
-                    <Link to="/Staffattend">
+                    <Link to="/Staffattendence">
                     <div className="inner">
                     <BsFillPersonCheckFill className="icon_color"/> Staff Attendance 
                     </div>
@@ -102,11 +106,11 @@ export default class Dashboard extends Component{
                     </a>
                     </div>
                     <div className="dashbox">
-                    <a href="">
+                    <Link to="/Staffregistration">
                     <div className="inner">
                     <BsFillPersonPlusFill className="icon_color"/> Staff Registration
                     </div>
-                    </a>
+                    </Link>
                     </div>
                </div>
              </div>
@@ -114,12 +118,15 @@ export default class Dashboard extends Component{
                
                <Route path="/Homework" exact component={Homework} />
                <Route path="/Createsubject" exact component={Subject} />
+               <Route path="/Events" exact component={Events}/>
                <Route path="/Notice" exact component={Notice} />
                <Route path="/Expense" exact component={Expense} />
                <Route path="/Income" exact component={Income} />
                <Route path="/Admission" exact component={Admission} />
-               <Route path="/Staffattend" exact component={Staffattend} />
+               <Route path="/Staffattendence" exact component={Staffattendence} />
                <Route path="/Studentattend" exact component={Studentattend} />
+               <Route path="/Feepayment" exact component={Feepayment} />
+               <Route path="/Staffregistration" exact component={Staff_reg} />
 
                
                </Switch>

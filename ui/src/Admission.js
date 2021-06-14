@@ -40,20 +40,10 @@ import { BiBook, BiStar, BiMinus, BiExpand, BiX, BiTable, BiSearch, BiPencil, Bi
               </div>
             </div>
         
-            {/* <div id="mySidenav" className="sidenav">
-              <nav style={{paddingBottom: "80px"}}>
-                <ul id="FavoriteMenu"></ul>
-              </nav> */}
-              {/* <span className="minifyme" data-action="minifyMenu">
-                <i className="fa fa-arrow-circle-left hit"></i>
-              </span> */}
-            {/* </div> */}
-            {/* <section ng-init="Loading='Loading'" id="process_img" style={{display: "none"}}>
-              <div className="loading ng-binding">Loading</div>
-              </section> */}
+           
               <div id="content" className="ng-scope" style={{opacity: "1"}}>
                 <section id="widget-grid" className="ng-pristine ng-untouched ng-valid ng-empty" ng-model="section">
-                  <div className="row">
+                  <div >
                     <article className="col-sm-12 col-md-12 col-lg-5 sortable-grid ui-sortable">
                       <div className="jarviswidget" id="wid-id-1" data-widget-colorbutton="false" data-widget="false" data-widget-custombutton="false">
                         <header role="heading">
@@ -81,134 +71,113 @@ import { BiBook, BiStar, BiMinus, BiExpand, BiX, BiTable, BiSearch, BiPencil, Bi
                       <div role="content">
                         <div classname="jarviswidget-editbox"></div>
                         <div className="widget-body no -padding">
-                          <form id="#" className="smart-form ng-pristine ng valid">
-                            <fieldset>
-                              <div className="row">
-                                <section classname="col col-6">
-                                  <div className="col-sm-3">
-                                <label className="label ng-binding" ng-init="ForSession='For Session='For Session'" >For Session</label>
-                              </div>
-                              <div className="col-sm-9">
-                                <label classname="label" >2020-2021</label>
-                              </div>
-                              </section>
-                              <section className="col col-6" style={{float: "left", marginLeft: "303px"}}>
-                                <div className="form-group">
-                                  <label className="label ng-binding" ng-init="AdmissionNumber='Admission Number'">Admission Number</label>
-                                  <label className="input">
-                                    <input type="text" name="AdmissionNumber" id="AdmissionNumber" placeholder="Admission Number"></input>
-                                  </label>
+                          <form id="#" >
+                            <fieldset className="box_shadow">
+                              <div>
+                                <section >
+                                  <div >
+                                    <label>For Session</label>
+                                  </div>
+                                <div >
+                                  <label classname="label" >2020-2021</label>
                                 </div>
                               </section>
-                              </div>
-                              <div className="row">
-                              <section className="col col-6">
-                                <div className="form-group">
-                                  <label className="label ng-binding" ng-init="Class='Class'">Class</label>
-                                  <label className="input">
-                                    <input type="text" name="Select class" id="Select classs" placeholder="Select class..."></input>
-                                  </label>
+                              
+                              
+                              <section >
+                                <div className="">
+                                  <label >Class</label>
+                                  <select style={{height:"40px"}}>
+                                      <option value="0">Select...!!</option>
+                                      <option value="1st">1st Class</option>
+                                      <option value="2nd">2nd Class</option>
+                                      <option value="3rd">3rd Class</option>
+                                      <option value="4th">4th Class</option>
+                                      <option value="5th">5th Class</option>
+                                      <option value="6th">6th Class</option>
+                                      <option value="7th">7th Class</option>
+                                      <option value="8th">8th Class</option>
+                                      <option value="9th">9th Class</option>
+                                      <option value="10th">10th Class</option>
+                                  </select>
                                 </div>
                               </section>
-                              <section className="col col-6">
-                                <div className="form-group">
-                                  <label className="label ng-binding" ng-init="Gender='Gender'">Gender</label>
-                                  <label className="input">
-                                    <input type="text" name="Select Gender" id="Select Gender" placeholder="Select Gender"></input>
-                                  </label>
-                                </div>
+                              <section>
+                                  <label >Gender</label>
+                                  
+                                    <select style={{height:"40px"}}>
+                                      <option value="male">Male</option>
+                                      <option value="female">Female</option>
+                                      <option value="other">Other..</option>
+                                        
+                                    </select>
+                                  
+                                
                               </section>
 
 
-                              {/* <section classname="col col-6">
-                                <label classname="label ng-binding" ng-init="Gender='Gender'">Gender</label>
-                                <br></br>
-                                <label classname="input form-group">
-                                <select name="abcd" id="names">
-    <option value="Select Gender">Select Gender</option>
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-    <option value="Others">Others</option>
-  </select>
-                                </label>
-                              </section> */}
-                                 </div>
-                                 <div className="row">
-                                   <section className="col col-6">
-                                     <label className="label ng-binding" ng-init="DateOfRegistration='DateOfRegistration'">Date Of Registration</label>
-                                     <label className="input">
-                                       <div className="input-group">
-                                       <input type="date"  name="DateOfRegistration" id="DateOfRegistration" classname="form-control datepicker hasDatepicker"></input>
-                                         {/* <input type="date" name="DateOfRegistration" id="DateOfRegistration" value="10-06-2021" placeholder="DateOfRegistration" classname="form-control datepicker hasDatepicker" data-dateformat="10-06-2021"></input> */}
-                                         <span classname="input-group-addon">
-                                           <i classname="fa fa-calender"></i>
-                                         </span>
-                                       </div>
-                                     </label>
+                                </div>
+                                 <div >
+                                   <section >
+                                     <label >Date Of Registration</label>
+                                     
+                                       <input type="date"  name="DateOfRegistration" id="DateOfRegistration"   data-dateformat="10-06-2021"></input>
+                                         
+                                       
                                    </section>
-                                   <section className="col col-6">
-                                     <label className="label ng-binding" ng-init="FeeEffectiveForm='FeeEffectiveForm'">Fee Effective Form</label>
-                                     <label className="input">
-                                       <div className="input-group">
-                                       <input type="date"  name="FeeEffectiveForm" id="FeeEffectiveForm" classname="form-control datepicker hasDatepicker"></input>
-                                         <span classname="input-group-addon">
-                                           <i classname="fa fa-calender"></i>
-                                         </span>
-                                       </div>
-                                     </label>
+                                   <section >
+                                     <label className="" >Fee Effective Form</label>
+                                     
+                                       <input type="date"  name="FeeEffectiveForm" id="FeeEffectiveForm" ></input>
+                                         
+                                       
                                    </section>
                                  </div>
-                            </fieldset>
-                            <fieldset>
-                            <div class="row">
-									<section class="col col-6">							
-										<div class="form-group">
-											<label class="label ng-binding" ng-init="StudentName='Student Name'">Student Name</label>
-											<label class="input">
-												<input type="text" name="StudentName" id="StudentName" placeholder="Student Name"></input>
-											</label>
-										</div>
-									</section>
-									<section class="col col-6">
-										<label class="label ng-binding" ng-init="FatherName='Father Name'">Father Name</label>
-										<label class="input">
-											<input type="text" name="FathersName" id="FathersName" placeholder="Father Name"></input>
-										</label>
-									</section>
-								</div>
-                <div class="row">
-									<section class="col col-6">
-										<label class="label ng-binding" ng-init="MotherName='Mother Name'">Mother Name</label>
-										<label class="input">
-											<input type="text" name="MothersName" id="MothersName" placeholder="Mother Name"></input>
-										</label>
-									</section>
-									<section class="col col-6">
-										<label class="label ng-binding" ng-init="Mobile='Mobile'">Mobile</label>
-										<label class="input">
-											<div class="col-sm-3">
-												<div class="from-group">
-													<input type="text" name="countryCode" id="countryCode" placeholder="country Code" value=""></input>
-												</div>
-											</div>
-											<div class="col-sm-9">
-												<div class="from-group">
-													<input type="text" name="ContactNo" id="ContactNo" placeholder="Mobile"></input>
-												</div>
-											</div>
-										</label>
-									</section>
-								</div>
-                <div class="row">
-									<section class="col col-6">							
-										<div class="form-group">
-											<label class="label ng-binding" ng-init="Email='Email'">Email</label>
-											<label class="input">
-												<input type="email" name="StudentEmail" id="StudentEmail" placeholder="Email"></input>
-											</label>
-										</div>
-									</section>
-								</div>
+                            
+                            
+                              <section >							
+                                <div >
+                                  <label class="" ng-init="StudentName='Student Name'">Student Name</label>
+                                  
+                                    <input type="text" name="StudentName" id="StudentName" placeholder="Student Name"></input>
+                                  
+                                </div>
+                              </section>
+                              <section>
+                                <label class="" ng-init="FatherName='Father Name'">Father Name</label>
+                                
+                                  <input type="text" name="FathersName" id="FathersName" placeholder="Father Name"></input>
+                                
+                              </section>
+								           
+                  
+                    <section >
+                      <label >Mother Name</label>
+                      
+                        <input type="text" name="MothersName" id="MothersName" placeholder="Mother Name"></input>
+                      
+                    </section>
+                    <section >
+                      <label>Mobile</label>
+                      
+                            <input type="text" name="countryCode" id="countryCode" placeholder="country Code" value="+91"></input>
+                          
+                        
+                            <input type="text" name="ContactNo" id="ContactNo" placeholder="Mobile"></input>
+                         
+                      
+                    </section> 
+                  
+                 
+                            <section >							
+                              
+                                <label >Email</label>
+                               
+                                  <input type="email" name="StudentEmail" id="StudentEmail" placeholder="Email"></input>
+                                
+                              
+                            </section>
+								
                             </fieldset>
                           </form>
                         </div>

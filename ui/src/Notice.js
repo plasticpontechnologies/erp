@@ -35,34 +35,34 @@ export default class Notice extends Component {
       <div className="form_radio">
         
         <form>          
-          <div>
-            <label for=""><h4>Type Of Notice</h4></label><br/>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="radio" id="" value="Circular"/>
+          <div><tr>
+            <label for=""><h4>Type Of Notice</h4></label>
+            <div class="">
+              <input class="form-check-input" type="radio" name="notice" id="" value="Circular"/>
               <label class="form-check-label"  for="inlineRadio1">Circular</label>
             </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="Class Diary"/>
+            <div class="">
+              <input class="form-check-input" type="radio" name="notice" id="inlineRadio2" value="Class Diary"/>
               <label class="form-check-label" for="inlineRadio2">Class Diary</label>
             </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="radio" id="inlineRadio3" value="Syllabus" />
+            <div class="">
+              <input class="form-check-input" type="radio" name="notice" id="inlineRadio3" value="Syllabus" />
               <label class="form-check-label" for="inlineRadio3">Syllabus</label>
-            </div>
+            </div></tr>
           </div>
           <br/>
 
           <div>
-            <label for="formGroupExampleInput"><h4>Send Notice To</h4></label><br/>
-            <div class="form-check form-check-inline">
-              <input className="form-check-input"  type="radio" name="radio" id="" value="Every Oner"/>
+            <label for=""><h5>Send Notice To</h5></label>
+            <div class=" ">
+              <input className="form-check-input"  type="radio" name="radio" id="" value="Every One"/>
               <label class="form-check-label"  for="inlineRadio1">Every One</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class=" ">
               <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="Only Staff"/>
               <label class="form-check-label" for="inlineRadio2">Only For Staff</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class=" ">
               <input class="form-check-input" type="radio" name="radio" id="inlineRadio3" value="Only Student" />
               <label class="form-check-label" for="inlineRadio3">Only For Student</label>
             </div>
@@ -72,13 +72,13 @@ export default class Notice extends Component {
 
             
           <div class="form-group">
-            <label for="formGroupExampleInput"><h5>Description</h5></label>
-            <input type="text" class="form-control" required id="" placeholder=""/>
+            <label for=""><h5>Description</h5></label>
+            <input type="text" class="form-control"  required id="" placeholder=""/>
           </div>
           <tr>
             <td>
               <div class="form-group">
-                <label for="exampleFormControlFile1">Upload File(img/pdf)</label>
+                <label for="exampleFormControlFile1">Upload File(img/pdf)</label><br/>
                 <input type="file" class="form-control-file" id="exampleFormControlFile1" label=""/>
               </div>
             </td>

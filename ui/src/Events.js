@@ -2,7 +2,7 @@ import React, { Component} from "react";
 import { BiRefresh, BiStar, BiMinus, BiExpand, BiX, BiTable, BiSearch,  BiEdit } from "react-icons/bi";
 import { BsXSquareFill } from "react-icons/bs";
 
- class Subject extends Component {
+ class Events extends Component {
     constructor(props){
         super(props);
     }
@@ -395,4 +395,4 @@ import { BsXSquareFill } from "react-icons/bs";
         )
     }
 }
-export default Subject;
+export default Events;
