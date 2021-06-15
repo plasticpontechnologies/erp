@@ -172,6 +172,7 @@ import { BiBook, BiStar, BiMinus, BiExpand, BiX, BiTable, BiSearch, BiPencil, Bi
                             <section >							
                               
                                 <label > Email</label>
+                                
                                
                                   <input type="email" name="StudentEmail" id="StudentEmail" placeholder="Email"></input>
                                 
