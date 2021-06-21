@@ -8,13 +8,15 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "exam_student_list")
-public class EvaluationExam {
+@Table(name="verification")
+public class MobileVerifivation {
+	
 	@Id
 	private int slno;
-	private String Exam;
+	private String userRole;
+	private int countryCode;
+	private long mobileNumber;
+	private long otp;
 	
 	
-
-
 }

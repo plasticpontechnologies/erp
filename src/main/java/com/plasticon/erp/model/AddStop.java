@@ -14,7 +14,6 @@ import lombok.Data;
 public class AddStop {
 @Id
 private int stopId;
-private String route;
 private String stoppage;
 private Time sTime;
 private String stopType;

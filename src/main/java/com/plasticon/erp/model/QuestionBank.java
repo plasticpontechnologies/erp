@@ -1,5 +1,6 @@
 package com.plasticon.erp.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -16,6 +17,7 @@ public class QuestionBank {
 	private String Question;
 	private String Marks;
 	private String Hint;
+	@Column (name = "SOLUTION_DESCRIPTION", length=2000)
 	private String Solution_description;
 	private String Status;
 

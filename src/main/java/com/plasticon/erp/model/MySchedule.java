@@ -15,8 +15,5 @@ public class MySchedule {
 	private int msId;
 	private String selectStaff;
 	private Date selectDate;
-	private String selectClass;
-	private String slot;
-	private String subject;
 
 }

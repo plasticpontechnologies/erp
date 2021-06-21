@@ -27,13 +27,6 @@ public class StudentAdmission {
 	private String Classes;
 	private Long MobileNumber;
 	private String Email;
-	private int yearly;
-	private int everyMonth;
-	private int monthwise;
-	private int usman;
-	private int transport;
-	private String remarks;
-	
 	
 	
 }	

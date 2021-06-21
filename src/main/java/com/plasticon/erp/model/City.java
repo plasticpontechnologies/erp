@@ -8,13 +8,13 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "exam_student_list")
-public class EvaluationExam {
+@Table(name="city")
+public class City {
+	
 	@Id
-	private int slno;
-	private String Exam;
+	private int cityId;
+	private int stateId;
+	private String cityName;
 	
-	
-
 
 }

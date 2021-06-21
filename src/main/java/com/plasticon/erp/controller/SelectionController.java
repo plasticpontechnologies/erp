@@ -11,38 +11,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.plasticon.erp.model.SectionDetails;
 import com.plasticon.erp.model.Selection;
-import com.plasticon.erp.model.SelectionDetails;
-import com.plasticon.erp.service.SelectionDetailsService;
 import com.plasticon.erp.service.SelectionService;
 
 @RestController
-@RequestMapping("/select")
-public class SelectionDetailsController {
-
+@RequestMapping("/selection")
+public class SelectionController {
 	
 	@Autowired
-	SelectionDetailsService  selectiondetailsService;
+	SelectionService selectionService;
 	
 	@RequestMapping(value = "/getSelectionDetails", method = RequestMethod.GET)
-	public List<SelectionDetails>  getSelectionDetailsData() {
-		return selectiondetailsService.getSelectionDetails();
+	public List<Selection>  getSelectionData() {
+		return selectionService.getSelectionDetails();
 
 	}
 	
 	  @PostMapping(value = "/saveSelectionDetails", consumes = "application/json")
-		public void saveSelectionDetails(@RequestBody SelectionDetails select) {
-		  selectiondetailsService.saveSelectionDetails(select);
+		public void saveSelectionDetails(@RequestBody Selection sel) {
+		  selectionService.saveSelectionDetails(sel);
 
 		}
 		
 
 		  @DeleteMapping(value ="/removeSectionDetails/{id}")
 		    public void removeSelectionDetails(@PathVariable("id") int Id){
-			  selectiondetailsService.removeSelectionDetails(Id);
+			  selectionService.removeSelectionDetails(Id);
 		    }
 
 }
-
-
 

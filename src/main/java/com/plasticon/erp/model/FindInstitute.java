@@ -8,13 +8,12 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "exam_student_list")
-public class EvaluationExam {
+@Table(name="organizations")
+public class FindInstitute {
+	
 	@Id
 	private int slno;
-	private String Exam;
+	private String instituteNames;
 	
-	
-
 
 }
