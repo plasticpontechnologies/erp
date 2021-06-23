@@ -8,6 +8,7 @@ import Homework from './Homework';
 import Subject from './Subject';
 import Admission from './Admission';
 import Events from "./Events";
+import Message from "./Message.js"
 
 import { BsBookHalf,BsCardList,BsClipboardData,BsBuilding,BsFillPersonCheckFill,
         BsFillPeopleFill,BsFillChatDotsFill,BsFillPersonPlusFill } from "react-icons/bs";
@@ -99,11 +100,11 @@ export default class Dashboard extends Component{
                     </Link>
                     </div>
                     <div className="dashbox">
-                    <a href="">
+                    <Link to="/Sendmessage">
                     <div className="inner">
                     <BsFillChatDotsFill className="icon_color"/> Send Message 
                     </div>
-                    </a>
+                    </Link>
                     </div>
                     <div className="dashbox">
                     <Link to="/Staffregistration">
@@ -127,6 +128,7 @@ export default class Dashboard extends Component{
                <Route path="/Studentattend" exact component={Studentattend} />
                <Route path="/Feepayment" exact component={Feepayment} />
                <Route path="/Staffregistration" exact component={Staff_reg} />
+               <Route path="/Sendmessage" exact component={Message} />
 
                
                </Switch>
