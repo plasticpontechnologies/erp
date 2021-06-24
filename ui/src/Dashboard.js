@@ -1,5 +1,8 @@
 import { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BsBookHalf,BsCardList,BsClipboardData,BsBuilding,BsFillPersonCheckFill,
+    BsFillPeopleFill,BsFillChatDotsFill,BsFillPersonPlusFill } from "react-icons/bs";
+import { MdEventAvailable, MdPayment,MdTrendingUp,MdTrendingDown } from "react-icons/md";
 
 import Notice from "./Notice";
 import Expense from "./Expense";
@@ -8,16 +11,12 @@ import Homework from './Homework';
 import Subject from './Subject';
 import Admission from './Admission';
 import Events from "./Events";
-import Message from "./Message.js"
-
-import { BsBookHalf,BsCardList,BsClipboardData,BsBuilding,BsFillPersonCheckFill,
-        BsFillPeopleFill,BsFillChatDotsFill,BsFillPersonPlusFill } from "react-icons/bs";
-import { MdEventAvailable, MdPayment,MdTrendingUp,MdTrendingDown } from "react-icons/md";
-import Staffattend from "./Staff_Attendance";
+import Message from "./Message.js";
 import Studentattend from "./Student_attendance";
 import Feepayment from "./Feepayment";
 import Staff_reg from "./Staff_reg";
 import Staffattendence from "./Staffattendence";
+import Gallery from "./Gallery";
 
 
  
@@ -113,6 +112,13 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+                    <div className="dashbox">
+                    <Link to="/Gallery">
+                    <div className="inner">
+                    <h1>Demo</h1>
+                    </div>
+                    </Link>
+                    </div>
                </div>
              </div>
             <Switch>
@@ -129,6 +135,7 @@ export default class Dashboard extends Component{
                <Route path="/Feepayment" exact component={Feepayment} />
                <Route path="/Staffregistration" exact component={Staff_reg} />
                <Route path="/Sendmessage" exact component={Message} />
+               <Route path="/Gallery" exact component={Gallery} />
 
                
                </Switch>
