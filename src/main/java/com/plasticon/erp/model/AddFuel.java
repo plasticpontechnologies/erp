@@ -12,6 +12,7 @@ import lombok.Data;
 @Data
 @Table(name="add_fuel")
 public class AddFuel {
+	
 @Id
 private int fuelId;
 private String vehicleName;
