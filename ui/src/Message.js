@@ -46,7 +46,7 @@ class Message extends Component {
             <div className="row">
               <div className="col-sm-12">
                 <div className="bs-example">
-                <ul className="list-inline">
+                <ul className="list-inline" style={{display:"inline-block", textDecoration:"none" }}>
                   <li 
                   // style={{marginLeft:"15px"}}
                   >
