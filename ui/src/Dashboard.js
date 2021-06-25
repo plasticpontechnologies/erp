@@ -121,6 +121,7 @@ export default class Dashboard extends Component{
                     </div>
                </div>
              </div>
+             <hr/>
             <Switch>
                
                <Route path="/Homework" exact component={Homework} />

@@ -13,7 +13,7 @@ function Feepayment() {
         <div id="ribbon">
         <span className="ribbon-button-alignment">
           <span id="refresh" className="btn btn-ribbon">  
-           <i className="fa"><BiBook /></i>
+           <i><BiBook /></i>
           </span>
         </span>
         <ol className="breadcrumb">

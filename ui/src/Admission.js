@@ -2,12 +2,13 @@
 
     import React, { Component} from "react";
     
-import { BiBook, BiStar, BiMinus, BiExpand, BiX, BiTable, BiSearch, BiPencil, BiEdit } from "react-icons/bi";
+import {  BiStar, BiMinus, BiExpand, BiX, BiEdit,BiRefresh } from "react-icons/bi";
 
  class Admission extends Component {
-    constructor(props){
-        super(props);
-    }
+  refresh = () => {
+    
+    window.location.reload(false);
+  };
     
     render(){
         return(
@@ -16,7 +17,7 @@ import { BiBook, BiStar, BiMinus, BiExpand, BiX, BiTable, BiSearch, BiPencil, Bi
             <div id="ribbon">
               <span className="ribbon-button-alignment">
                 <span id="refresh" className="btn btn-ribbon">  
-                 <i className="fa"><BiBook /></i>
+                 <i onClick={this.refresh}><BiRefresh /></i>
                 </span>
               </span>
               <ol className="breadcrumb">
