@@ -33,3 +33,5 @@ public void deleteAddComplaintDetailsById(@PathVariable int addComplaintId) {
 	addComplaintService.deleteAddComplaintDetailsById(addComplaintId);
 }
 }
+
+
