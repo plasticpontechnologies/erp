@@ -1,6 +1,6 @@
 import React, { Component} from "react";
 import './Subject&homework.css';
-import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit } from "react-icons/bi";
+import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "react-icons/bi";
 
 
  class Subject extends Component {
@@ -11,13 +11,30 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit } from "react-icons/
   constructor(props) {
     super(props);
     this.fullscreenModal = React.createRef();
+    this.state ={isActive: true};
+    this.handleBack=this.handleBack.bind(this)
   }
+  handleBack(){
+    this.props.history.goBack()}
   openContentFullscreen = () => {    
       const elem = this.fullscreenModal.current;
       if (elem.requestFullscreen) {
           elem.requestFullscreen();
       }
     }
+    closeChild = () => {
+      this.setState({
+        showChild: false
+      });
+    };
+    handleShow = () => {
+      this.setState({isActive: false});
+    };
+    handleHide = () => {
+      this.setState({isActive: true});
+    };
+    
+
   
     
     render(){
@@ -27,7 +44,7 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit } from "react-icons/
             <div id="ribbon">
               <span className="ribbon-button-alignment">
                 <span id="refresh" className="btn btn-ribbon">
-                <i onClick={this.refresh}><BiRefresh /></i>
+                <i onClick={this.refresh}><BiRefresh className="fa"/></i>
                 </span>
               </span>
               <ol className="breadcrumb">
@@ -52,8 +69,8 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit } from "react-icons/
             </div>
         
             
-              <div id="content" ref={this.fullscreenModal} className="ng-scope" style={{opacity: "1"}}>
-                <section id="widget-grid" className="ng-pristine ng-untouched ng-valid ng-empty" ng-model="section">
+              <div id="content" ref={this.fullscreenModal} className="box_shadow" >
+                <section >
                   <div className="row">
                     <article className="col-sm-12 col-md-10 col-lg-5 sortable-grid ui-sortable">
                       <div className="jarviswidget" id="wid-id-1" data-widget-colorbutton="false" data-widget="false" data-widget-custombutton="false">
@@ -61,7 +78,9 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit } from "react-icons/
                             <div className="jarviswidget-ctrls" role="menu">
                             <a href="javascript:void(0);" className="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">
                                 
-                                  <BiMinus />
+                            {this.state.isActive ?(   <BiMinus className="fa" onClick={this.handleShow}/>):
+                                         (<BiPlus className="fa" onClick={this.handleHide}/>)
+                              }
 
                                   
                                 </a>
@@ -84,11 +103,13 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit } from "react-icons/
                           <h2 ng-init="AddSubject='Add Subject'" className="ng-binding">Add Subject</h2>
                       
                         </header>
-                        <div role="content">
+                        {this.state.isActive && <div role="content">
                           <div className="jarviswidget-editbox"></div>
                           <div className="widget-body no-padding">
                             <form id="addsubject" method="post" action="#" className="smart-form ng-pristine ng-valid">
-                              <fieldset className="box_shadow">
+
+                            
+                              <fieldset >
                                 <section>
                                   <label className="label ng-binding" ng-init="subjectName='SubjectName'" >Subject Name</label>
                                   <label className="input">
@@ -122,14 +143,16 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit } from "react-icons/
                                             </div>
                                         </section>    
                                     </fieldset>
-
+                                    
                                     <footer>
                                         <button type="button" id="submit" data-loading-text="<i class='fa fa-refresh fa-spin'></i> &nbsp; Sending..." class="btn btn-primary ng-binding" ng-init="Save='Save'">Save</button>
-                                        <button type="button" class="btn btn-default ng-binding" onclick="window.history.back();" ng-init="Back='Back'">Back</button>
+                                        <button type="button" class="btn btn-default ng-binding" onClick={this.handleBack} >Back</button>
                                     </footer>
+                                    
                               </form>
                           </div>
                         </div>
+                        }
                       </div>
                     </article>
 

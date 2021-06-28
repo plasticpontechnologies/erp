@@ -17,6 +17,7 @@ import Feepayment from "./Feepayment";
 import Staff_reg from "./Staff_reg";
 import Staffattendence from "./Staffattendence";
 import Gallery from "./Gallery";
+import Gallery_image from "./Galleryimage";
 
 
  
@@ -115,7 +116,7 @@ export default class Dashboard extends Component{
                     <div className="dashbox">
                     <Link to="/Gallery">
                     <div className="inner">
-                    <h1>Demo</h1>
+                    <h1>Gallery</h1>
                     </div>
                     </Link>
                     </div>
@@ -137,6 +138,7 @@ export default class Dashboard extends Component{
                <Route path="/Staffregistration" exact component={Staff_reg} />
                <Route path="/Sendmessage" exact component={Message} />
                <Route path="/Gallery" exact component={Gallery} />
+               <Route path="/Gallery/Gallery_image" exact component={Gallery_image} />
 
                
                </Switch>

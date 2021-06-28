@@ -1,40 +1,44 @@
 import React, { Component } from "react";
-import { BiMinus, BiExpand, BiX, BiEdit,BiStar,BiRefresh,BiPlus  } from "react-icons/bi";
+import { FaUpload } from "react-icons/fa";
+import { BiMinus, BiExpand, BiX, BiEdit,BiStar,BiRefresh,BiPlus } from "react-icons/bi";
 
-class Homework extends Component{
-  refresh = () => {
+
+export default class Gallery_image extends Component{
+   
+    refresh = () => {
     
-    window.location.reload(false);
-  };
-  constructor(props) {
-    super(props);
-    this.fullscreenModal = React.createRef();
-    this.state ={isActive: true};
-    this.handleBack=this.handleBack.bind(this)
-  }
-  handleBack = ()=> {
-    this.props.history.goBack()}
-  openContentFullscreen = () => {    
-      const elem = this.fullscreenModal.current;
-      if (elem.requestFullscreen) {
-          elem.requestFullscreen();
-      }
-    }
-    closeChild = () => {
-      this.setState({
-        showChild: false
-      });
-    };
-    handleShow = () => {
-      this.setState({isActive: false});
-    };
-    handleHide = () => {
-      this.setState({isActive: true});
-    };
+        window.location.reload(false);
+      };
+      constructor(props) {
+        super(props);
+        this.fullscreenModal = React.createRef();
+        this.state ={isActive: true};
+        this.handleBack=this.handleBack.bind(this)
 
-  render(){
-  return (
-    <div>
+      }
+      openContentFullscreen = () => {    
+          const elem = this.fullscreenModal.current;
+          if (elem.requestFullscreen) {
+              elem.requestFullscreen();
+          }
+        }
+        closeChild = () => {
+          this.setState({
+            showChild: false
+          });
+        };
+        handleBack(){
+            this.props.history.goBack()}
+        handleShow = () => {
+          this.setState({isActive: false});
+        };
+        handleHide = () => {
+          this.setState({isActive: true});
+        };
+
+render(){
+    return(
+        <div>
     
           <div id="ribbon">
               <span className="ribbon-button-alignment">
@@ -43,8 +47,8 @@ class Homework extends Component{
                 </span>
               </span>
               <ol className="breadcrumb">
-                <li>Homework</li>
-                <li>Create Homework</li>
+                <li>Gallery</li>
+                <li>Galleryimage</li>
               </ol>
         
               <div style={{float: "right"}}>
@@ -97,7 +101,7 @@ class Homework extends Component{
                               <BiEdit/>
                             </i>
                           </span>
-                          <h2 className="ng-binding">Create Homework</h2>
+                          <h2 className="ng-binding">Add Image</h2>
                       
                         </header>
                         {this.state.isActive && <div role="content">
@@ -105,48 +109,15 @@ class Homework extends Component{
                           <form action="#" id=""  className="smart-form ng-pristine ng-valid">
                             <fieldset >
                               <div className="row">
-                                <section class="col col-2 form group">
-                                  <label className="label ng-binding" >Class</label>
-                                  <label className="input">
-                                    
-                                    <select className="select2-container select2" id="class" name="class" required>
-                                      <option value="0">Select...!!</option>
-                                      <option value="1st">1st Class</option>
-                                      <option value="2nd">2nd Class</option>
-                                      <option value="3rd">3rd Class</option>
-                                      <option value="4th">4th Class</option>
-                                      <option value="5th">5th Class</option>
-                                      <option value="6th">6th Class</option>
-                                      <option value="7th">7th Class</option>
-                                      <option value="8th">8th Class</option>
-                                      <option value="9th">9th Class</option>
-                                      <option value="10th">10th Class</option>							
-                                    </select>             
-                                  </label>
-                                </section>
-                                  
-
-                                <section >
-                                  <label className="label ng-binding" ng-init="Subject='Subject'">Subject</label>
-                                  <label className="input">
-                                    <select className="select2-container select2" id="bankaccount" name="bankaccount" required >
-                                      <option value="o">Subject.....</option>
-                                      <option value="telugu">Telugu</option>
-                                      <option value="hindi">Hindi</option>
-                                      <option value="english">English</option>
-                                      <option value="maths">Maths</option>
-                                      <option value="science">Science</option>
-                                      <option value="social">Social</option>
-                                      
-                                    </select>
-                                  </label>
-                                </section>
-
+                              <label class="custom-file-upload">
+                                    <input type="file"/>
+                                <FaUpload/>Upload Image
+                                </label>
                               </div>
 
                             </fieldset>
                             <footer>
-                                <button type="button" id="submit" data-loading-text="<i class='fa fa-refresh fa-spin'></i> &nbsp; Sending..." class="btn btn-primary ng-binding" ng-init="Save='Save'">Save</button>
+                                <button type="button" id="submit" class="btn btn-primary ng-binding" >Save</button>
                                 <button type="button" class="btn btn-default ng-binding" onClick={this.handleBack} >Back</button>
                             </footer>
                           </form>
@@ -166,7 +137,5 @@ class Homework extends Component{
 
 
       )
-    }
-  }
-
-export default Homework;
+}
+}
