@@ -1,7 +1,7 @@
 import React, { Component} from "react";
 import './Subject&homework.css';
-import { BiRefresh, BiStar, BiMinus, BiExpand, BiX, BiTable, BiSearch, BiPencil, BiEdit } from "react-icons/bi";
-import { Window } from '@progress/kendo-react-dialogs';
+import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit } from "react-icons/bi";
+
 
  class Subject extends Component {
   refresh = () => {
