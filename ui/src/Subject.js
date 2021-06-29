@@ -11,11 +11,12 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
   constructor(props) {
     super(props);
     this.fullscreenModal = React.createRef();
-    this.state ={isActive: true};
+    this.state ={isActive: true,close: true};
     this.handleBack=this.handleBack.bind(this)
   }
   handleBack(){
     this.props.history.goBack()}
+    
   openContentFullscreen = () => {    
       const elem = this.fullscreenModal.current;
       if (elem.requestFullscreen) {
@@ -32,6 +33,12 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
     };
     handleHide = () => {
       this.setState({isActive: true});
+    };
+    haandleShow = () => {
+      this.setState({close: false});
+    };
+    haandleHide = () => {
+      this.setState({close: false});
     };
     
 
@@ -69,7 +76,7 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
             </div>
         
             
-              <div id="content" ref={this.fullscreenModal} className="box_shadow" >
+            {this.state.close &&   <div id="content" ref={this.fullscreenModal} className="box_shadow" >
                 <section >
                   <div className="row">
                     <article className="col-sm-12 col-md-10 col-lg-5 sortable-grid ui-sortable">
@@ -91,7 +98,10 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
                                     </a>
                                     <a href="javascript:void(0);" className="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete">
                                         
-                                          <BiX />
+                                    {this.state.close ?(<i className="fa" ><BiX onClick={this.haandleHide}/></i>
+                                      ):(
+                                        <BiPlus className="fa" onClick={this.haandleHide}/>
+                                        )}
                                           
                                         </a>
                                         </div>
@@ -165,7 +175,7 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
                 </section>
               </div>
             
- </div>
+                      }</div>
         
         )
     }

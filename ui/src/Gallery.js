@@ -2,7 +2,7 @@ import { Component } from "react";
 import Dropdown from 'react-bootstrap/Dropdown';
 import { ImUpload, } from "react-icons/im";
 import { AiFillCaretDown} from "react-icons/ai";
-import { BrowserRouter as Link} from "react-router-dom";
+import { BrowserRouter as Router,Link} from "react-router-dom";
 
 
 export default class Gallery extends Component{
