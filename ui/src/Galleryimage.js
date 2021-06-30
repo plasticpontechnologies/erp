@@ -12,8 +12,9 @@ export default class Gallery_image extends Component{
       constructor(props) {
         super(props);
         this.fullscreenModal = React.createRef();
-        this.state ={isActive: true};
-        this.handleBack=this.handleBack.bind(this)
+        this.state ={isActive: true,file: null};
+        this.handleBack=this.handleBack.bind(this);
+        this.handleChange = this.handleChange.bind(this)
 
       }
       openContentFullscreen = () => {    
@@ -35,6 +36,11 @@ export default class Gallery_image extends Component{
         handleHide = () => {
           this.setState({isActive: true});
         };
+        handleChange(event) {
+          this.setState({
+            file: URL.createObjectURL(event.target.files[0])
+          })
+        }
 
 render(){
     return(
@@ -68,8 +74,8 @@ render(){
             </div>
         
             
-          <div className="box_shadow">    
-          <div id="content" ref={this.fullscreenModal}  style={{opacity: "1"}}>
+              
+          <div id="content" ref={this.fullscreenModal}  style={{opacity: "1"}} className="box_shadow">
               <section id="widget-grid" className="ng-pristine ng-untouched ng-valid ng-empty" ng-model="section">
                 <div className="row">
                   <article className="col-sm-12 col-md-10 col-lg-5 sortable-grid ui-sortable">
@@ -110,9 +116,10 @@ render(){
                             <fieldset >
                               <div className="row">
                               <label class="custom-file-upload">
-                                    <input type="file"/>
+                                    <input type="file" onChange={this.handleChange}/>
                                 <FaUpload/>Upload Image
                                 </label>
+                                <img src={this.state.file}/>
                               </div>
 
                             </fieldset>
@@ -131,7 +138,7 @@ render(){
               </section>
               </div>
         </div>
-        </div>
+        
 
 
 
