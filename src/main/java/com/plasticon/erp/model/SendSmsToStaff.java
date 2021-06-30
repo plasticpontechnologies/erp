@@ -15,7 +15,7 @@ public class SendSmsToStaff {
 	private int staffId;
 	private String selectStaff;
 	private String sendMessageUsing;
-	private int number;
+	private int selectNumber;
 	private String language;
 	private String messageContent;
 	

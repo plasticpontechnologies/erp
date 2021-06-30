@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="staffmail_details")
+@Table(name="staff_mail_details")
 public class StaffLoginDetails {
 
 	@Id
@@ -16,7 +16,7 @@ public class StaffLoginDetails {
 	private String selectStaff;
 	private String sendMessageUsing;
 	private String shareLoginLink;
-	private int number;
+	private int selectNumber;
 	private String language;
 	private String fixedContent;
 	private String messageContent;
