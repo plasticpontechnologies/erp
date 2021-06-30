@@ -12,7 +12,7 @@ export default class Gallery_image extends Component{
       constructor(props) {
         super(props);
         this.fullscreenModal = React.createRef();
-        this.state ={isActive: true,file: null};
+        this.state ={isActive: true, close: true, file: null};
         this.handleBack=this.handleBack.bind(this);
         this.handleChange = this.handleChange.bind(this)
 
@@ -35,6 +35,12 @@ export default class Gallery_image extends Component{
         };
         handleHide = () => {
           this.setState({isActive: true});
+        };
+        haandleShow = () => {
+          this.setState({close: false});
+        };
+        haandleHide = () => {
+          this.setState({close: false});
         };
         handleChange(event) {
           this.setState({
@@ -75,7 +81,7 @@ render(){
         
             
               
-          <div id="content" ref={this.fullscreenModal}  style={{opacity: "1"}} className="box_shadow">
+            {this.state.close &&   <div id="content" ref={this.fullscreenModal}  style={{opacity: "1"}} className="box_shadow">
               <section id="widget-grid" className="ng-pristine ng-untouched ng-valid ng-empty" ng-model="section">
                 <div className="row">
                   <article className="col-sm-12 col-md-10 col-lg-5 sortable-grid ui-sortable">
@@ -98,7 +104,10 @@ render(){
                                     </a>
                                     <a href="javascript:void(0);" className="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete">
                                         
-                                          <BiX />
+                                    {this.state.close ?(<i className="fa" ><BiX onClick={this.haandleHide}/></i>
+                                      ):(
+                                        <BiPlus className="fa" onClick={this.haandleHide}/>
+                                        )}
                                           
                                         </a>
                                         </div>
@@ -137,7 +146,7 @@ render(){
                 </div>
               </section>
               </div>
-        </div>
+            } </div>
         
 
 

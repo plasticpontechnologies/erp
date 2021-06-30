@@ -12,7 +12,7 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
     super(props);
     
     this.fullscreenModal = React.createRef();
-    this.state ={isActive: true,close: true,values: []};
+    this.state ={isActive: true, close: true ,values: []};
     this.handleBack=this.handleBack.bind(this);
     
   }
