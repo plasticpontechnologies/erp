@@ -124,11 +124,14 @@ render(){
                           <form action="#" id=""  className="smart-form ng-pristine ng-valid">
                             <fieldset >
                               <div className="row">
+                              <img src={this.state.file} className="gi_image" /><br/>
                               <label class="custom-file-upload">
-                                    <input type="file" onChange={this.handleChange}/>
+                                    
+                                    <input type="file" onChange={this.handleChange} accept=".png, .jpg, .jpeg"/>
                                 <FaUpload/>Upload Image
-                                </label>
-                                <img src={this.state.file}/>
+                                </label>Format (".png / .jpeg / .jpg")<br/>
+                                <label style={{marginLeft:"20px"}}>The File Should Be Less Than 1Mb</label>
+                               
                               </div>
 
                             </fieldset>
