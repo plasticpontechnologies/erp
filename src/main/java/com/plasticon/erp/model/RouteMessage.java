@@ -13,7 +13,7 @@ public class RouteMessage {
 
 	@Id
 	private int rmId;
-	private int number;
+	private int selectNumber;
 	private String sendMessageUsing;
 	private String language;
 	private String messageContent;

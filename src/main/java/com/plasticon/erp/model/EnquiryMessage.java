@@ -16,7 +16,7 @@ public class EnquiryMessage {
 	
 	@Id
 	private int enqId;
-	private int number;
+	private int selectNumber;
 	private String language;
 	private String messageContent;
 	
