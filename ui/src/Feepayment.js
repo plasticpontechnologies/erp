@@ -1,8 +1,38 @@
 import React, { Component }from "react";
 
 import { BiBook, BiStar,BiMinus,BiExpand,BiEdit,BiX } from "react-icons/bi";
+var values;
+class Feepayment extends Component {
+  refresh = () => {
+    
+    window.location.reload(false);
+  };
+  constructor(props) {
+    super(props);
+      this.fullscreenModal = React.createRef();
+    this.state ={isActive: true,close: true,valuess: []};
+    
+  }
+  
+  componentDidMount(){
+    this.fetchOptions()
+}
+  
 
-function Feepayment() {
+fetchOptions(){
+  fetch('http://83.136.219.101:8080/erp/canteen/getMenuDetails')
+      .then((res) => {
+          return res.json();
+      }).then((json) => {
+        this.setState({
+          valuess: json,
+        },
+          console.log()
+      );
+})
+}
+  
+render(){
   return (
     // <header role="heading"><div class="jarviswidget-ctrls" role="menu">   <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen"><i class="fa fa-expand "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete"><i class="fa fa-times"></i></a></div>
 		// 				<span class="widget-icon"> <i class="fa fa-edit"></i>
@@ -90,12 +120,11 @@ function Feepayment() {
  
  <select name="Select" id="Select"
  style={{marginBottom:"15px"}}>
-     <option value="Select">Select</option>
-     <option value="ABCD">ABCD</option>
-     <option value="ABCD">ABCD</option>
-     <option value="ABCD">ABCD</option>
-     <option value="ABCD">ABCD</option>
-     <option value="ABCD">ABCD</option>
+     {
+                                        this.state.valuess.map((obj) => {
+                                            return <option key={obj.menuId}>{obj.dishes} {obj.menuName}</option>
+                                        })
+                                      }
      </select>
      
      <br></br>
@@ -137,6 +166,7 @@ function Feepayment() {
 
     
   );
+}
 }
 
 export default Feepayment;

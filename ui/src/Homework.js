@@ -10,7 +10,7 @@ class Homework extends Component{
   constructor(props) {
     super(props);
     this.fullscreenModal = React.createRef();
-    this.state ={isActive: true};
+    this.state ={isActive: true,close: true};
     this.state = {
       options: []
   };
@@ -38,12 +38,13 @@ class Homework extends Component{
     handleHide = () => {
       this.setState({isActive: true});
     };
+    
     componentDidMount(){
       this.fetchOptions()
   }
 
   fetchOptions(){
-      fetch('http://localhost:8082/cla/getClassDetails')
+      fetch('http://83.136.219.101:8080/erp/cla/getClassDetails')
       .then(function(res) {
         return res.json();
     }).then((json)=> {
@@ -94,7 +95,7 @@ class Homework extends Component{
                       
                     <header role="heading">
                             <div className="jarviswidget-ctrls" role="menu">
-                            <a href="javascript:void(0);" className="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">
+                            <a  className="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">
                                 
                             {this.state.isActive ?(   <BiMinus className="fa" onClick={this.handleShow}/>):
                                          (<BiPlus className="fa" onClick={this.handleHide}/>)
@@ -102,12 +103,12 @@ class Homework extends Component{
 
                                   
                                 </a>
-                                <a href="javascript:void(0);" className="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen">
+                                <a className="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen">
                                    
                                 <i onClick={this.openContentFullscreen}><BiExpand className="fa"/></i>
                                       
                                     </a>
-                                    <a href="javascript:void(0);" className="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete">
+                                    <a className="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete">
                                         
                                           <BiX />
                                           
@@ -131,11 +132,11 @@ class Homework extends Component{
                                   <label className="input">
                                     
                                     <select className="select2-container select2" id="class" name="class" required>
-                                    {
-                 this.state.values.map((obj) => {
-                     return <option value={obj.id}>{obj.className}</option>
-                 })
-              }
+                                      {
+                                        this.state.values.map((obj) => {
+                                            return <option value={obj.id}>{obj.menuName}</option>
+                                        })
+                                      }
                                     </select>             
                                   </label>
                                 </section>
@@ -145,13 +146,11 @@ class Homework extends Component{
                                   <label className="label ng-binding" ng-init="Subject='Subject'">Subject</label>
                                   <label className="input">
                                     <select className="select2-container select2" id="bankaccount" name="bankaccount" required >
-                                      <option value="o">Subject.....</option>
-                                      <option value="telugu">Telugu</option>
-                                      <option value="hindi">Hindi</option>
-                                      <option value="english">English</option>
-                                      <option value="maths">Maths</option>
-                                      <option value="science">Science</option>
-                                      <option value="social">Social</option>
+                                    {
+                                        this.state.values.map((obj) => {
+                                            return <option value={obj.id}>{obj.className}</option>
+                                        })
+                                      }
                                       
                                     </select>
                                   </label>

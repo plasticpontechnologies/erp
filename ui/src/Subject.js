@@ -10,12 +10,14 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
   };
   constructor(props) {
     super(props);
+    
     this.fullscreenModal = React.createRef();
-    this.state ={isActive: true,close: true};
-    this.handleBack=this.handleBack.bind(this)
+    this.state ={isActive: true,close: true,values: []};
+    
   }
   handleBack(){
-    this.props.history.goBack()}
+    this.props.history.goBack()
+  }
     
   openContentFullscreen = () => {    
       const elem = this.fullscreenModal.current;
@@ -40,6 +42,24 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
     haandleHide = () => {
       this.setState({close: false});
     };
+    componentDidMount(){
+      this.fetchOptions()
+  }
+    
+  
+  fetchOptions(){
+    fetch('http://83.136.219.101:8080/erp/canteen/getMenuDetails')
+        .then((res) => {
+            return res.json();
+        }).then((json) => {
+          this.setState({
+            values: json,
+          },
+            console.log()
+        );
+  })
+  }
+    
     
 
   
@@ -138,17 +158,11 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
                                             <div class="">
                                               <label class="label ng-binding" ng-init="Class='Class'">Class</label>
                                               <select style={{height:"30px"}}>
-                                                <option value="0">Select...!!</option>
-                                                <option value="1st">1st Class</option>
-                                                <option value="2nd">2nd Class</option>
-                                                <option value="3rd">3rd Class</option>
-                                                <option value="4th">4th Class</option>
-                                                <option value="5th">5th Class</option>
-                                                <option value="6th">6th Class</option>
-                                                <option value="7th">7th Class</option>
-                                                <option value="8th">8th Class</option>
-                                                <option value="9th">9th Class</option>
-                                                <option value="10th">10th Class</option>
+                                              {
+                                        this.state.values.map((obj) => {
+                                            return <option key={obj.menuId}>{obj.dishes} {obj.menuName}</option>
+                                        })
+                                      }
                                               </select>
                                             </div>
                                         </section>    
