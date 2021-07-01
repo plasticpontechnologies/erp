@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import ShowAll from './ShowAll';
+
+   import { Link } from "react-router-dom";
 class Demo extends Component {
 	constructor(props) {
 		super(props)
@@ -35,7 +37,8 @@ class Demo extends Component {
                 this.setState({
                     dishId :'',dishName:'',dishPrice:'',
                 })
-                // this.props.history.push("/");
+                this.props.history.push("/ShowAll");
+				
             })
             .catch(err=>{
                 console.log(err)
@@ -79,6 +82,7 @@ class Demo extends Component {
 					</div>
 					<button type="submit">Submit</button>
 				</form>
+				<Link to="/ShowAll" className="FormField__Link"></Link>
 				<ShowAll 
                   recordGenerationTime={this.state.recordGenerationTime} />
 			</div>

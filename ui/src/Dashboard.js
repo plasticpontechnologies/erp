@@ -19,6 +19,8 @@ import Staffattendence from "./Staffattendence";
 import Gallery from "./Gallery";
 import Gallery_image from "./Galleryimage";
 import Demo from "./Demo";
+import ShowAll from './ShowAll';
+
 
 
  
@@ -128,6 +130,13 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+                    <div className="dashbox">
+                    <Link to="/ShowAll">
+                    <div className="inner">
+                    <h1>Demo0</h1>
+                    </div>
+                    </Link>
+                    </div>
                </div>
              </div>
              <hr/>
@@ -148,6 +157,7 @@ export default class Dashboard extends Component{
                <Route path="/Gallery" exact component={Gallery} />
                <Route path="/Gallery/Gallery_image" exact component={Gallery_image} />
                <Route path="/Demo" exact component={Demo} />
+               <Route path="/ShowAll" exact component={ShowAll} />
 
                
                </Switch>

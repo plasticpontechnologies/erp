@@ -26,6 +26,7 @@ class ShowAll extends React.Component{
                   this.setState({
                       contacts : res.data.data
                   })
+                  this.props.history.push('/ShowAll');
               })
               .catch(err => {
   
@@ -33,6 +34,7 @@ class ShowAll extends React.Component{
           }
           
     render(){
+        const props = this.props;
         if(this.state.contacts){
             this.state.lists = this.state.contacts.map(contact => (
                 <tr key={contact.dishId}>
