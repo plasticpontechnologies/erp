@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BiMinus, BiExpand, BiX, BiEdit,BiStar,BiRefresh,BiPlus  } from "react-icons/bi";
-var values;
+
 
 class Homework extends Component{
   refresh = () => {
@@ -41,6 +41,7 @@ class Homework extends Component{
     
     componentDidMount(){
       this.fetchOptions()
+      
   }
 
   fetchOptions(){

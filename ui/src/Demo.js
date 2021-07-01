@@ -1,94 +1,102 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import ShowAll from './ShowAll';
-
-   import { Link } from "react-router-dom";
+import React, { Component } from "react";
+import axios from "axios";
 class Demo extends Component {
-	constructor(props) {
-		super(props)
+  constructor(props) {
+    super(props);
+    this.state = {
+      dishName: "",
+      dishPrice: "",
+      menu: [],
+    };
+  }
+  componentDidMount() {
+    this.fetchmenu();
+  }
 
-		this.state = {
-			
-			dishId: '',
-			dishName: '',
-			dishPrice: '',
-			output:'',
-            recordGenerationTime: '',
-			
-     
-		}
-	}
+  changeHandler = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  submitHandler = (e) => {
+    e.preventDefault();
+    console.log(this.state);
 
-	changeHandler = e => {
-		this.setState({ [e.target.name]: e.target.value })
-	}
+    axios
+      .post(
+        "http://83.136.219.101:8080/erp/canteen/saveDishDetails",
+        this.state
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  fetchmenu() {
+    fetch("http://83.136.219.101:8080/erp/canteen/getDishDetails")
+      .then(function (res) {
+        return res.json();
+      })
+      .then((json) => {
+        this.setState({
+          menu: json,
+        });
+      });
+  }
 
-	submitHandler = e => {
-		e.preventDefault();
-		if(this.state.dishId !== '' && this.state.dishName !== '' && this.state.dishPrice !== ''){
-		console.log(this.state)
-		axios
-			.post('http://83.136.219.101:8080/erp/canteen/saveDishDetails', this.state)
-			.then(res=>{
-                this.setState({
-                    output:res.data.success,
-                    recordGenerationTime: new Date().getTime()
-                })
-                this.setState({
-                    dishId :'',dishName:'',dishPrice:'',
-                })
-                this.props.history.push("/ShowAll");
-				
-            })
-            .catch(err=>{
-                console.log(err)
-            })
-        }else{
-            //const errors = <span style="color:red">All fields are required</span>
-            alert('All fields are required')
-        }
-    }
+  render() {
+    const { dishName, dishPrice } = this.state;
+    return (
+      <div>
+        <form onSubmit={this.submitHandler}>
+         
+          <div>
+            <label>Dish Name</label>
+            <input
+              type="text"
+              name="dishName"
+			  required
+              value={dishName}
+              onChange={this.changeHandler}
+            />
+          </div>
+          <div>
+            <label>Dish Price</label>
+            <input
+              type="text"
+              name="dishPrice"
+			  required
+              value={dishPrice}
+              onChange={this.changeHandler}
+            />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+        <br />
+        <hr />
 
-
-	render() {
-		
-		const {output} = this.state;
-		return (
-			<div>
-				<form onSubmit={this.submitHandler}>
-					<div>
-						<input
-							type="text"
-							name="dishId"
-							value={this.state.dishId}
-							onChange={(event)=>this.changeHandler(event)}
-						/>
-					</div>
-					<div>
-						<input
-							type="text"
-							name="dishName"
-							value={this.state.dishName}
-							onChange={(event)=>this.changeHandler(event)}
-						/>
-					</div>
-					<div>
-						<input
-							type="text"
-							name="dishPrice"
-							value={this.state.dishPrice}
-							onChange={(event)=>this.changeHandler(event)}
-						/>
-					</div>
-					<button type="submit">Submit</button>
-				</form>
-				<Link to="/ShowAll" className="FormField__Link"></Link>
-				<ShowAll 
-                  recordGenerationTime={this.state.recordGenerationTime} />
-			</div>
-			
-		)
-	}
+        <div>
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>dishId</th>
+                <th>dishName</th>
+                <th>dishPrice</th>
+              </tr>
+            </thead>
+            {this.state.menu.map((obj) => {
+              return (
+                <tr>
+                  <th>{obj.dishId}</th>
+                  <th>{obj.dishName}</th>
+                  <th>{obj.dishPrice}</th>
+                </tr>
+              );
+            })}
+          </table>
+        </div>
+      </div>
+    );
+  }
 }
-
-export default Demo
+export default Demo;
