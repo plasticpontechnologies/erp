@@ -17,8 +17,10 @@ class Demo extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   submitHandler = (e) => {
-    e.preventDefault();
+	
+    
     console.log(this.state);
+	alert("item Added succesfully")
 
     axios
       .post(
@@ -56,6 +58,7 @@ class Demo extends Component {
               type="text"
               name="dishName"
 			  required
+			  placeholder="Dish Name"
               value={dishName}
               onChange={this.changeHandler}
             />
@@ -66,6 +69,7 @@ class Demo extends Component {
               type="text"
               name="dishPrice"
 			  required
+			  placeholder="Dish Price"
               value={dishPrice}
               onChange={this.changeHandler}
             />
