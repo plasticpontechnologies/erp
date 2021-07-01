@@ -1,4 +1,5 @@
 import React, { Component} from "react";
+import axios from 'axios';
 import './Subject&homework.css';
 import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "react-icons/bi";
 
@@ -12,8 +13,9 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
     super(props);
     
     this.fullscreenModal = React.createRef();
-    this.state ={isActive: true, close: true ,values: []};
+    this.state ={isActive: true, close: true ,values: [],};
     this.handleBack=this.handleBack.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     
   }
   handleBack(){
@@ -49,7 +51,7 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
     
   
   fetchOptions(){
-    fetch('http://83.136.219.101:8080/erp/canteen/getMenuDetails')
+    fetch('http://83.136.219.101:8080/erp/cla/getClassDetails')
         .then((res) => {
             return res.json();
         }).then((json) => {
@@ -59,7 +61,27 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
             console.log()
         );
   })
+}
+  handleSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const data = new FormData(form);
+
+    for (let name of data.keys()) {
+      const input = form.elements[name];
+     
+
+     
+    }
+    
+    fetch('http://83.136.219.101:8080/erp/sub/saveSubjectDetails', {
+      method: 'POST',
+      body: data,
+    });
+    
+    
   }
+
     
     
 
@@ -137,21 +159,21 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
                         {this.state.isActive && <div role="content">
                           <div className="jarviswidget-editbox"></div>
                           <div className="widget-body no-padding">
-                            <form id="addsubject" method="post" action="#" className="smart-form ng-pristine ng-valid">
+                            <form id="addsubject" method="post" action="#" className="smart-form ng-pristine ng-valid" onSubmit={this.handleSubmit}>
 
                             
                               <fieldset >
                                 <section>
                                   <label className="label ng-binding" ng-init="subjectName='SubjectName'" >Subject Name</label>
                                   <label className="input">
-                                    <input type="text" className="input-sm" name="subject_name" id="SubjectName" placeholder="Subject Name"></input>
+                                    <input type="text" className="input-sm" name="subject_name" data-parse="uppercase" id="SubjectName" placeholder="Subject Name"></input>
                                   </label>
                                 </section>
                               
                                 <section>
                                   <label className="label ng-binding" ng-init="Abbreviation='Abbreviation'">Abbreviation</label>
                                   <label className="input">
-                                    <input type="text" className="input-sm" name="abbreviation" id="Abbreviation" placeholder="Abbreviation"></input>
+                                    <input type="text" className="input-sm" name="abbreviation"  data-parse="date" id="Abbreviation" placeholder="Abbreviation"></input>
                                   </label>
                                 </section>
                               
@@ -161,7 +183,7 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
                                               <select style={{height:"30px"}}>
                                               {
                                         this.state.values.map((obj) => {
-                                            return <option key={obj.menuId}>{obj.dishes} {obj.menuName}</option>
+                                            return <option key={obj.className}> {obj.className}</option>
                                         })
                                       }
                                               </select>
@@ -170,7 +192,7 @@ import { BiRefresh, BiStar, BiMinus, BiExpand, BiX,  BiEdit, BiPlus } from "reac
                                     </fieldset>
                                     
                                     <footer>
-                                        <button type="button" id="submit" data-loading-text="<i class='fa fa-refresh fa-spin'></i> &nbsp; Sending..." class="btn btn-primary ng-binding" ng-init="Save='Save'">Save</button>
+                                        <button type="button" id="submit"   class="btn btn-primary ng-binding" ng-init="Save='Save'">Save</button>
                                         <button type="button" class="btn btn-default ng-binding" onClick={this.handleBack} >Back</button>
                                     </footer>
                                     

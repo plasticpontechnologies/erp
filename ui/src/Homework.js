@@ -132,9 +132,9 @@ class Homework extends Component{
                                   <label className="input">
                                     
                                     <select className="select2-container select2" id="class" name="class" required>
-                                      {
+                                    {
                                         this.state.values.map((obj) => {
-                                            return <option value={obj.id}>{obj.menuName}</option>
+                                            return <option value={obj.id}>{obj.className}</option>
                                         })
                                       }
                                     </select>             
@@ -146,11 +146,7 @@ class Homework extends Component{
                                   <label className="label ng-binding" ng-init="Subject='Subject'">Subject</label>
                                   <label className="input">
                                     <select className="select2-container select2" id="bankaccount" name="bankaccount" required >
-                                    {
-                                        this.state.values.map((obj) => {
-                                            return <option value={obj.id}>{obj.className}</option>
-                                        })
-                                      }
+                                   
                                       
                                     </select>
                                   </label>
