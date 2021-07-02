@@ -20,6 +20,8 @@ class Demo extends Component {
 	
     
     console.log(this.state);
+    e.preventDefault()
+    console.log(this.state)
 	alert("item Added succesfully")
 
     axios
