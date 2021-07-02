@@ -22,7 +22,7 @@ class Demo extends Component {
     console.log(this.state);
     e.preventDefault()
     console.log(this.state)
-	alert("item Added succesfully")
+	alert("item Added succesfully" +this.state.dishName)
 
     axios
       .post(
@@ -76,7 +76,7 @@ class Demo extends Component {
               onChange={this.changeHandler}
             />
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={this.fetchmenu()} >Submit</button>
         </form>
         <br />
         <hr />
