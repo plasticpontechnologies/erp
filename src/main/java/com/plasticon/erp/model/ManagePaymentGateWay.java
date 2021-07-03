@@ -1,6 +1,8 @@
 package com.plasticon.erp.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,7 +13,8 @@ import lombok.Data;
 @Table(name="manage_payment_gateway")
 public class ManagePaymentGateWay {
 	@Id
-private int managePaymentGateWayId;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+    private int managePaymentGateWayId;
 	private String userName;
 	private String password;
 	private int reqHashKey;

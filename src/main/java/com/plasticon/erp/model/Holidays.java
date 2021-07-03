@@ -1,10 +1,11 @@
 package com.plasticon.erp.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.aspectj.lang.annotation.DeclareAnnotation;
 
 import lombok.Data;
 
@@ -13,6 +14,7 @@ import lombok.Data;
 @Table(name = "Holidays")
 public class Holidays {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int hId;
 	private String day;
 	

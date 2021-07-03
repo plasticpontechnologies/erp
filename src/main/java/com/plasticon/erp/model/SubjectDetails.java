@@ -25,16 +25,13 @@ import lombok.Data;
 @Table(name  = "subjects")
 public class SubjectDetails {
 	@Id
-	
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "su_id")
 	private int id;
 
 	@Column(name = "su_name")
 	private String subjectName;
-	@OneToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="CLASS_SUBJECT", joinColumns={@JoinColumn(name="SUBJECT_ID", referencedColumnName="SU_ID")}
-    , inverseJoinColumns={@JoinColumn(name="CLASS_ID", referencedColumnName="CL_ID")})
-    private Set<ClassDetails> sd;
+	
 
 	
 }

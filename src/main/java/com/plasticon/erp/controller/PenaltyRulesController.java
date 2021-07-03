@@ -23,13 +23,13 @@ public class PenaltyRulesController {
 		PenaltyRulesService penaltyRulesService;
 
 		@RequestMapping(value = "/getPenaltyRules", method = RequestMethod.GET)
-		public List<PenaltyRules>  getPositionData() {
+		public List<PenaltyRules>  getPenaltyRulesData() {
 			return penaltyRulesService.getPenaltyRules();
 
 		}
 		
 		  @PostMapping(value = "/savePenaltyRules", consumes = "application/json")
-			public void savePositionDetails(@RequestBody PenaltyRules ManagePenalty) {
+			public void savePenaltyRules(@RequestBody PenaltyRules ManagePenalty) {
 				penaltyRulesService.savePenaltyRules(ManagePenalty);
 
 			}

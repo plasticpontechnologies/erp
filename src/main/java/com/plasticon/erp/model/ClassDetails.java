@@ -27,7 +27,7 @@ import javax.persistence.JoinTable;
 @Table(name = "classes")
 public class ClassDetails {
 	@Id
-	
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "cl_id")
 	private int id;
 
@@ -35,10 +35,10 @@ public class ClassDetails {
 	private String className;
 
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	/*@OneToMany(cascade=CascadeType.ALL)
     @JoinTable(name="CLASS_SUBJECT", joinColumns={@JoinColumn(name="CLASS_ID", referencedColumnName="CL_ID")}
     , inverseJoinColumns={@JoinColumn(name="SUBJECT_ID", referencedColumnName="SU_ID")})
-    private Set<SubjectDetails> sd;
+    private Set<SubjectDetails> sd;*/
 
 
 }

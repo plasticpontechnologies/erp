@@ -16,6 +16,7 @@ import com.plasticon.erp.repository.PenaltyRulesRepository;
 public class PenaltyRulesService {
 	@Autowired
 	PenaltyRulesRepository penaltyRulesRepository;
+	
 		public List<PenaltyRules> getPenaltyRules() {
 			return penaltyRulesRepository.findAll();
 
