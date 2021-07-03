@@ -42,7 +42,7 @@ export default class Notice extends Component {
               <label class="form-check-label"  for="inlineRadio1">Circular</label>
             </div>
             <div class="">
-              <input class="form-check-input" type="radio" name="notice" id="inlineRadio2" value="Class Diary"/>
+              <input class="form-check-input" type="radio" name="notice" id="inlineRadio2" value="ClassDiary"/>
               <label class="form-check-label" for="inlineRadio2">Class Diary</label>
             </div>
             <div class="">

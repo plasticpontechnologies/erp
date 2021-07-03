@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {BiEdit} from "react-icons/bi";
+import { METHOD_TYPES } from "@babel/types";
 class Demo extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      dishId:"",
       dishName: "",
       dishPrice: "",
       menu: [],
@@ -47,6 +50,20 @@ class Demo extends Component {
         });
       });
   }
+  delete=(ItemId)=>{
+  
+    axios
+    .delete('http://83.136.219.101:8080/erp/canteen/removeDishDetails/'+ItemId) 
+      
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    
+  }
+  
 
   render() {
     const { dishName, dishPrice } = this.state;
@@ -92,10 +109,11 @@ class Demo extends Component {
             </thead>
             {this.state.menu.map((obj) => {
               return (
-                <tr>
+                <tr key={obj.dishId}>
                   <th>{obj.dishId}</th>
                   <th>{obj.dishName}</th>
                   <th>{obj.dishPrice}</th>
+                  <button onClick={()=>this.delete(obj.dishId)}><BiEdit/></button>
                 </tr>
               );
             })}

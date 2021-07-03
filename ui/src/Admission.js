@@ -161,7 +161,7 @@ import {  BiStar, BiMinus, BiExpand, BiX, BiEdit,BiRefresh } from "react-icons/b
                     <section >
                       <label>Mobile</label>
                       
-                            <input type="text" name="countryCode" id="countryCode" placeholder="country Code" value="+91"></input>
+                            <input type="text" name="countryCode" id="countryCode" placeholder="country Code" defaultValue="+91"></input>
                           
                         
                             <input type="text" name="ContactNo" id="ContactNo" placeholder="Mobile"></input>

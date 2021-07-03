@@ -131,13 +131,13 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
-                    {/* <div className="dashbox">
+                    <div className="dashbox">
                     <Link to="/ShowAll">
                     <div className="inner">
-                    <h1>Demo0</h1>
+                    <h1>SD</h1>
                     </div>
                     </Link>
-                    </div> */}
+                    </div>
                </div>
              </div>
              

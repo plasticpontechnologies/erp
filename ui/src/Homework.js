@@ -132,7 +132,8 @@ class Homework extends Component{
                                   <label className="label ng-binding" >Class</label>
                                   <label className="input">
                                     
-                                    <select className="select2-container select2" id="class" name="class" required>
+                                    <select className="select2-container select2" id="class" name="class" required placeholder="select">
+                                      <option value="">Select Class</option>
                                     {
                                         this.state.values.map((obj) => {
                                             return <option value={obj.id}>{obj.className}</option>
