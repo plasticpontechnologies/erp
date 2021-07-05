@@ -1,32 +1,26 @@
 import React, { Component } from "react";
-
-import "./Subject&homework.css";
+import { FaUpload } from "react-icons/fa";
 import {
-  BiRefresh,
-  BiStar,
   BiMinus,
   BiExpand,
   BiX,
   BiEdit,
+  BiStar,
+  BiRefresh,
   BiPlus,
 } from "react-icons/bi";
 
-class Subject extends Component {
+export default class StudentOfTheMonth extends Component {
   refresh = () => {
     window.location.reload(false);
   };
   constructor(props) {
     super(props);
-
     this.fullscreenModal = React.createRef();
-    this.state = { isActive: true, close: true, values: [] };
+    this.state = { isActive: true, close: true, file: null };
     this.handleBack = this.handleBack.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
-  handleBack() {
-    this.props.history.goBack();
-  }
-
   openContentFullscreen = () => {
     const elem = this.fullscreenModal.current;
     if (elem.requestFullscreen) {
@@ -38,6 +32,9 @@ class Subject extends Component {
       showChild: false,
     });
   };
+  handleBack() {
+    this.props.history.goBack();
+  }
   handleShow = () => {
     this.setState({ isActive: false });
   };
@@ -50,36 +47,9 @@ class Subject extends Component {
   haandleHide = () => {
     this.setState({ close: false });
   };
-  componentDidMount() {
-    this.fetchOptions();
-  }
-
-  fetchOptions() {
-    fetch("http://83.136.219.101:8080/erp/cla/getClassDetails")
-      .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        this.setState(
-          {
-            values: json,
-          },
-          console.log()
-        );
-      });
-  }
-  handleSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const data = new FormData(form);
-
-    for (let name of data.keys()) {
-      const input = form.elements[name];
-    }
-
-    fetch("http://83.136.219.101:8080/erp/sub/saveSubjectDetails", {
-      method: "POST",
-      body: data,
+  handleChange(event) {
+    this.setState({
+      file: URL.createObjectURL(event.target.files[0]),
     });
   }
 
@@ -95,8 +65,8 @@ class Subject extends Component {
             </span>
           </span>
           <ol className="breadcrumb">
-            <li>Subject</li>
-            <li>Create Subject</li>
+            <li>Gallery</li>
+            <li>Galleryimage</li>
           </ol>
 
           <div style={{ float: "right" }}>
@@ -128,10 +98,18 @@ class Subject extends Component {
             </div>
           </div>
         </div>
-
         {this.state.close && (
-          <div id="content" ref={this.fullscreenModal} className="box_shadow">
-            <section>
+          <div
+            id="content"
+            ref={this.fullscreenModal}
+            style={{ opacity: "1" }}
+            className="box_shadow"
+          >
+            <section
+              id="widget-grid"
+              className="ng-pristine ng-untouched ng-valid ng-empty"
+              ng-model="section"
+            >
               <div className="row">
                 <article className="col-sm-12 col-md-10 col-lg-5 sortable-grid ui-sortable">
                   <div
@@ -182,7 +160,7 @@ class Subject extends Component {
                               <BiX onClick={this.haandleHide} />
                             </i>
                           ) : (
-                            <BiPlus  />
+                            <BiPlus className="fa" onClick={this.haandleHide} />
                           )}
                         </a>
                       </div>
@@ -191,91 +169,48 @@ class Subject extends Component {
                           <BiEdit />
                         </i>
                       </span>
-                      <h2
-                        
-                        className="ng-binding"
-                      >
-                        Add Subject
-                      </h2>
+                      <h2 className="ng-binding">Add Image</h2>
                     </header>
                     {this.state.isActive && (
                       <div role="content">
-                        <div className="jarviswidget-editbox"></div>
-                        <div className="widget-body no-padding">
+                        <div class="widget-body no-padding">
                           <form
-                            id="addsubject"
-                            method="post"
                             action="#"
+                            id=""
                             className="smart-form ng-pristine ng-valid"
-                            onSubmit={this.handleSubmit}
                           >
                             <fieldset>
-                              <section>
-                                <label
-                                  className="label ng-binding"
-                                  ng-init="subjectName='SubjectName'"
-                                >
-                                  Subject Name
-                                </label>
-                                <label className="input">
+                              <div className="row">
+                                
+                                <label class="custom-file-upload">
                                   <input
-                                    type="text"
-                                    className="input-sm"
-                                    name="subject_name"
-                                    data-parse="uppercase"
-                                    id="SubjectName"
-                                    placeholder="Subject Name"
-                                  ></input>
+                                    type="file"
+                                    onChange={this.handleChange}
+                                    accept=".png, .jpg, .jpeg"
+                                  />
+                                  <FaUpload />
+                                  Upload Image
                                 </label>
-                              </section>
-
-                              <section>
-                                <label
-                                  className="label ng-binding"
-                                  ng-init="Abbreviation='Abbreviation'"
-                                >
-                                  Abbreviation
+                                Format (".png / .jpeg / .jpg")
+                                <br />
+                                <label style={{ marginLeft: "20px" }}>
+                                  The File Should Be Less Than 1Mb
                                 </label>
-                                <label className="input">
-                                  <input
-                                    type="text"
-                                    className="input-sm"
-                                    name="abbreviation"
-                                    data-parse="date"
-                                    id="Abbreviation"
-                                    placeholder="Abbreviation"
-                                  ></input>
-                                </label>
-                              </section>
-
-                              <section>
-                                <div class="">
-                                  <label
-                                    class="label ng-binding"
-                                    ng-init="Class='Class'"
-                                  >
-                                    Class
-                                  </label>
-                                  <select style={{ height: "30px" }}>
-                                    {this.state.values.map((obj) => {
-                                      return (
-                                        <option key={obj.className}>
-                                          {" "}
-                                          {obj.className}
-                                        </option>
-                                      );
-                                    })}
-                                  </select>
-                                </div>
-                              </section>
+                                
+                              </div>
+                              <img
+                                  src={this.state.file}
+                                  className="gi_image"
+                                />
+                                <br />
+                                <input type="text"
+                                placeholder="Please Enter The Message "/>
                             </fieldset>
-
                             <footer>
                               <button
                                 type="button"
                                 id="submit"
                                 class="btn btn-primary ng-binding"
-                                ng-init="Save='Save'"
                               >
                                 Save
                               </button>
@@ -296,9 +231,8 @@ class Subject extends Component {
               </div>
             </section>
           </div>
-        )}
+        )}{" "}
       </div>
     );
   }
 }
-export default Subject;

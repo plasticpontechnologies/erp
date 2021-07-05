@@ -32,7 +32,7 @@ const SidebarNav = styled.nav`
   justify-content: center;
   position: fixed;
   top: 0;
-  left: ${({ sidebar }) => (sidebar ? "1" : "-80%")};
+  left: ${({ sidebar }) => (sidebar ? "1" : "-100%")};
   transition: 350ms;
   z-index: 10;
   // -ms-overflow-style: none;

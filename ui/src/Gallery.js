@@ -49,12 +49,19 @@ export default class Gallery extends Component{
                               <Link to ="/Gallery/Gallery_image">Gallery Image</Link>
                             </Dropdown.Item><br/>
                             <Dropdown.Item style={{borderTop: "1px solid black" }} >
-                            <Link to ="/Notice">ClassWise image</Link>
+                            <Link to ="/Gallery/ClassWiseImage">ClassWise image</Link>
                             </Dropdown.Item>
                             
                         </Dropdown.Menu>
-                        <button style={{padding:"5px",margin:"3px" }}><ImUpload/>Add Spotlight</button>
+                        <button style={{padding:"5px",margin:"3px" }}>
+                        <Link to ="/Gallery/StudentOfTheMonth">
+                          
+                          <ImUpload/>Add Spotlight</Link></button>
+                        
                     </Dropdown>
+                    
+                        
+                          
                     
                 </div>  
                 </div>              

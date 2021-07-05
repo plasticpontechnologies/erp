@@ -4,22 +4,22 @@ import { BsBookHalf,BsCardList,BsClipboardData,BsBuilding,BsFillPersonCheckFill,
     BsFillPeopleFill,BsFillChatDotsFill,BsFillPersonPlusFill } from "react-icons/bs";
 import { MdEventAvailable, MdPayment,MdTrendingUp,MdTrendingDown } from "react-icons/md";
 
-import Notice from "./Notice";
-import Expense from "./Expense";
-import Income from './Income';
-import Homework from './Homework';
-import Subject from './Subject';
-import Admission from './Admission';
-import Events from "./Events";
-import Message from "./Message.js";
-import Studentattend from "./Student_attendance";
-import Feepayment from "./Feepayment";
-import Staff_reg from "./Staff_reg";
-import Staffattendence from "./Staffattendence";
-import Gallery from "./Gallery";
-import Gallery_image from "./Galleryimage";
-import Demo from "./Demo";
-import ShowAll from './ShowAll';
+// import Notice from "./Notice";
+// import Expense from "./Expense";
+// import Income from './Income';
+// import Homework from './Homework';
+// import Subject from './Subject';
+// import Admission from './Admission';
+// import Events from "./Events";
+// import Message from "./Message.js";
+// import Studentattend from "./Student_attendance";
+// import Feepayment from "./Feepayment";
+// import Staff_reg from "./Staff_reg";
+// import Staffattendence from "./Staffattendence";
+// import Gallery from "./Gallery";
+// import Gallery_image from "./Galleryimage";
+// import Demo from "./Demo";
+// import ShowAll from './ShowAll';
 
 
 // css of this page is Admin.css
@@ -132,7 +132,7 @@ export default class Dashboard extends Component{
                     </Link>
                     </div>
                     <div className="dashbox">
-                    <Link to="/ShowAll">
+                    <Link to="/Softwaredetails">
                     <div className="inner">
                     <h1>SD</h1>
                     </div>

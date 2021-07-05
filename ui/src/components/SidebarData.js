@@ -107,7 +107,7 @@ export const SidebarData = [
   },
   {
     title: "Canteen",
-    path: "/team",
+    // path: "/team",
     icon: <ImSpoonKnife.ImSpoonKnife />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -118,7 +118,7 @@ export const SidebarData = [
       },
       {
         title: "Dishes",
-        path: "/Dishes",
+        path: "/Canteen/Dishes",
       },
       {
         title: "Menu",
@@ -701,7 +701,7 @@ export const SidebarData = [
   },
   {
     title: "  Software Details ",
-    path: "/Software Details ",
+    path: "/Softwaredetails",
     icon: <FaInfoCircle.FaInfoCircle />,
   },
   {

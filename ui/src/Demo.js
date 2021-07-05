@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {BiEdit} from "react-icons/bi";
+import { BiEdit } from "react-icons/bi";
 import { METHOD_TYPES } from "@babel/types";
 class Demo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dishId:"",
+      dishId: "",
       dishName: "",
       dishPrice: "",
       menu: [],
@@ -20,12 +20,10 @@ class Demo extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   submitHandler = (e) => {
-	
-    
     console.log(this.state);
-    e.preventDefault()
-    console.log(this.state)
-	alert("item Added succesfully" +this.state.dishName)
+    e.preventDefault();
+    console.log(this.state);
+    alert("item Added succesfully" + this.state.dishName);
 
     axios
       .post(
@@ -50,34 +48,34 @@ class Demo extends Component {
         });
       });
   }
-  delete=(ItemId)=>{
-  
-    axios
-    .delete('http://83.136.219.101:8080/erp/canteen/removeDishDetails/'+ItemId) 
-      
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    
-  }
-  
+  delete = (ItemId) => {
+    if (window.confirm("aer you sure you want to delete"))
+      axios
+        .delete(
+          "http://83.136.219.101:8080/erp/canteen/removeDishDetails/" + ItemId
+        )
+
+        .then((res) => {
+          console.log(res);
+          alert('data deleted successfully')
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  };
 
   render() {
-    const { dishName, dishPrice } = this.state;
+    const { dishName, dishPrice, dishId } = this.state;
     return (
       <div>
         <form onSubmit={this.submitHandler}>
-         
           <div>
             <label>Dish Name</label>
             <input
               type="text"
               name="dishName"
-			  required
-			  placeholder="Dish Name"
+              required
+              placeholder="Dish Name"
               value={dishName}
               onChange={this.changeHandler}
             />
@@ -87,13 +85,26 @@ class Demo extends Component {
             <input
               type="text"
               name="dishPrice"
-			  required
-			  placeholder="Dish Price"
+              required
+              placeholder="Dish Price"
               value={dishPrice}
               onChange={this.changeHandler}
             />
           </div>
-          <button type="submit" onClick={this.fetchmenu()} >Submit</button>
+          <div>
+            <label>Dish id</label>
+            <input
+              type="text"
+              name="dishId"
+              
+              placeholder="Dish ID"
+              value={dishId}
+              onChange={this.changeHandler}
+            />
+          </div>
+          <button type="submit" onClick={this.fetchmenu()}>
+            Submit
+          </button>
         </form>
         <br />
         <hr />
@@ -113,7 +124,9 @@ class Demo extends Component {
                   <th>{obj.dishId}</th>
                   <th>{obj.dishName}</th>
                   <th>{obj.dishPrice}</th>
-                  <button onClick={()=>this.delete(obj.dishId)}><BiEdit/></button>
+                  <button onClick={() => this.delete(obj.dishId)}>
+                    <BiEdit />
+                  </button>
                 </tr>
               );
             })}
