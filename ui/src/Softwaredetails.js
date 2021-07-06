@@ -52,7 +52,7 @@ export default class Softwaredetails extends Component {
         </div>
         <div class="row">
           <div class=" col-sm-6">
-            <div class="box_shadow">
+            <div class="sd_shadow">
               <div class="sd_box sd_alert sdml alert-block">
                 <h4>Your software license expires 25-07-2025</h4>
                 <br />
@@ -89,7 +89,7 @@ export default class Softwaredetails extends Component {
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="box_shadow">
+            <div class="sd_shadow">
               <div class="well well-sm">
                 <h3
                   class="sd_box text-primary"
