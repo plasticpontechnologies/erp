@@ -1,10 +1,11 @@
 import "./App.css";
 import "./Admin.css";
-import "./Notice.css";
-import "./Expense.css";
-import "./Canteen.css";
-
-import "./Staff.css";
+// import "./Notice.css";
+// import "./Expense.css";
+// import "./Canteen.css";
+// import "./Subject&homework.css"
+// import "./Staff.css";
+import "./all.css"
 import Sidebar from "./components/Sidebar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Dashboard from "./Dashboard";
@@ -26,7 +27,7 @@ import Classwiseimage from "./Classwiseimage";
 import StudentOfTheMonth from "./StudentOfTheMonth";
 import Demo from "./Demo";
 import Softwaredetails from "./Softwaredetails";
-import Canteen from "./Dishes";
+import BasicDetails from "./BasicDetails";
 import Dishes from "./Dishes";
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
         <Route path="/Gallery/ClassWiseImage" exact component={Classwiseimage} />
         <Route path="/Gallery/StudentOfTheMonth" exact component={StudentOfTheMonth} />
         <Route path="/Canteen/Dishes" exact component={Dishes}/>
+        <Route path="/BasicDetails" exact component={BasicDetails}/>
       </Switch>
     </Router>
   );

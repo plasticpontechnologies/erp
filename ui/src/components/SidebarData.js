@@ -102,7 +102,7 @@ export const SidebarData = [
   },
   {
     title: "Basic details",
-    path: "/products",
+    path: "/BasicDetails",
     icon: <FaIcons.FaInfoCircle />,
   },
   {

@@ -1,42 +1,35 @@
 import React, { Component } from "react";
-
-import "./Subject&homework.css";
+// import "./BasicDetails.css";
 import {
   BiRefresh,
   BiStar,
   BiMinus,
+  BiPlus,
   BiExpand,
   BiX,
   BiEdit,
-  BiPlus,
+  
 } from "react-icons/bi";
 
-class Subject extends Component {
+export default class Subject extends Component {
   refresh = () => {
     window.location.reload(false);
   };
   constructor(props) {
     super(props);
-
     this.fullscreenModal = React.createRef();
-    this.state = { isActive: true, close: true, values: [] };
+    this.state = {isActive: true,issActive: true, values: [],
+    };
     this.handleBack = this.handleBack.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleBack() {
     this.props.history.goBack();
   }
-
   openContentFullscreen = () => {
     const elem = this.fullscreenModal.current;
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
     }
-  };
-  closeChild = () => {
-    this.setState({
-      showChild: false,
-    });
   };
   handleShow = () => {
     this.setState({ isActive: false });
@@ -45,74 +38,35 @@ class Subject extends Component {
     this.setState({ isActive: true });
   };
   haandleShow = () => {
-    this.setState({ close: false });
+    this.setState({ issActive: false });
   };
-  haandleHide = () => {
-    this.setState({ close: false });
-  };
-  componentDidMount() {
-    this.fetchOptions();
-  }
-
-  fetchOptions() {
-    fetch("http://83.136.219.101:8080/erp/cla/getClassDetails")
-      .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        this.setState(
-          {
-            values: json,
-          },
-          console.log()
-        );
-      });
-  }
-  handleSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const data = new FormData(form);
-
-    for (let name of data.keys()) {
-      const input = form.elements[name];
-    }
-
-    fetch("http://83.136.219.101:8080/erp/sub/saveSubjectDetails", {
-      method: "POST",
-      body: data,
-    });
-  }
+  
 
   render() {
     return (
-      <div>
-        <div id="ribbon">
-          <span className="ribbon-button-alignment">
-            <span id="refresh" className="btn btn-ribbon">
-              <i onClick={this.refresh}>
-                <BiRefresh className="fa" />
+      <div className="App">
+        <div id="masterE">
+          <span className="masterE-button-alignment">
+            <span className="btn btn-masterE">
+              <i className="fa">
+                <BiRefresh onClick={this.refresh} />
               </i>
             </span>
           </span>
-          <ol className="breadcrumb">
-            <li>Subject</li>
-            <li>Create Subject</li>
+          <ol className="crumb">
+            <li >Subject</li>
+            <li >Create Subject</li>
           </ol>
 
           <div style={{ float: "right" }}>
-            <span className="ribbon-button-alignment">
-              <span className="btn btn-ribbon">
-                <a href="javascript:;" title="Add To Favorite">
-                  <i className="fa">
-                    <BiStar />
-                  </i>
-                </a>
+            <span className="masterE-button-alignment">
+              <span className="btn btn-masterE">
+                <i className="fa">
+                  <BiStar />
+                </i>
               </span>
             </span>
             <div
-              id="MyFavorite"
-              ng-init="MyFavorite='MyFavorite'"
-              title="MyFavorite"
               style={{
                 zIndex: 9999,
                 right: "0",
@@ -121,7 +75,7 @@ class Subject extends Component {
               }}
             >
               <span>
-                <a hre="javascript:;" className="ng-binding">
+                <a href="#" >
                   My Favorite
                 </a>
               </span>
@@ -129,27 +83,24 @@ class Subject extends Component {
           </div>
         </div>
 
-        {this.state.close && (
-          <div id="content" ref={this.fullscreenModal} className="box_shadow">
+        {this.state.issActive && (
+          <div
+            id="contrast"
+            ref={this.fullscreenModal}
+            show={this.state.show}
+            handleClose={this.hideModal}
+            className="ng-scope"
+            style={{ opacity: "1" }}
+          >
             <section>
               <div className="row">
-                <article className="col-sm-12 col-md-10 col-lg-5 sortable-grid ui-sortable">
-                  <div
-                    className="jarviswidget"
-                    id="wid-id-1"
-                    data-widget-colorbutton="false"
-                    data-widget="false"
-                    data-widget-custombutton="false"
-                  >
+                <article className="col-sm-12 col-md-12 col-lg-5">
+                  <div className="biome master">
                     <header role="heading">
                       <div className="jarviswidget-ctrls" role="menu">
                         <a
-                          href="javascript:void(0);"
+                          href="#"
                           className="button-icon jarviswidget-toggle-btn"
-                          rel="tooltip"
-                          title=""
-                          data-placement="bottom"
-                          data-original-title="Collapse"
                         >
                           {this.state.isActive ? (
                             <BiMinus className="fa" onClick={this.handleShow} />
@@ -158,47 +109,34 @@ class Subject extends Component {
                           )}
                         </a>
                         <a
-                          href="javascript:void(0);"
+                          href="#"
                           className="button-icon jarviswidget-fullscreen-btn"
-                          rel="tooltip"
-                          title=""
-                          data-placement="bottom"
-                          data-original-title="Fullscreen"
                         >
                           <i onClick={this.openContentFullscreen}>
                             <BiExpand className="fa" />
                           </i>
                         </a>
                         <a
-                          href="javascript:void(0);"
+                          href="#"
                           className="button-icon jarviswidget-delete-btn"
-                          rel="tooltip"
-                          title=""
-                          data-placement="bottom"
-                          data-original-title="Delete"
                         >
-                          {this.state.close ? (
-                            <i className="fa">
-                              <BiX onClick={this.haandleHide} />
-                            </i>
+                          {this.state.issActive ? (
+                            <BiX className="fa" onClick={this.haandleShow} />
                           ) : (
-                            <BiPlus  />
+                            <BiX/>
                           )}
                         </a>
                       </div>
-                      <span className="widget-icon">
+
+                      <span className="master-icon">
                         <i className="fa">
                           <BiEdit />
                         </i>
                       </span>
-                      <h2
-                        
-                        className="ng-binding"
-                      >
-                        Add Subject
-                      </h2>
+                      <h2>Add Subject</h2>
                     </header>
                     {this.state.isActive && (
+                    <div>
                       <div role="content">
                         <div className="jarviswidget-editbox"></div>
                         <div className="widget-body no-padding">
@@ -290,6 +228,9 @@ class Subject extends Component {
                           </form>
                         </div>
                       </div>
+                    
+                      
+                    </div>
                     )}
                   </div>
                 </article>
@@ -301,4 +242,5 @@ class Subject extends Component {
     );
   }
 }
-export default Subject;
+
+

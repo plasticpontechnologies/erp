@@ -5,7 +5,6 @@ import {
   BiEdit,
   BiTable,
   BiSearch,
-  BiPencil,
   BiMinus,
   BiPlus,
   BiExpand,
@@ -56,13 +55,11 @@ class Dishes extends Component {
             dishName: "",
             dishPrice: "",
           });
-          // this.props.history.push("/ShowAll");
         })
         .catch((err) => {
           console.log(err);
         });
     } else {
-      //const errors = <span style="color:red">All fields are required</span>
       alert("All fields are required ");
     }
   };

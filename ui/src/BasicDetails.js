@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "./BasicDetails.css";
+
 import {
   BiRefresh,
   BiStar,
@@ -10,16 +10,15 @@ import {
   BiEdit,
 } from "react-icons/bi";
 
-export default class HomeWork extends Component {
+export default class BasicDetails extends Component {
   refresh = () => {
     window.location.reload(false);
   };
   constructor(props) {
     super(props);
     this.fullscreenModal = React.createRef();
+    this.state = { isActive: true, issActive: true, values: [] };
     this.handleBack = this.handleBack.bind(this);
-
-    this.state = { isActive: true, issActive: true, options: [] };
   }
   handleBack() {
     this.props.history.goBack();
@@ -39,21 +38,6 @@ export default class HomeWork extends Component {
   haandleShow = () => {
     this.setState({ issActive: false });
   };
-  componentDidMount() {
-    this.fetchOptions();
-  }
-
-  fetchOptions() {
-    fetch("http://83.136.219.101:8080/erp/cla/getClassDetails")
-      .then(function (res) {
-        return res.json();
-      })
-      .then((json) => {
-        this.setState({
-          options: json,
-        });
-      });
-  }
 
   render() {
     return (
@@ -67,8 +51,8 @@ export default class HomeWork extends Component {
             </span>
           </span>
           <ol className="crumb">
-            <li>HomeWork</li>
-            <li>Create HomeWork</li>
+            <li>Master Entry</li>
+            <li>Front Office Master Entry</li>
           </ol>
 
           <div style={{ float: "right" }}>
@@ -144,7 +128,7 @@ export default class HomeWork extends Component {
                           <BiEdit />
                         </i>
                       </span>
-                      <h2>Create HomeWork</h2>
+                      <h2>Master Entrys</h2>
                     </header>
                     {this.state.isActive && (
                       <div>
@@ -153,79 +137,7 @@ export default class HomeWork extends Component {
                       <-----------------Body Matter------------------------------------->
                       <----------------------------------------------------------------->
                        */}
-                        <div class="widget-body no-padding">
-                          <form
-                            action="#"
-                            id=""
-                            className="smart-form ng-pristine ng-valid"
-                          >
-                            <fieldset>
-                              <div className="row">
-                                <section class="col col-2 form group">
-                                  <label className="label ng-binding">
-                                    Class
-                                  </label>
-                                  <label className="input">
-                                    <select
-                                      className="select2-container select2"
-                                      id="class"
-                                      name="class"
-                                      required
-                                      placeholder="select"
-                                    >
-                                      <option value="">Select Class</option>
-                                      {this.state.options.map((obj) => {
-                                        return (
-                                          <option
-                                            value={obj.id}
-                                            onClick={() => this.getData(obj.id)}
-                                          >
-                                            {obj.className}
-                                          </option>
-                                        );
-                                      })}
-                                    </select>
-                                  </label>
-                                </section>
-
-                                <section>
-                                  <label
-                                    className="label ng-binding"
-                                    ng-init="Subject='Subject'"
-                                  >
-                                    Subject
-                                  </label>
-                                  <label className="input">
-                                    <select
-                                      className="select2-container select2"
-                                      id="subject"
-                                      name="subject"
-                                      required
-                                    >
-                                      <option>Select Class</option>
-                                    </select>
-                                  </label>
-                                </section>
-                              </div>
-                            </fieldset>
-                            <footer>
-                              <button
-                                type="button"
-                                id="submit"
-                                class="btn btn-primary ng-binding"
-                              >
-                                Save
-                              </button>
-                              <button
-                                type="button"
-                                class="btn btn-default ng-binding"
-                                onClick={this.handleBack}
-                              >
-                                Back
-                              </button>
-                            </footer>
-                          </form>
-                        </div>
+                       <h1>hello</h1>
                       </div>
                     )}
                   </div>
@@ -238,3 +150,5 @@ export default class HomeWork extends Component {
     );
   }
 }
+
+

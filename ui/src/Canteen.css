@@ -228,7 +228,7 @@ a {
   color: white;
 }
 
-.master > div {
+/* .master > div {
   float: left;
   width: 100%;
   position: relative;
@@ -247,7 +247,7 @@ a {
   padding: 13px 13px 0;
   overflow: visible;
   background-color: #fafafa;
-}
+} */
 .entry-form footer {
   display: block;
   padding: 7px 14px 15px;
@@ -394,11 +394,7 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
-/* span.responsiveExpander {
-  background: url(../Canteen/images/plus.png) no-repeat 5px center;
-  padding-left: 32px;
-  cursor: pointer;
-} */
+
 
 td,
 th {
