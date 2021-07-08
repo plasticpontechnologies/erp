@@ -7,26 +7,32 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.plasticon.erp.model.QuestionBank;
-import com.plasticon.erp.repository.QuestionBankRepository;
+import com.plasticon.erp.model.QuestionsBank;
+import com.plasticon.erp.repository.QuestionsBankRepository;
+
+
+
 
 @Service
-public class QuestionBankService {
-	
+public class QuestionsBankService {
 	@Autowired
-	QuestionBankRepository questionBankRepository;
-	public List<QuestionBank> getQuestionBank() {
+	QuestionsBankRepository questionBankRepository;
+	public List<QuestionsBank> getQuestionsBank() {
 		return questionBankRepository.findAll();
 	}
 	
-	public void saveQuestionBank(QuestionBank question) {
+	public void saveQuestionsBank(QuestionsBank question) {
 		questionBankRepository.save(question);
 	}
 	
 	@Transactional
-	public void removeQuestionBank(int id) {
+	public void removeQuestionsBank(int id) {
 		questionBankRepository.deleteById(id);
 	}
 	
-
+	  public List<QuestionsBank> findBySubId(int suId) { return
+	  questionBankRepository.findBySubId(suId); }
+	 
+	
 }
+
