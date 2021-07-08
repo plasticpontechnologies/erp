@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.plasticon.erp.model.SendSmsToOthers;
 import com.plasticon.erp.model.StudentRoute;
-import com.plasticon.erp.model.SubjectDetails;
 import com.plasticon.erp.service.OthersService;
 
 @RestController

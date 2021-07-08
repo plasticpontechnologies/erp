@@ -14,7 +14,6 @@ import lombok.Data;
 @Table(name= "Sections")
 public class SectionDetails {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int sectionId;
 	private String sectionName;

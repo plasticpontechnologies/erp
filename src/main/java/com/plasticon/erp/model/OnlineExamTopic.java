@@ -17,7 +17,7 @@ import lombok.Data;
 public class OnlineExamTopic {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int slno;
 	private String topic;
