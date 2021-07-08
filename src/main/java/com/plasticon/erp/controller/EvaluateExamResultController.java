@@ -28,6 +28,5 @@ public class EvaluateExamResultController {
 	public void saveEvaluateExamResult(@RequestBody EvaluateExamResult examresult) {
 		evaluateExamResultService.saveEvaluateExamResult(examresult);
 	}
-	
 
 }

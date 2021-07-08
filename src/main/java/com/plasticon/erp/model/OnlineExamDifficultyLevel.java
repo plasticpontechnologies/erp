@@ -18,6 +18,7 @@ public class OnlineExamDifficultyLevel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int slno;
 	private String difficulty_level;
 
