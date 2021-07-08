@@ -10,11 +10,11 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "student_upload")
+@Table(name = "students_upload")
 public class StudentUpload {
 
 	@Id
-	private int studentId;
+	private int slno;
 	private int rowNumber;
 	private String studentName;
 	private String status;

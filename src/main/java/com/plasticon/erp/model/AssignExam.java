@@ -13,5 +13,6 @@ public class AssignExam {
 	@Id
 	private int slno;
 	private String Onlineexam;
+	private String classes;
 
 }

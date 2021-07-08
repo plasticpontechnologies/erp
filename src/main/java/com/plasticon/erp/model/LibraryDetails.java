@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "e_library")
+@Table(name = "library_info")
 public class LibraryDetails {
 	@Id
 	private String libraryId;

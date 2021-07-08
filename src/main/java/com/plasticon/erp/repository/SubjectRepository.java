@@ -1,11 +1,18 @@
 package com.plasticon.erp.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.Query;
 
-import com.plasticon.erp.model.SubjectDetails;
+import com.plasticon.erp.model.Subjects;
 
-@Repository
-public interface SubjectRepository extends JpaRepository<SubjectDetails,Number> {
+
+public interface SubjectRepository extends JpaRepository<Subjects,Number> {
+	
+	//public List<Subjects> findByClId(int clas);
+	 @Query("SELECT s FROM Subjects s WHERE s.clas.clId = :clsId")
+	 List<Subjects> findAllActiveUsers(int clsId);
+	
 
 }

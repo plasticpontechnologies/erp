@@ -13,6 +13,8 @@ public class EvaluationExam {
 	@Id
 	private int slno;
 	private String Exam;
+	
+	
 
 
 }
