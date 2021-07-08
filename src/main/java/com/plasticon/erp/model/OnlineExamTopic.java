@@ -1,6 +1,5 @@
 package com.plasticon.erp.model;
 
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,13 +18,12 @@ public class OnlineExamTopic {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int slno;
 	private String topic;
 	private String description;
-		
 	private int numOfPeriods;
-	
-	;
+
 	
 
 }

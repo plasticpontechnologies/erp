@@ -16,9 +16,7 @@ import lombok.Data;
 public class Events {
 
 	@Id
-	@TableGenerator(name = "entity", table = "eventspktb", pkColumnName = "ekey", pkColumnValue = "evalue",
-	allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "entity") 
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int eId;
 	private String title;
 	private String color;

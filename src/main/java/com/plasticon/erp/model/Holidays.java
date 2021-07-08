@@ -15,9 +15,7 @@ import lombok.Data;
 @Table(name = "Holidays")
 public class Holidays {
 	@Id
-	@TableGenerator(name = "holi", table = "holispktb", pkColumnName = "holikey", pkColumnValue = "holivalue",
-	allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "holi") 
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int hId;
 	private String day;
 	

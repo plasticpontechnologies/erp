@@ -15,10 +15,9 @@ import lombok.Data;
 public class SectionDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int sectionId;
 	private String sectionName;
-	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private classes cl;
 

@@ -17,9 +17,7 @@ import lombok.Data;
 public class HomeWork {
 
 	@Id
-	@TableGenerator(name = "homework", table = "homewspktb", pkColumnName = "homewkey", pkColumnValue = "homewvalue",
-	allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "homework") 
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int hwId;
 	private String selectClass;
 	private String selectSubject;
