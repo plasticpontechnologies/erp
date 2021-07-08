@@ -19,7 +19,8 @@ export default class HomeWork extends Component {
     this.fullscreenModal = React.createRef();
     this.handleBack = this.handleBack.bind(this);
 
-    this.state = { isActive: true, issActive: true, options: [] };
+
+    this.state = { isActive: true, issActive: true, options: [], isdisable: true };
   }
   handleBack() {
     this.props.history.goBack();
@@ -42,6 +43,9 @@ export default class HomeWork extends Component {
   componentDidMount() {
     this.fetchOptions();
   }
+  mojaDisabled = () => {
+    this.setState({ isdisable: false })
+  }
 
   fetchOptions() {
     fetch("http://83.136.219.101:8080/erp/cla/getClassDetails")
@@ -54,6 +58,7 @@ export default class HomeWork extends Component {
         });
       });
   }
+
 
   render() {
     return (
@@ -173,14 +178,16 @@ export default class HomeWork extends Component {
                                       required
                                       placeholder="select"
                                     >
-                                      <option value="">Select Class</option>
+                                      <option value="" >Select Class</option>
                                       {this.state.options.map((obj) => {
                                         return (
                                           <option
                                             value={obj.id}
-                                            onClick={() => this.getData(obj.id)}
-                                          >
-                                            {obj.className}
+
+                                          // onClick={() => this.getData(obj.id)}
+                                          >{obj.className}
+                                            <h4 value={obj.id}>{obj.id}</h4>
+
                                           </option>
                                         );
                                       })}

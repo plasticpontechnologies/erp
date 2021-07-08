@@ -1805,7 +1805,24 @@ a {
   box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%),
     0 2px 4px 4px rgb(0 0 0 / 20%);
   border-radius: 15px;
-  height: 218px;
+  display: inline-block;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  line-height: 32px;
+  padding: 5px 10px;
+  outline: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0;
+  background: #fff;
+  font: 13px/16px "Open Sans", Helvetica, Arial, sans-serif;
+  color: #404040;
+  appearance: normal;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 .shad {
   margin: 0 0 25px;
@@ -1872,6 +1889,16 @@ input[type=date], select {
     border-radius: 4px;
     box-sizing: border-box;
     cursor: pointer;
+}
+input[type=text]
+{
+  width: 100%;
+  padding: 12px 20px;
+  display: block;
+  border: 1px solid rgb(0, 17, 253);
+  border-radius: 4px;
+  /* box-sizing: border-box; */
+  cursor: pointer;
 }
 table {
   font-family: arial, sans-serif;
