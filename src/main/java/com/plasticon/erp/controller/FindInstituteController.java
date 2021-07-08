@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.plasticon.erp.model.FindInstitute;
+import com.plasticon.erp.model.FindInstitutes;
 import com.plasticon.erp.service.FindInstituteService;
 
 @RestController
@@ -20,12 +20,12 @@ public class FindInstituteController {
 	FindInstituteService findInstituteService;
 	
 	@RequestMapping(value="/getinstitutes", method=RequestMethod.GET)
-	public List<FindInstitute> getFindInstitutes() {
+	public List<FindInstitutes> getFindInstitutes() {
 		return findInstituteService.getInstituteName();
 	}
 	
 	@PostMapping(value="/saveinstitutes", consumes="application/json")
-	public void saveFindInstitute(@RequestBody FindInstitute findinstitute) {
+	public void saveFindInstitute(@RequestBody FindInstitutes findinstitute) {
 		findInstituteService.saveFindInstitute(findinstitute);
 	}
 	

@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.plasticon.erp.model.SubjectDetails;
+
 import com.plasticon.erp.model.SurveyReport;
 import com.plasticon.erp.repository.SurveyReportRepository;
 

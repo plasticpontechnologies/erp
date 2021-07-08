@@ -9,7 +9,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name="organizations")
-public class FindInstitute {
+public class FindInstitutes {
 	
 	@Id
 	private int slno;

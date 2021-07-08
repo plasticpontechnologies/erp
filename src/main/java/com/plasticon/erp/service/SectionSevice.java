@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.plasticon.erp.model.SectionDetails;
+import com.plasticon.erp.model.Subjects;
+import com.plasticon.erp.model.classes;
 import com.plasticon.erp.repository.SectionRepository;
 
 
@@ -27,6 +29,10 @@ public class SectionSevice {
 		@Transactional
 		public void removeSectionDetails(int id) {
 			sectionRepository.deleteById(id);
+		}
+		
+		public List<SectionDetails> findSectionsById(int clId) {
+			return sectionRepository.findSectionsById(clId);
 		}
 
 }

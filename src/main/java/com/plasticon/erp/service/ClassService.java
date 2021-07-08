@@ -7,28 +7,29 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.plasticon.erp.model.ClassDetails;
-import com.plasticon.erp.model.UserDetails;
-import com.plasticon.erp.repository.ClassRepository;
+import com.plasticon.erp.model.classes;
+import com.plasticon.erp.repository.classRepository;
+
+
 
 
 @Service
 public class ClassService {
 	@Autowired
-	ClassRepository classRepository;
-		public List<ClassDetails> getClassDetails() {
-			return classRepository.findAll();
+	classRepository cRepository;
+		public List<classes> getClassDetails() {
+			return cRepository.findAll();
 
 		}
-		public void saveClassDetails(ClassDetails cla) {
-			classRepository.save(cla);
+		public void saveClassDetails(classes cla) {
+			cRepository.save(cla);
 			
 		
 
 		}
 		@Transactional
 		public void removeClassDetails(int id) {
-			classRepository.deleteById(id);
+			cRepository.deleteById(id);
 		}
 
 }

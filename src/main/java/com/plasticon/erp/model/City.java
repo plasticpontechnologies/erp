@@ -13,8 +13,8 @@ public class City {
 	
 	@Id
 	private int cityId;
-	private int stateId;
 	private String cityName;
+	private int stateId;
 	
 
 }

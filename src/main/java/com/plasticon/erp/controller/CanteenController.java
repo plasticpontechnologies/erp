@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.plasticon.erp.model.CanteenMasterEntry;
-import com.plasticon.erp.model.SubjectDetails;
 import com.plasticon.erp.service.CanteenService;
-import com.plasticon.erp.service.SubjectService;
 
 @RestController
 @RequestMapping("/canteen")
