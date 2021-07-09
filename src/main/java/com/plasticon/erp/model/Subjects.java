@@ -25,7 +25,6 @@ public class Subjects {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private int SubId;
-
 	private String subjectName;
 	
 	

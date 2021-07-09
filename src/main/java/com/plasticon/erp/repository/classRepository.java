@@ -8,6 +8,7 @@ import com.plasticon.erp.model.classes;
 
 
 @Repository
+
 public interface classRepository extends JpaRepository<classes,Number>{
 
 }

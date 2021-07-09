@@ -14,6 +14,7 @@ import com.plasticon.erp.repository.classRepository;
 
 
 @Service
+
 public class ClassService {
 	@Autowired
 	classRepository cRepository;

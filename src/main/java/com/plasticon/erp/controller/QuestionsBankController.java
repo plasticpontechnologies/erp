@@ -25,11 +25,9 @@ public class QuestionsBankController {
 	@Autowired
 	QuestionsBankService questionsBankService;
 	
-	
 	@RequestMapping(value = "/getquestions", method= RequestMethod.GET)
 	public List<QuestionsBank> getQuestionsBank() {
-		return questionsBankService.getQuestionsBank();
-		
+		return questionsBankService.getQuestionsBank();	
 	}
 	
 	@PostMapping(value = "/saveQuestionBankService", consumes = "application/json")

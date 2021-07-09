@@ -26,13 +26,11 @@ public class SubjectController {
 	@RequestMapping(value = "/getSubjectDetails", method = RequestMethod.GET)
 	public List<Subjects> getSubjectData() {
 		return subjectService.getSubjectDetails();
-
-	}
+}
 
 	@PostMapping(value = "/saveSubjectDetails", consumes = "application/json")
 	public void saveSubjectDetails(@RequestBody Subjects sub) {
 		subjectService.saveSubjectDetails(sub);
-
 	}
 
 	@DeleteMapping(value = "/removeSubjectDetails/{id}")
@@ -43,7 +41,6 @@ public class SubjectController {
 	@GetMapping(value="/getsubjectsbyid/{clsId}")
 	public List<Subjects> getSubjectDetails(@PathVariable("clsId")int clsId) {
 		return subjectService.findAllActiveUsers(clsId);
-
 	}
 
 

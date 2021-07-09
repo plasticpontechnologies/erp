@@ -28,7 +28,6 @@ public class classes {
 
 	
 	private int clId;
-
 	private String className;
 	
 	@JsonIgnore

@@ -4,11 +4,9 @@ import java.sql.Date;
 import java.sql.Time;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -22,8 +20,8 @@ public class CreateOnlineExamInfo {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int slno;
 	private String examName;
-	//private String examtype;
-	//private int selectmax_Marks;
+	private String examtype;
+	private int selectmax_Marks;
 	private int examDuration;
 	private Date examOpenDate;
 	private Time examOpenTime;
@@ -41,14 +39,7 @@ public class CreateOnlineExamInfo {
 	private String topic;
 	private String bookName;
 	
-   @OneToOne(fetch = FetchType.EAGER)
-   private ExamTypeDetails typedetails;
-   
-   @OneToOne(fetch = FetchType.EAGER)
-   private ScholasticGradeMarksSetupDetails maxmarks;
-   
-   @OneToOne(fetch = FetchType.EAGER)
-   private OnlineExamDifficultyLevel difficultylevel;
+ 
 	
 
 }

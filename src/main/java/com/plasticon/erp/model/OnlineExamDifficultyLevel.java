@@ -22,8 +22,7 @@ public class OnlineExamDifficultyLevel {
 	private int slno;
 	private String difficulty_level;
 	
-	 @OneToOne(mappedBy = "difficulty_level")
-	 private CreateOnlineExamInfo createOnlineExamInfo;
+
 	
 
 	

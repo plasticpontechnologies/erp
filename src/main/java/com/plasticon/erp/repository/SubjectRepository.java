@@ -10,7 +10,7 @@ import com.plasticon.erp.model.Subjects;
 
 public interface SubjectRepository extends JpaRepository<Subjects,Number> {
 	
-	//public List<Subjects> findByClId(int clas);
+	
 	 @Query("SELECT s FROM Subjects s WHERE s.clas.clId = :clsId")
 	 List<Subjects> findAllActiveUsers(int clsId);
 	

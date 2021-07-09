@@ -43,7 +43,7 @@ public class FileStorageServiceImpl implements FileStorageService {
 	public FileModel getFile(String fileId) {
 
 		return dbFileRepository.findById(fileId)
-				.orElseThrow(() -> new MyFileNotFoundException("File not found with id " + fileId));
+		  .orElseThrow(() -> new MyFileNotFoundException("File not found with id " + fileId));
 	}
 
 }

@@ -17,6 +17,7 @@ import com.plasticon.erp.repository.QuestionsBankRepository;
 public class QuestionsBankService {
 	@Autowired
 	QuestionsBankRepository questionBankRepository;
+	
 	public List<QuestionsBank> getQuestionsBank() {
 		return questionBankRepository.findAll();
 	}

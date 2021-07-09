@@ -29,15 +29,11 @@ public class ClassController {
 
 	}
    
-	
-
     @PostMapping(value = "/saveClassDetails", consumes = "application/json")
 	public void saveClassDetails(@RequestBody classes cla) {
 		classService.saveClassDetails(cla);
-
 	}
 		
-
     @DeleteMapping(value ="/removeclassDetails/{id}")
     public void removeClassDetails(@PathVariable("id")int Id){
 	  classService.removeClassDetails(Id);

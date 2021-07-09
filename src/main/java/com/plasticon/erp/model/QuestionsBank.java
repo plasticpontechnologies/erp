@@ -32,6 +32,7 @@ public class QuestionsBank {
 	@JoinColumn(name="difId")
 	private OnlineExamDifficultyLevel difficulty;
 	
+	
 	@ManyToOne
 	private Subjects subs;
 	

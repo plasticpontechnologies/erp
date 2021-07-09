@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.plasticon.erp.model.FileModel;
 
 @Repository
+
 public interface DBFileRepository extends JpaRepository<FileModel, String> {
 
 }

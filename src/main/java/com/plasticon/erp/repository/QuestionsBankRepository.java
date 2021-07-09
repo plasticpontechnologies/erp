@@ -10,6 +10,7 @@ import com.plasticon.erp.model.QuestionsBank;
 
 
 @Repository
+
 public interface QuestionsBankRepository extends JpaRepository<QuestionsBank, Number>{
 	
 	  @Query("SELECT q FROM QuestionsBank q WHERE q.subs.SubId = :suId")
