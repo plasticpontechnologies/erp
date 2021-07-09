@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -20,6 +21,10 @@ public class OnlineExamDifficultyLevel {
 
 	private int slno;
 	private String difficulty_level;
+	
+	 @OneToOne(mappedBy = "difficulty_level")
+	 private CreateOnlineExamInfo createOnlineExamInfo;
+	
 
 	
 	
