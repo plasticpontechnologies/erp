@@ -22,9 +22,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-
 @Data
-
 @Table(name = "classes")
 
 
