@@ -34,7 +34,7 @@ public class QuestionsBank {
 	
 	
 	@ManyToOne
-	private Subjects subs;
+	private SubjectDetails subs;
 	
 	
 

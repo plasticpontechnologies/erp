@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.plasticon.erp.model.Subjects;
+import com.plasticon.erp.model.SubjectDetails;
 import com.plasticon.erp.service.SubjectService;
 
 
@@ -24,12 +24,12 @@ public class SubjectController {
 	SubjectService subjectService;
 
 	@RequestMapping(value = "/getSubjectDetails", method = RequestMethod.GET)
-	public List<Subjects> getSubjectData() {
+	public List<SubjectDetails> getSubjectData() {
 		return subjectService.getSubjectDetails();
 }
 
 	@PostMapping(value = "/saveSubjectDetails", consumes = "application/json")
-	public void saveSubjectDetails(@RequestBody Subjects sub) {
+	public void saveSubjectDetails(@RequestBody SubjectDetails sub) {
 		subjectService.saveSubjectDetails(sub);
 	}
 
@@ -39,7 +39,7 @@ public class SubjectController {
 	}
 	
 	@GetMapping(value="/getsubjectsbyid/{clsId}")
-	public List<Subjects> getSubjectDetails(@PathVariable("clsId")int clsId) {
+	public List<SubjectDetails> getSubjectDetails(@PathVariable("clsId")int clsId) {
 		return subjectService.findAllActiveUsers(clsId);
 	}
 

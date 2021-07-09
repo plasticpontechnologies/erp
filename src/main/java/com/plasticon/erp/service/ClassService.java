@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.plasticon.erp.model.classes;
+import com.plasticon.erp.model.ClassDetails;
 import com.plasticon.erp.repository.classRepository;
 
 
@@ -18,11 +18,11 @@ import com.plasticon.erp.repository.classRepository;
 public class ClassService {
 	@Autowired
 	classRepository cRepository;
-		public List<classes> getClassDetails() {
+		public List<ClassDetails> getClassDetails() {
 			return cRepository.findAll();
 
 		}
-		public void saveClassDetails(classes cla) {
+		public void saveClassDetails(ClassDetails cla) {
 			cRepository.save(cla);
 			
 		

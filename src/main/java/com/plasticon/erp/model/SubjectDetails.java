@@ -20,7 +20,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name="subjects")
-public class Subjects {
+public class SubjectDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
@@ -29,7 +29,7 @@ public class Subjects {
 	
 	
 	 @ManyToOne
-	 private classes clas;
+	 private ClassDetails clas;
 	 
 	 @JsonIgnore
 	 @OneToMany(targetEntity = QuestionsBank.class)

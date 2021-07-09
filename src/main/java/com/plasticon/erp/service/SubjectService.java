@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.plasticon.erp.model.Subjects;
+import com.plasticon.erp.model.SubjectDetails;
 import com.plasticon.erp.repository.SubjectRepository;
 
 @Service
@@ -17,12 +17,12 @@ public class SubjectService {
 	@Autowired
 	SubjectRepository subjectRepository;
 	
-		public List<Subjects> getSubjectDetails() {
+		public List<SubjectDetails> getSubjectDetails() {
 			return subjectRepository.findAll();
 
 		}
 
-		public void saveSubjectDetails(Subjects sub) {
+		public void saveSubjectDetails(SubjectDetails sub) {
 			subjectRepository.save(sub);
 			
 				
@@ -33,7 +33,7 @@ public class SubjectService {
 			subjectRepository.deleteById(id);
 		}
 		
-		public List<Subjects> findAllActiveUsers(int clsId) {
+		public List<SubjectDetails> findAllActiveUsers(int clsId) {
 			return subjectRepository.findAllActiveUsers(clsId);
 		}
 

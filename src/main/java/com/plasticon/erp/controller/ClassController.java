@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.plasticon.erp.model.classes;
+import com.plasticon.erp.model.ClassDetails;
 import com.plasticon.erp.service.ClassService;
 
 
@@ -24,13 +24,13 @@ public class ClassController {
 	ClassService classService;
 
 	@RequestMapping(value = "/getClassDetails", method = RequestMethod.GET)
-	public List<classes>  getClassData() {
+	public List<ClassDetails>  getClassData() {
 		return classService.getClassDetails();
 
 	}
    
     @PostMapping(value = "/saveClassDetails", consumes = "application/json")
-	public void saveClassDetails(@RequestBody classes cla) {
+	public void saveClassDetails(@RequestBody ClassDetails cla) {
 		classService.saveClassDetails(cla);
 	}
 		

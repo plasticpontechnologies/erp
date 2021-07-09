@@ -18,6 +18,6 @@ public class SectionDetails {
 	private int sectionId;
 	private String sectionName;
 	@ManyToOne(fetch = FetchType.EAGER)
-	private classes cl;
+	private ClassDetails cl;
 
 }

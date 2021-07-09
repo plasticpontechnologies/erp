@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.plasticon.erp.model.LibraryDetails;
 import com.plasticon.erp.model.SectionDetails;
-import com.plasticon.erp.model.Subjects;
-import com.plasticon.erp.model.classes;
+import com.plasticon.erp.model.SubjectDetails;
+import com.plasticon.erp.model.ClassDetails;
 import com.plasticon.erp.service.LibraryService;
 import com.plasticon.erp.service.SectionSevice;
 @RestController

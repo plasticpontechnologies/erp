@@ -20,7 +20,7 @@ import lombok.Data;
 @Table(name = "classes")
 
 
-public class classes {
+public class ClassDetails {
 	
 	
 	@Id
@@ -31,8 +31,8 @@ public class classes {
 	private String className;
 	
 	@JsonIgnore
-	@OneToMany(targetEntity = Subjects.class)
-	private List<Subjects> sub;
+	@OneToMany(targetEntity = SubjectDetails.class)
+	private List<SubjectDetails> sub;
 	
 	@JsonIgnore
 	@OneToMany(targetEntity = SectionDetails.class)
