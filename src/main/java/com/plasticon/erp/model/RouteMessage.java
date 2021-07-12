@@ -1,6 +1,8 @@
 package com.plasticon.erp.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,8 +14,9 @@ import lombok.Data;
 public class RouteMessage {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int rmId;
-	private int number;
+	private int selectNumber;
 	private String sendMessageUsing;
 	private String language;
 	private String messageContent;

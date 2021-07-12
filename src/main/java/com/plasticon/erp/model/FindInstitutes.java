@@ -8,15 +8,12 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "question_bank")
-public class QuestionBank {
+@Table(name="organizations")
+public class FindInstitutes {
 	
 	@Id
 	private int slno;
-	private String Question;
-	private String Marks;
-	private String Hint;
-	private String Solution_description;
-	private String Status;
+	private String instituteNames;
+	
 
 }

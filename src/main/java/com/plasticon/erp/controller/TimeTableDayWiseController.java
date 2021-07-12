@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.plasticon.erp.model.SubjectDetails;
 import com.plasticon.erp.model.TimeTableDayWise;
-import com.plasticon.erp.service.SubjectService;
 import com.plasticon.erp.service.TimeTableDayWiseService;
 @RestController
 @RequestMapping("/timetable")

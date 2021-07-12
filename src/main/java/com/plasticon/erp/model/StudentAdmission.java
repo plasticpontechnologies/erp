@@ -3,6 +3,8 @@ package com.plasticon.erp.model;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,6 +17,7 @@ import lombok.Data;
 @Table(name = "student_details")
 public class StudentAdmission {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int studentId;
 	private int AdmissionNumber;
 	private String StudentName ;
@@ -27,13 +30,6 @@ public class StudentAdmission {
 	private String Classes;
 	private Long MobileNumber;
 	private String Email;
-	private int yearly;
-	private int everyMonth;
-	private int monthwise;
-	private int usman;
-	private int transport;
-	private String remarks;
-	
 	
 	
 }	

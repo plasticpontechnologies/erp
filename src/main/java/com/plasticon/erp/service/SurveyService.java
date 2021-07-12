@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.plasticon.erp.model.SectionDetails;
-import com.plasticon.erp.model.SendMessageSelection;
+import com.plasticon.erp.model.Selection;
 import com.plasticon.erp.model.SurveyInformation;
 import com.plasticon.erp.repository.SectionRepository;
 import com.plasticon.erp.repository.SurveyRepository;

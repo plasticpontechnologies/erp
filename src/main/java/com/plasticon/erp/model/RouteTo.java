@@ -1,6 +1,8 @@
 package com.plasticon.erp.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,6 +13,7 @@ import lombok.Data;
 @Table(name="route_to")
 public class RouteTo {
 @Id
+@GeneratedValue(strategy=GenerationType.AUTO)
 private int routeId;
 private String routeTo;
 private String status;
