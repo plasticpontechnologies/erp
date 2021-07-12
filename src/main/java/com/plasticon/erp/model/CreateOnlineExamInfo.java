@@ -57,7 +57,12 @@ public class CreateOnlineExamInfo {
    private OnlineExamDifficultyLevel difficultylevel;
    
    @OneToOne(fetch = FetchType.EAGER)
-   @JoinColumn(name="b")
+   @JoinColumn(name="ab_fk")
+   private AddBook addbook;
+   
+   @OneToOne(fetch = FetchType.EAGER)
+   @JoinColumn(name="et_fk")
+   private OnlineExamTopic topic1;
 	
    @ManyToOne
    private SubjectDetails subj;
