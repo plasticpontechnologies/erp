@@ -20,7 +20,6 @@ public class CreateAccount {
 @GeneratedValue(strategy=GenerationType.AUTO)
 private int accountId;
 @OneToOne()
-
 @JoinColumn(name="acctypeId")
 private CreateAccountType accountType;
 private String accountName;
