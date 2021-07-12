@@ -19,6 +19,7 @@ public class CreateAccount {
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
 private int accountId;
+
 @OneToOne()
 @JoinColumn(name="acctypeId")
 private CreateAccountType accountType;
