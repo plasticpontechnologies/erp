@@ -40,7 +40,7 @@ public class SubjectController {
 	
 	@GetMapping(value="/getsubjectsbyid/{clsId}")
 	public List<SubjectDetails> getSubjectDetails(@PathVariable("clsId")int clsId) {
-		return subjectService.findAllActiveUsers(clsId);
+		return subjectService.findByClas(clsId);
 	}
 
 
