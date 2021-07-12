@@ -1,5 +1,4 @@
 package com.plasticon.erp.controller;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +16,10 @@ import com.plasticon.erp.service.ClassService;
 
 
 @RestController
-@RequestMapping("/cla")
+@RequestMapping("/classes")
+
 public class ClassController {
+	
 	@Autowired
 	ClassService classService;
 
@@ -27,17 +28,15 @@ public class ClassController {
 		return classService.getClassDetails();
 
 	}
-	
-	  @PostMapping(value = "/saveClassDetails", consumes = "application/json")
-		public void saveClassDetails(@RequestBody ClassDetails cla) {
-			classService.saveClassDetails(cla);
-
-		}
+   
+    @PostMapping(value = "/saveClassDetails", consumes = "application/json")
+	public void saveClassDetails(@RequestBody ClassDetails cla) {
+		classService.saveClassDetails(cla);
+	}
 		
-
-		  @DeleteMapping(value ="/removeclassDetails/{id}")
-		    public void removeClassDetails(@PathVariable("id")int Id){
-			  classService.removeClassDetails(Id);
-		    }
+    @DeleteMapping(value ="/removeclassDetails/{id}")
+    public void removeClassDetails(@PathVariable("id")int Id){
+	  classService.removeClassDetails(Id);
+    }
 
 }

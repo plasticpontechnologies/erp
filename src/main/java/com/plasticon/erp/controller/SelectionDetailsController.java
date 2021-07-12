@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.plasticon.erp.model.SendMessageSelection;
+import com.plasticon.erp.model.Selection;
 import com.plasticon.erp.model.SelectionDetails;
 import com.plasticon.erp.service.SelectionDetailsService;
-import com.plasticon.erp.service.SendMessageSelectionService;
+import com.plasticon.erp.service.SelectionService;
 
 @RestController
 @RequestMapping("/select")

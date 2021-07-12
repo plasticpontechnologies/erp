@@ -13,20 +13,20 @@ import com.plasticon.erp.repository.StudentReviewRepository;
 @Service
 public class StudentReviewService {
 	@Autowired
-	private StudentReviewRepository StudentReviewRepository;
+	StudentReviewRepository studentReviewRepository;
 	
 	public List<StudentReview> getStudentReview() {
-		return StudentReviewRepository.findAll();
+		return studentReviewRepository.findAll();
 
 	}
 
 	public void saveStudentReview(StudentReview studentReview) {
-		StudentReviewRepository.save(studentReview);
+		studentReviewRepository.save(studentReview);
 	}
 
 	@Transactional
 	public void removeStudentReview(int id) {
-		StudentReviewRepository.deleteById(id);
+		studentReviewRepository.deleteById(id);
 	}
 
 	

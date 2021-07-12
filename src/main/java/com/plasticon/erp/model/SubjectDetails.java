@@ -1,40 +1,39 @@
 package com.plasticon.erp.model;
 
+import java.util.List;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
 @Entity
 @Data
-
-@Table(name  = "subjects")
+@Table(name="subjects")
 public class SubjectDetails {
 	@Id
-	
-	@Column(name = "su_id")
-	private int id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
 
-	@Column(name = "su_name")
+	private int SubId;
 	private String subjectName;
-	@OneToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="CLASS_SUBJECT", joinColumns={@JoinColumn(name="SUBJECT_ID", referencedColumnName="SU_ID")}
-    , inverseJoinColumns={@JoinColumn(name="CLASS_ID", referencedColumnName="CL_ID")})
-    private Set<ClassDetails> sd;
-
 	
+	
+	 @ManyToOne
+	 private ClassDetails clas;
+	 
+	 @JsonIgnore
+	 @OneToMany(targetEntity = QuestionsBank.class)
+	 private List<QuestionsBank> questions;
+	 
+
 }

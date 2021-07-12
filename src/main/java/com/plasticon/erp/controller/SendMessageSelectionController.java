@@ -16,28 +16,28 @@ import com.plasticon.erp.model.SendMessageSelection;
 import com.plasticon.erp.service.SendMessageSelectionService;
 
 @RestController
-@RequestMapping("/selection")
+@RequestMapping("/msgselection")
 public class SendMessageSelectionController {
 	
 	@Autowired
-	SendMessageSelectionService selectionService;
+	SendMessageSelectionService sendMessageSelectionService;
 	
-	@RequestMapping(value = "/getSelectionDetails", method = RequestMethod.GET)
+	@RequestMapping(value = "/getMsgSelectionDetails", method = RequestMethod.GET)
 	public List<SendMessageSelection>  getSelectionData() {
-		return selectionService.getSelectionDetails();
+		return sendMessageSelectionService.getSelectionDetails();
 
 	}
 	
-	  @PostMapping(value = "/saveSelectionDetails", consumes = "application/json")
+	  @PostMapping(value = "/saveMsgSelectionDetails", consumes = "application/json")
 		public void saveSelectionDetails(@RequestBody SendMessageSelection sel) {
-		  selectionService.saveSelectionDetails(sel);
+		  sendMessageSelectionService.saveSelectionDetails(sel);
 
 		}
 		
 
-		  @DeleteMapping(value ="/removeSectionDetails/{id}")
+		  @DeleteMapping(value ="/removeMsgSectionDetails/{id}")
 		    public void removeSelectionDetails(@PathVariable("id") int Id){
-			  selectionService.removeSelectionDetails(Id);
+			  sendMessageSelectionService.removeSelectionDetails(Id);
 		    }
 
 }

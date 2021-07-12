@@ -1,0 +1,49 @@
+package com.plasticon.erp.service;
+
+import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.util.StringUtils;
+
+import com.plasticon.erp.exception.FileStorageException;
+import com.plasticon.erp.exception.MyFileNotFoundException;
+import com.plasticon.erp.model.FileModel;
+import com.plasticon.erp.repository.DBFileRepository;
+
+public class FileStorageServiceImpl implements FileStorageService {
+
+	@Autowired
+	private DBFileRepository dbFileRepository;
+
+	@Override
+	public FileModel storeFile(MultipartFile file) {
+
+		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+
+		try {
+			if (fileName.contains("..")) {
+				throw new FileStorageException("Sorry! your file contails invalid characters...");
+			}
+
+			FileModel fileModel = new FileModel();
+			fileModel.setFileName(fileName);
+			fileModel.setFileType(file.getContentType());
+			fileModel.setData(file.getBytes());
+
+			return dbFileRepository.save(fileModel);
+
+		} catch (IOException ioe) {
+			throw new FileStorageException("could not store file " + fileName + " Please try again, " + ioe);
+		}
+
+	}
+
+	@Override
+	public FileModel getFile(String fileId) {
+
+		return dbFileRepository.findById(fileId)
+		  .orElseThrow(() -> new MyFileNotFoundException("File not found with id " + fileId));
+	}
+
+}

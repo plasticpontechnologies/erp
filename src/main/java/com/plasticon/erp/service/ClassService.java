@@ -8,27 +8,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.plasticon.erp.model.ClassDetails;
-import com.plasticon.erp.model.UserDetails;
-import com.plasticon.erp.repository.ClassRepository;
+import com.plasticon.erp.repository.classRepository;
+
+
 
 
 @Service
+
 public class ClassService {
 	@Autowired
-	ClassRepository classRepository;
+	classRepository cRepository;
 		public List<ClassDetails> getClassDetails() {
-			return classRepository.findAll();
+			return cRepository.findAll();
 
 		}
 		public void saveClassDetails(ClassDetails cla) {
-			classRepository.save(cla);
+			cRepository.save(cla);
 			
 		
 
 		}
 		@Transactional
 		public void removeClassDetails(int id) {
-			classRepository.deleteById(id);
+			cRepository.deleteById(id);
 		}
 
 }

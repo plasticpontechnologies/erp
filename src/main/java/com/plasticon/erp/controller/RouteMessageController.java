@@ -21,7 +21,7 @@ public class RouteMessageController {
 
 	
 	@Autowired
-	public RouteMessageService routemessageService;
+	RouteMessageService routemessageService;
 	
 	@RequestMapping(value = "/getRouteMessageDetails", method = RequestMethod.GET)
 	public List<RouteMessage>  getRouteMessageData() {
