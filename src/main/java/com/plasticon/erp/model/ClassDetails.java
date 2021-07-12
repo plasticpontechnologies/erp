@@ -22,7 +22,7 @@ import lombok.Data;
 
 public class ClassDetails {
 	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
