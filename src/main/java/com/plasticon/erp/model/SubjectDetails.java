@@ -35,5 +35,11 @@ public class SubjectDetails {
 	 @OneToMany(targetEntity = QuestionsBank.class)
 	 private List<QuestionsBank> questions;
 	 
+		
+	  @JsonIgnore
+	  @OneToMany(targetEntity = CreateOnlineExamInfo.class) private
+	  List<CreateOnlineExamInfo> examinfo;
+		 
+	 
 
 }

@@ -33,8 +33,8 @@ public class SubjectService {
 			subjectRepository.deleteById(id);
 		}
 		
-		public List<SubjectDetails> findAllActiveUsers(int clsId) {
-			return subjectRepository.findAllActiveUsers(clsId);
+		public List<SubjectDetails> findByClas(int clsId) {
+			return subjectRepository.findByClas(clsId);
 		}
 
 }
