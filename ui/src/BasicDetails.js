@@ -10,6 +10,7 @@ import {
   BiEdit,
 } from "react-icons/bi";
 
+
 export default class BasicDetails extends Component {
   refresh = () => {
     window.location.reload(false);
@@ -17,7 +18,7 @@ export default class BasicDetails extends Component {
   constructor(props) {
     super(props);
     this.fullscreenModal = React.createRef();
-    this.state = { isActive: true, issActive: true, values: [] };
+    this.state = { isActive: true, issActive: true, iyActive: true, ieyActive: false, values: [], name: 'React', };
     this.handleBack = this.handleBack.bind(this);
   }
   handleBack() {
@@ -38,6 +39,20 @@ export default class BasicDetails extends Component {
   haandleShow = () => {
     this.setState({ issActive: false });
   };
+  andleHide = () => {
+    this.setState({ iyActive: true });
+  };
+  andleShow = () => {
+    this.setState({ iyActive: true });
+  };
+  aandsleShow = () => {
+    this.setState({ ieyActive: false });
+  };
+  aandsleHide = () => {
+    this.setState({ ieyActive: true });
+  };
+
+
 
   render() {
     return (
@@ -137,16 +152,14 @@ export default class BasicDetails extends Component {
                       <-----------------Body Matter------------------------------------->
                       <----------------------------------------------------------------->
                        */}
-                       <h1>hello</h1>
-                      </div>
-                    )}
-                  </div>
+                        </div>
+                    )}</div>
                 </article>
               </div>
             </section>
           </div>
-        )}
-      </div>
+        )}</div>
+
     );
   }
 }

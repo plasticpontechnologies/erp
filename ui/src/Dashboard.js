@@ -145,6 +145,34 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+                    <div className="dashbox">
+                    <Link to="/viewstudent">
+                    <div className="inner">
+                    <h1>view student</h1>
+                    </div>
+                    </Link>
+                    </div>
+                    <div className="dashbox">
+                    <Link to="/Admitionmasterentry">
+                    <div className="inner">
+                    <h1>Ad master</h1>
+                    </div>
+                    </Link>
+                    </div>
+                    <div className="dashbox">
+                    <Link to="/Staffmaster">
+                    <div className="inner">
+                    <h1>stm</h1>
+                    </div>
+                    </Link>
+                    </div>
+                    <div className="dashbox">
+                    <Link to="/Staffposition">
+                    <div className="inner">
+                    <h1>staff Position</h1>
+                    </div>
+                    </Link>
+                    </div>
                </div>
              </div>
              

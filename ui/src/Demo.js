@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { BiEdit } from "react-icons/bi";
-import { METHOD_TYPES } from "@babel/types";
+
 class Demo extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +11,7 @@ class Demo extends Component {
       dishPrice: "",
       menu: [],
     };
+    
   }
   componentDidMount() {
     this.fetchmenu();
@@ -27,7 +28,7 @@ class Demo extends Component {
 
     axios
       .post(
-        "http://83.136.219.101:8080/erp/canteen/saveDishDetails",
+        "http://83.136.219.101:8080/erp/admission/saveAdmissionProcessMasterEntry",
         this.state
       )
       .then((response) => {

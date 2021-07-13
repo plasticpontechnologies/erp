@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "./BasicDetails.css";
+
 import {
   BiRefresh,
   BiStar,
@@ -8,9 +8,9 @@ import {
   BiExpand,
   BiX,
   BiEdit,
-  BiTable,
-  BiSearch,
 } from "react-icons/bi";
+import { MdDeleteSweep } from "react-icons/md"
+import axios from "axios";
 
 export default class Subject extends Component {
   refresh = () => {
@@ -22,8 +22,13 @@ export default class Subject extends Component {
     this.state = {
       isActive: true,
       issActive: true,
-      values: [],
+      sclass: [],
+      subject:[],
+      
+      subjectName: "",
+      clId: "",
     };
+    this.changeHandler = this.changeHandler.bind(this);
     this.handleBack = this.handleBack.bind(this);
   }
   handleBack() {
@@ -44,23 +49,96 @@ export default class Subject extends Component {
   haandleShow = () => {
     this.setState({ issActive: false });
   };
+
+  changeHandler = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  Submitdata = (e) => {
+    console.log(this.state);
+    e.preventDefault();
+    console.log(this.state);
+
+
+    axios
+      .post(
+        "http://83.136.219.101:8080/erp/subject/saveSubjectDetails",
+        this.state
+      )
+      .then((response) => {
+        console.log(response);
+        alert("Data Add Successfully")
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   componentDidMount() {
-    this.fetchOptions();
+    this.fetchclass();
+    this.fetchdata();
   }
 
-  fetchOptions() {
-    fetch("http://83.136.219.101:8080/erp/cla/getClassDetails")
+  fetchclass() {
+    fetch("http://83.136.219.101:8080/erp/classes/getClassDetails")
       .then(function (res) {
         return res.json();
       })
       .then((json) => {
         this.setState({
-          values: json,
+          sclass: json,
         });
       });
   }
+  fetchdata() {
+    fetch("http://83.136.219.101:8080/erp/subject/getSubjectDetails")
+      .then(function (resdata) {
+        return resdata.json();
+      })
+      .then((json) => {
+        this.setState({
+          subject: json,
+        });
+      });
+  }
+  delete = (ItemId) => {
+    if (window.confirm("aer you sure you want to delete"))
+      axios
+        .delete(
+          "http://83.136.219.101:8080/erp/subject/removeSubjectDetails/" + ItemId
+        )
+
+        .then((res) => {
+          console.log(res);
+          alert("data deleted successfully");
+
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+  };
+  getRecord = (referenceTypeName) => {
+    const obj = this.state.reference.find((item) => item.referenceTypeName === referenceTypeName);
+    return obj;
+  };
+  onEdit = (referenceTypeName) => {
+    const tempProduct = this.state.reference;
+    const index = tempProduct.indexOf(this.getRecord(referenceTypeName));
+    const selectedRecord = tempProduct[index];
+    this.setState({
+      apId: selectedRecord["apId"],
+      referenceTypeName: selectedRecord["referenceTypeName"],
+      status: selectedRecord["status"],
+    });
+  };
 
   render() {
+    const {
+      subjectName
+    } = this.state;
     return (
       <div className="App">
         <div id="masterE">
@@ -72,8 +150,8 @@ export default class Subject extends Component {
             </span>
           </span>
           <ol className="crumb">
-            <li>Subject</li>
             <li>Create Subject</li>
+
           </ol>
 
           <div style={{ float: "right" }}>
@@ -106,7 +184,7 @@ export default class Subject extends Component {
             show={this.state.show}
             handleClose={this.hideModal}
             className="ng-scope"
-            style={{ opacity: "1" }}
+            style={{ opacity: "5" }}
           >
             <section>
               <div className="row">
@@ -149,143 +227,148 @@ export default class Subject extends Component {
                           <BiEdit />
                         </i>
                       </span>
-                      <h2>Add Subject</h2>
+                      <h2>Add Reference</h2>
                     </header>
                     {this.state.isActive && (
                       <div>
-                        <div role="content">
-                          <div className="jarviswidget-editbox"></div>
-                          <div className="widget-body no-padding">
-                            <form
-                              id="addsubject"
-                              method="post"
-                              action="#"
-                              className="smart-form ng-pristine ng-valid"
-                              onSubmit={this.handleSubmit}
+                        {/* 
+                                                <----------------------------------------------------------------->
+                                                <-----------------Body Matter------------------------------------->
+                                                <----------------------------------------------------------------->
+                                                */}
+                        <form
+                          id="addsubject"
+                          method="post"
+                          action="#"
+                          className="smart-form ng-pristine ng-valid"
+                          onSubmit={this.Submitdata}
+                        >
+                          <fieldset>
+                            <section>
+                              <label
+                                className="label ng-binding"
+                                ng-init="subjectName='SubjectName'"
+                              >
+                                Create Sudject
+                              </label>
+                              <label className="input">
+                                <input
+                                  type="text"
+                                  title="Add Reference"
+                                  addonBefore="First Name"
+                                  className="input-sm"
+                                  name="subjectName"
+                                  data-parse="uppercase"
+                                  value={subjectName}
+                                  placeholder="Add Subject"
+                                  onChange={this.changeHandler}
+                                  required
+                                ></input>
+                              </label>
+                            </section>
+
+                            <section>
+                              <label
+                                className="label ng-binding"
+                                ng-init="Abbreviation='Abbreviation'"
+                              >
+                                Class
+                              </label>
+                              <label className="input">
+                                <select value={this.state.clId} name="clId" onChange={this.changeHandler} title="select your option">
+                                  <option>---select---</option>
+                                  {this.state.sclass.map((obj) => {
+                                    return (
+                                      <option value={obj.clId}>{obj.className}</option>
+                                    );
+                                  })}
+                                </select>
+                              </label>
+                            </section>
+
+
+                          </fieldset>
+
+                          <footer>
+                            <button
+                              type="submit"
+                              id="submit"
+                              class="btn btn-primary ng-binding"
+                              ng-init="Save='Save'"
+                              onClick={this.fetchdata()}
                             >
-                              <fieldset>
-                                <section>
-                                  <label
-                                    className="label ng-binding"
-                                    ng-init="subjectName='SubjectName'"
-                                  >
-                                    Subject Name
-                                  </label>
-                                  <label className="input">
-                                    <input
-                                      type="text"
-                                      addonBefore="First Name"
-                                      className="input-sm"
-                                      name="subject_name"
-                                      data-parse="uppercase"
-                                      id="SubjectName"
-                                      placeholder="Subject Name"
-                                    ></input>
-                                  </label>
-                                </section>
+                              Save
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-default ng-binding"
+                              onClick={this.handleBack}
+                            >
+                              Back
+                            </button>
+                          </footer>
+                        </form>
+                        <br />
+                        <hr />
+                        <div>
+                          <table className="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>Action</th>
+                                <th>Reference Type</th>
+                                <th>Status</th>
 
-                                <section>
-                                  <label
-                                    className="label ng-binding"
-                                    ng-init="Abbreviation='Abbreviation'"
-                                  >
-                                    Abbreviation
-                                  </label>
-                                  <label className="input">
-                                    <input
-                                      type="text"
-                                      className="input-sm"
-                                      name="abbreviation"
-                                      data-parse="date"
-                                      id="Abbreviation"
-                                      placeholder="Abbreviation"
-                                    ></input>
-                                  </label>
-                                </section>
-
-                                <section>
-                                  <div class="">
-                                    <label
-                                      class="label ng-binding"
-                                      ng-init="Class='Class'"
+                              </tr>
+                            </thead>
+                            {/* {this.state.class.map((obj) => {
+                              return (
+                                <tr key={obj.apId}>
+                                  <th>
+                                    <i style={{ fontSize: "20px" }} title="Delete"
+                                      onClick={() =>
+                                        this.delete(obj.apId)
+                                      }
                                     >
-                                      Class
-                                    </label>
-                                    <select style={{ height: "30px" }}>
-                                      <option value="">Select Class</option>
-                                      {this.state.values.map((obj) => {
-                                        return (
-                                          <option value={obj.id}>
-                                            {obj.className}
-                                          </option>
-                                        );
-                                      })}
-                                    </select>
-                                  </div>
-                                </section>
-                              </fieldset>
+                                      <MdDeleteSweep />
 
-                              <footer>
-                                <button
-                                  type="button"
-                                  id="submit"
-                                  class="btn btn-primary ng-binding"
-                                  ng-init="Save='Save'"
-                                >
-                                  Save
-                                </button>
-                                <button
-                                  type="button"
-                                  class="btn btn-default ng-binding"
-                                  onClick={this.handleBack}
-                                >
-                                  Back
-                                </button>
-                              </footer>
-                              <article className="col-sm-12 col-md-12 col-lg-5">
-                                <div className="col-xs-12 col-sm-6">
-                                  <div
-                                    id="canteen_basic_filter"
-                                    className="canteen_filter"
-                                  ></div>
-                                </div>
-                                <div style={{ paddingTop: "10px" }}>
-                                  <table>
-                                    <tr>
-                                      <th>Action</th>
-                                      <th>dishName</th>
-                                      <th>dishPrice</th>
-                                    </tr>
-                                    <tr>
-                                      <th>
-                                        <button
-                                          // onClick={() =>
-                                          //   this.onEdit(obj.dishName)
-                                          // }
-                                          className="btn"
-                                        >
-                                          Update
-                                        </button>
-                                        <button
-                                          style={{ marginLeft: "10px" }}
-                                          // onClick={() =>
-                                          //   this.deleteEmployee(obj.dishId)
-                                          // }
-                                          className="btnndanger"
-                                        >
-                                          Delete
-                                        </button>
-                                      </th>
-                                      <th>dishName</th>
-                                      <th>dishPrice</th>
-                                    </tr>
-                                  </table>
-                                </div>
-                              </article>
-                            </form>
-                          </div>
+                                    </i>
+
+                                    <i style={{ fontSize: "20px" }} title="Edit"
+                                      onClick={() => this.onEdit(obj.referenceTypeName)}
+                                    >
+                                      <BiEdit />
+
+                                    </i>
+                                  </th>
+                                  <th>{obj.referenceTypeName}</th>
+                                  <th>{obj.status}</th>
+
+
+                                </tr>
+                              );
+                            })} */}
+                          </table>
                         </div>
+                        <footer>
+                          <div className="col-xs-12 col-sm-6">
+                            <div className="dataTables_paginate paging_simple_numbers" id="dt_basic_paginate">
+                              <ul className="pagination pagination-sm">
+                                <li className="paginate_button previous disabled" aria-controls="dt_basic" tabindex="0" id="dt_basic_previous">
+                                  <a href="#">Previous</a>
+                                </li>
+                                <li className="paginate_button active" aria-controls="dt_basic" tabindex="0">
+                                  <a href="#">1</a>
+                                </li>
+
+                                <li className="paginate_button next" aria-controls="dt_basic" tabindex="0" id="dt_basic_next">
+                                  <a href="#">Next</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </footer>
                       </div>
+
                     )}
                   </div>
                 </article>
@@ -297,3 +380,5 @@ export default class Subject extends Component {
     );
   }
 }
+
+

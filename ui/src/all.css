@@ -2285,7 +2285,7 @@ a {
 }
 
 .bootstrapWizard li .title {
-  color: #bfbfbf;
+  color: #000000;
   display: block;
   font-size: 13px;
   line-height: 15px;
@@ -2344,4 +2344,25 @@ a {
 }
 .button1 {
   background-color: rgba(223, 219, 219, 0.76);
+}
+
+.bootstrapWizard li:first-child:before {
+  left: 50%;
+  max-width: 50%;
+}
+.bootstrapWizard li:before {
+  border-top: 3px solid #55606E;
+  content: "";
+  display: block;
+  font-size: 0;
+  overflow: hidden;
+  position: relative;
+  top: 11px;
+  right: 1px;
+  width: 100%;
+  z-index: 1;
+}
+.bootstrapWizard li:last-child:before {
+  max-width: 50%;
+  width: 50%;
 }

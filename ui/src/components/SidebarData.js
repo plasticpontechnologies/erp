@@ -717,7 +717,7 @@ export const SidebarData = [
       },
       {
         title: " View Students ",
-        path: "/ View Students",
+        path: "/viewstudent",
       },
       {
         title: "  Student Upload",

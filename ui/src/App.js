@@ -29,6 +29,9 @@ import Demo from "./Demo";
 import Softwaredetails from "./Softwaredetails";
 import BasicDetails from "./BasicDetails";
 import Dishes from "./Dishes";
+import viewstudent from "./Viewstudent";
+import Admaster from "./Admissionmasterentry";
+import Staffposition from "./staffPosition";
 
 function App() {
   return (
@@ -56,6 +59,9 @@ function App() {
         <Route path="/Gallery/StudentOfTheMonth" exact component={StudentOfTheMonth} />
         <Route path="/Canteen/Dishes" exact component={Dishes}/>
         <Route path="/BasicDetails" exact component={BasicDetails}/>
+        <Route path="/viewstudent" exact component={viewstudent}/>
+        <Route path="/Admitionmasterentry" exact component={Admaster}/>
+        <Route path="/Staffposition" exact component={Staffposition}/>
       </Switch>
     </Router>
   );

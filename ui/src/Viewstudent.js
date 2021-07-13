@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-// import "./BasicDetails.css";
+import axios from "axios";
+
 import {
   BiRefresh,
   BiStar,
@@ -10,17 +11,19 @@ import {
   BiEdit,
 } from "react-icons/bi";
 
-export default class HomeWork extends Component {
+export default class viewstudent extends Component {
   refresh = () => {
     window.location.reload(false);
   };
   constructor(props) {
     super(props);
     this.fullscreenModal = React.createRef();
+    this.state = {
+      isActive: true,
+      issActive: true,
+      viewstudent: [],
+    };
     this.handleBack = this.handleBack.bind(this);
-
-
-    this.state = { isActive: true, issActive: true, homework: [], isdisable: true };
   }
   handleBack() {
     this.props.history.goBack();
@@ -41,26 +44,48 @@ export default class HomeWork extends Component {
     this.setState({ issActive: false });
   };
   componentDidMount() {
-    this.fetchOptions();
-  }
-  mojaDisabled = () => {
-    this.setState({ isdisable: false })
+    this.fetchmenu();
   }
 
-  fetchOptions() {
-    fetch("http://83.136.219.101:8080/erp/classes/getClassDetails")
+  fetchmenu() {
+    fetch("http://83.136.219.101:8080/erp/viewstudents/getViewStudentsDetails")
       .then(function (res) {
         return res.json();
       })
       .then((json) => {
         this.setState({
-          homework : json,
+          viewstudent: json,
         });
       });
   }
+  delete = (ItemId) => {
+    if (window.confirm("aer you sure you want to delete"))
+      axios
+        .delete(
+          "http://83.136.219.101:8080/erp/viewstudents/removeViewStudents/" +
+            ItemId
+        )
 
+        .then((res) => {
+          console.log(res);
+          alert("data deleted successfully");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  };
 
   render() {
+    const {
+      admissionNumber,
+      classRegistered,
+      dateOfRegistration,
+      fatherName,
+      mobile,
+      studentDeviceId,
+      studentName,
+      studentsId,
+    } = this.state;
     return (
       <div className="App">
         <div id="masterE">
@@ -72,8 +97,8 @@ export default class HomeWork extends Component {
             </span>
           </span>
           <ol className="crumb">
-            <li>HomeWork</li>
-            <li>Create HomeWork</li>
+            <li>Student</li>
+            <li>View Stident</li>
           </ol>
 
           <div style={{ float: "right" }}>
@@ -149,7 +174,7 @@ export default class HomeWork extends Component {
                           <BiEdit />
                         </i>
                       </span>
-                      <h2>Create HomeWork</h2>
+                      <h2>View Student</h2>
                     </header>
                     {this.state.isActive && (
                       <div>
@@ -158,80 +183,73 @@ export default class HomeWork extends Component {
                       <-----------------Body Matter------------------------------------->
                       <----------------------------------------------------------------->
                        */}
-                        <div class="widget-body no-padding">
-                          <form
-                            action="#"
-                            id=""
-                            className="smart-form ng-pristine ng-valid"
-                          >
-                            <fieldset>
-                              <div className="row">
-                                <section class="col col-2 form group">
-                                  <label className="label ng-binding">
-                                    Class
-                                  </label>
-                                  <label className="input">
-                                    <select
-                                      className="select2-container select2"
-                                      id="class"
-                                      name="class"
-                                      required
-                                      placeholder="select"
+                        <div>
+                          <table className="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>Action</th>
+                                <th>Student Name</th>
+                                <th>Admission Number</th>
+                                <th>Father Name</th>
+                                <th>Mobile</th>
+                                <th>Class Registred</th>
+                                <th>Date Of Registration</th>
+                                <th>Student DeviceID</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            {this.state.viewstudent.map((obj) => {
+                              return (
+                                <tr key={obj.studentsId}>
+                                  <th>
+                                    <button
+                                      onClick={() =>
+                                        this.delete(obj.studentsId)
+                                      }
                                     >
-                                      <option value="" >Select Class</option>
-                                      {this.state.homework.map((obj) => {
-                                        return (
-                                          <option value ={obj.clId}>{obj.className}</option>
-                                        );
-                                      })}
-                                    </select>
-                                  </label>
-                                </section>
-
-                                <section>
-                                  <label
-                                    className="label ng-binding"
-                                    ng-init="Subject='Subject'"
-                                  >
-                                    Subject
-                                  </label>
-                                  <label className="input">
-                                    <select
-                                      className="select2-container select2"
-                                      id="subject"
-                                      name="subject"
-                                      required
-                                    >
-                                      <option>Select Class</option>
-                                    </select>
-                                  </label>
-                                </section>
-                              </div>
-                            </fieldset>
-                            <footer>
-                              <button
-                                type="button"
-                                id="submit"
-                                class="btn btn-primary ng-binding"
-                              >
-                                Save
-                              </button>
-                              <button
-                                type="button"
-                                class="btn btn-default ng-binding"
-                                onClick={this.handleBack}
-                              >
-                                Back
-                              </button>
-                            </footer>
-                          </form>
+                                      <BiEdit />
+                                    </button>
+                                  </th>
+                                  <th>{obj.studentName}</th>
+                                  <th>{obj.admissionNumber}</th>
+                                  <th>{obj.fatherName}</th>
+                                  <th>{obj.mobile}</th>
+                                  <th>{obj.classRegistered}</th>
+                                  <th>{obj.dateOfRegistration}</th>
+                                  <th>{obj.studentDeviceId}</th>
+                                </tr>
+                              );
+                            })}
+                          </table>
                         </div>
+                        <footer>
+                            <div className="col-xs-12 col-sm-6">
+                              <div className="dataTables_paginate paging_simple_numbers" id="dt_basic_paginate">
+                                <ul className="pagination pagination-sm">
+                                  <li className="paginate_button previous disabled" aria-controls="dt_basic" tabindex="0" id="dt_basic_previous">
+                                    <a href="#">Previous</a>
+                                  </li>
+                                  <li className="paginate_button active" aria-controls="dt_basic" tabindex="0">
+                                    <a href="#">1</a>
+                                  </li>
+
+                                  <li className="paginate_button next" aria-controls="dt_basic" tabindex="0" id="dt_basic_next">
+                                    <a href="#">Next</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </footer>
                       </div>
                     )}
+                    
                   </div>
+                  
                 </article>
+                
               </div>
             </section>
+            
           </div>
         )}
       </div>

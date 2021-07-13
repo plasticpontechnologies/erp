@@ -216,7 +216,7 @@ class Dishes extends Component {
                       {this.state.isActive && (
                         <div>
                           <form
-                            className="entry-form"
+                            
                             onSubmit={this.submitHandler}
                           >
                             <section>
