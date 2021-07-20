@@ -37,8 +37,8 @@ public class SubjectDetails {
 	 
 		
 	  @JsonIgnore
-	  @OneToMany(targetEntity = CreateOnlineExamInfo.class) private
-	  List<CreateOnlineExamInfo> examinfo;
+	  @OneToMany(targetEntity = CreateOnlineExamInfo.class)
+	  private List<CreateOnlineExamInfo> examinfo;
 		 
 	 
 

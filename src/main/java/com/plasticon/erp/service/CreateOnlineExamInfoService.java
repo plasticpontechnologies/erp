@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.plasticon.erp.model.CreateOnlineExamInfo;
-import com.plasticon.erp.model.SubjectDetails;
 import com.plasticon.erp.repository.CreateOnlineExamInfoRepository;
 
 
