@@ -19,7 +19,7 @@ import Events from "./Events";
 import Message from "./Message.js";
 import Studentattend from "./Student_attendance";
 import Feepayment from "./Feepayment";
-import Staff_reg from "./Staff_reg";
+import Staff_reg from "./staff_Reg";
 import Staffattendence from "./Staffattendence";
 import Gallery from "./Gallery";
 import Gallery_image from "./Galleryimage";
@@ -32,6 +32,9 @@ import Dishes from "./Dishes";
 import viewstudent from "./Viewstudent";
 import Admaster from "./Admissionmasterentry";
 import Staffposition from "./staffPosition";
+import staffDocument from "./staffDocument";
+import Schooldepartment from "./schoolDepartment";
+
 
 function App() {
   return (
@@ -50,7 +53,7 @@ function App() {
         <Route path="/Attendance/Staffattendance" exact component={Staffattendence}/>
         <Route path="/Attendance/Studentattend" exact component={Studentattend} />
         <Route path="/Communicate/Sendmessage" exact component={Message} />
-        <Route path="/Managestaff/Staffregistration" exact component={Staff_reg} />
+        <Route path="/Staffregistration" exact component={Staff_reg}/>
         <Route path="/Gallery" exact component={Gallery} />
         <Route path="/Gallery/Gallery_image" exact component={Gallery_image} />
         <Route path="/Demo" exact component={Demo} />
@@ -62,6 +65,8 @@ function App() {
         <Route path="/viewstudent" exact component={viewstudent}/>
         <Route path="/Admitionmasterentry" exact component={Admaster}/>
         <Route path="/Staffposition" exact component={Staffposition}/>
+        <Route path="/StaffDocument" exact component={staffDocument}/>
+        <Route path="/SchoolDepartment" exact component={Schooldepartment}/>
       </Switch>
     </Router>
   );

@@ -111,7 +111,7 @@ export default class Dashboard extends Component{
                     </Link>
                     </div>
                     <div className="dashbox">
-                    <Link to="/Managestaff/Staffregistration">
+                    <Link to="/Staffregistration">
                     <div className="inner">
                     <BsFillPersonPlusFill className="icon_color"/> Staff Registration
                     </div>
@@ -173,6 +173,21 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+                    <div className="dashbox">
+                    <Link to="/StaffDocument">
+                    <div className="inner">
+                    <h1>staff Document</h1>
+                    </div>
+                    </Link>
+                    </div>
+                    <div className="dashbox">
+                    <Link to="/SchoolDepartment">
+                    <div className="inner">
+                    <h1>School Department</h1>
+                    </div>
+                    </Link>
+                    </div>
+                    
                </div>
              </div>
              

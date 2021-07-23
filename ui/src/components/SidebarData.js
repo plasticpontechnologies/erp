@@ -566,7 +566,7 @@ export const SidebarData = [
       },
       {
         title: "  Staff Registration",
-        path: "/Managestaff/Staffregistration",
+        path: "/Staffregistration",
       },
       {
         title: "  Staff Upload",

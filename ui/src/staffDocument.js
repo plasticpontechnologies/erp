@@ -12,7 +12,7 @@ import {
 import { MdDeleteSweep } from "react-icons/md"
 import axios from "axios";
 
-export default class Staffposition extends Component {
+export default class staffDocument extends Component {
     refresh = () => {
         window.location.reload(false);
     };
@@ -23,8 +23,8 @@ export default class Staffposition extends Component {
             isActive: true,
             issActive: true,
             position: [],
-            pid: "",
-            staffPosition: "",
+            docId: "",
+            staffDocument: "",
 
         };
         this.changeHandler = this.changeHandler.bind(this);
@@ -35,7 +35,7 @@ export default class Staffposition extends Component {
     }
 
     fetchmenu() {
-        fetch("http://83.136.219.101:8080/erp/p/getPositionDetails")
+        fetch("http://83.136.219.101:8080/erp/staffdoc/getStaffDocumentDetails")
             .then(function (res) {
                 return res.json();
             })
@@ -78,7 +78,7 @@ export default class Staffposition extends Component {
 
         axios
             .post(
-                "http://83.136.219.101:8080/erp/p/savePositionDetails",
+                "http://83.136.219.101:8080/erp/staffdoc/saveStaffDocumentDetails",
                 this.state
             )
             .then((response) => {
@@ -95,7 +95,7 @@ export default class Staffposition extends Component {
         if (window.confirm("aer you sure you want to delete"))
             axios
                 .delete(
-                    "http://83.136.219.101:8080/erp/p/removePositionDetails/" + ItemId
+                    "http://83.136.219.101:8080/erp/staffdoc/removeStaffDocumentDetails/" + ItemId
                 )
 
                 .then((res) => {
@@ -108,23 +108,23 @@ export default class Staffposition extends Component {
                 });
 
     };
-    getRecord = (staffPosition) => {
-        const obj = this.state.staffPosition.find((item) => item.staffPosition === staffPosition);
+    getRecord = (staffDocument) => {
+        const obj = this.state.staffDocument.find((item) => item.staffDocument === staffDocument);
         return obj;
     };
-    onEdit = (staffPosition) => {
-        const tempProduct = this.state.staffPosition;
-        const index = tempProduct.indexOf(this.getRecord(staffPosition));
+    onEdit = (staffDocument) => {
+        const tempProduct = this.state.staffDocument;
+        const index = tempProduct.indexOf(this.getRecord(staffDocument));
         const selectedRecord = tempProduct[index];
         this.setState({
-            pid: selectedRecord["pid"],
-            staffPosition: selectedRecord["staffPosition"],
+            docId: selectedRecord["docId"],
+            staffDocument: selectedRecord["staffDocument"],
         });
     };
 
     render() {
         const {
-            staffPosition
+            staffDocument
         } = this.state;
         return (
             <div className="App">
@@ -138,7 +138,7 @@ export default class Staffposition extends Component {
                     </span>
                     <ol className="crumb">
                         <li>Admission</li>
-                        <li>Staff Position</li>
+                        <li>Staff Document</li>
 
                     </ol>
 
@@ -215,7 +215,7 @@ export default class Staffposition extends Component {
                                                     <BiEdit />
                                                 </i>
                                             </span>
-                                            <h2>Add Position</h2>
+                                            <h2>Add Document</h2>
                                         </header>
                                         {this.state.isActive && (
                                             <div>
@@ -237,7 +237,7 @@ export default class Staffposition extends Component {
                                                                 className="label ng-binding"
                                                                 ng-init="subjectName='SubjectName'"
                                                             >
-                                                                Staff Position
+                                                                Staff Document
                                                             </label>
                                                             <label className="input">
                                                                 <input
@@ -245,10 +245,10 @@ export default class Staffposition extends Component {
                                                                     title="Add Reference"
                                                                     addonBefore="First Name"
                                                                     className="input-sm"
-                                                                    name="staffPosition"
+                                                                    name="staffDocument"
                                                                     data-parse="uppercase"
-                                                                    value={staffPosition}
-                                                                    placeholder="Position"
+                                                                    value={staffDocument}
+                                                                    placeholder="Add Document"
                                                                     onChange={this.changeHandler}
                                                                     required
                                                                 ></input>
@@ -287,18 +287,18 @@ export default class Staffposition extends Component {
                                                         <thead>
                                                             <tr>
                                                                 <th>Action</th>
-                                                                <th>position</th>
+                                                                <th>Document</th>
 
 
                                                             </tr>
                                                         </thead>
                                                         {this.state.position.map((obj) => {
                                                             return (
-                                                                <tr key={obj.pid}>
+                                                                <tr key={obj.docId}>
                                                                     <th>
                                                                         <i style={{ fontSize: "20px" }} title="Delete"
                                                                             onClick={() =>
-                                                                                this.delete(obj.pid)
+                                                                                this.delete(obj.docId)
                                                                             }
                                                                         >
                                                                             <MdDeleteSweep />
@@ -306,13 +306,13 @@ export default class Staffposition extends Component {
                                                                         </i>
 
                                                                         <i style={{ fontSize: "20px" }} title="Edit"
-                                                                            onClick={() => this.onEdit(obj.staffPosition)}
+                                                                            onClick={() => this.onEdit(obj.staffDocument)}
                                                                         >
                                                                             <BiEdit />
 
                                                                         </i>
                                                                     </th>
-                                                                    <th>{obj.staffPosition}</th>
+                                                                    <th>{obj.staffDocument}</th>
 
 
 

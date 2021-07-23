@@ -195,7 +195,7 @@ export default class viewstudent extends Component {
                                 <th>Class Registred</th>
                                 <th>Date Of Registration</th>
                                 <th>Student DeviceID</th>
-                                <th></th>
+                                
                               </tr>
                             </thead>
                             {this.state.viewstudent.map((obj) => {

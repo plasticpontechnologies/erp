@@ -22,11 +22,25 @@ export default class Subject extends Component {
     this.state = {
       isActive: true,
       issActive: true,
-      sclass: [],
-      subject:[],
+      sclass: [
+        {
+        clas:{
+
       
+          'clId':parseInt([]) 
+           }
+          }
+      ],
+
+
+
       subjectName: "",
-      clId: "",
+     
+
+
+
+      
+
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.handleBack = this.handleBack.bind(this);
@@ -56,29 +70,35 @@ export default class Subject extends Component {
     });
   };
 
-  Submitdata = (e) => {
-    console.log(this.state);
+  submitHandler = (e) => {
     e.preventDefault();
-    console.log(this.state);
 
-
-    axios
-      .post(
-        "http://83.136.219.101:8080/erp/subject/saveSubjectDetails",
-        this.state
-      )
-      .then((response) => {
-        console.log(response);
-        alert("Data Add Successfully")
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (this.state.sclass.clId !== ""&& this.state.sclass.className !== "") {
+      console.log(this.state);
+      axios
+        .post(
+          "http://83.136.219.101:8080/erp/subject/saveSubjectDetails",
+          this.state
+        )
+        .then((res) => {
+          this.setState({
+            clas:{
+            'clId':"",
+            'className':""
+            }
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      alert("All fields are required ");
+    }
   };
 
   componentDidMount() {
     this.fetchclass();
-    this.fetchdata();
+    // this.fetchdata();
   }
 
   fetchclass() {
@@ -92,17 +112,17 @@ export default class Subject extends Component {
         });
       });
   }
-  fetchdata() {
-    fetch("http://83.136.219.101:8080/erp/subject/getSubjectDetails")
-      .then(function (resdata) {
-        return resdata.json();
-      })
-      .then((json) => {
-        this.setState({
-          subject: json,
-        });
-      });
-  }
+  // fetchdata() {
+  //   fetch("http://83.136.219.101:8080/erp/subject/getSubjectDetails")
+  //     .then(function (resdata) {
+  //       return resdata.json();
+  //     })
+  //     .then((json) => {
+  //       this.setState({
+  //         subject: json,
+  //       });
+  //     });
+  // }
   delete = (ItemId) => {
     if (window.confirm("aer you sure you want to delete"))
       axios
@@ -137,8 +157,14 @@ export default class Subject extends Component {
 
   render() {
     const {
-      subjectName
+      subjectName, 
     } = this.state;
+    const {
+      sclass:{clas:{clId,className}}
+    } = this.state;
+    
+    console.log(clId,);
+
     return (
       <div className="App">
         <div id="masterE">
@@ -241,7 +267,7 @@ export default class Subject extends Component {
                           method="post"
                           action="#"
                           className="smart-form ng-pristine ng-valid"
-                          onSubmit={this.Submitdata}
+                          onSubmit={this.submitHandler}
                         >
                           <fieldset>
                             <section>
@@ -274,14 +300,17 @@ export default class Subject extends Component {
                               >
                                 Class
                               </label>
-                              <label className="input">
-                                <select value={this.state.clId} name="clId" onChange={this.changeHandler} title="select your option">
+                              <label className="input" value={clId} name="clId">
+                                <select value={className} name="className" onChange={this.changeHandler} title="select your option">
                                   <option>---select---</option>
-                                  {this.state.sclass.map((obj) => {
+                                  {this.state.sclass.map((obj) => { 
+
                                     return (
-                                      <option value={obj.clId}>{obj.className}</option>
+                                      <option value={obj.className}  key={(obj.clId)}> 
+                                        {obj.className}</option>
                                     );
-                                  })}
+                                  })
+                                  }
                                 </select>
                               </label>
                             </section>
@@ -295,7 +324,7 @@ export default class Subject extends Component {
                               id="submit"
                               class="btn btn-primary ng-binding"
                               ng-init="Save='Save'"
-                              onClick={this.fetchdata()}
+                            // onClick={this.fetchdata()}
                             >
                               Save
                             </button>
