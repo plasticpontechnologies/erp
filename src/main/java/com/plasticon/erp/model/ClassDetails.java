@@ -38,5 +38,7 @@ public class ClassDetails {
 	@OneToMany(targetEntity = SectionDetails.class)
 	private Set<SectionDetails> sec;
 
-
+@JsonIgnore
+@OneToMany
+private List<ClassWiseImages> claimg;
 }

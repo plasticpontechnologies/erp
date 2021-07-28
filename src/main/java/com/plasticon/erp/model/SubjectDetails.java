@@ -25,7 +25,7 @@ public class SubjectDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private int SubId;
-	private String subjectName;
+	private String subjectName;  
 	
 	
 	 @ManyToOne

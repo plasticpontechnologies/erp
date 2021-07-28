@@ -1,5 +1,7 @@
 package com.plasticon.erp.model;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +22,7 @@ public class Holidays {
 	private String day;
 	
 	private String title;
-	private String startDate;
-	private String endDate;
+	private Date startDate;
+	private Date endDate;
 
 }
