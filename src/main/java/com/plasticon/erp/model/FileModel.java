@@ -15,10 +15,9 @@ import lombok.Data;
 @Data
 @Table(name="FILE_DB")
 public class FileModel {
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private int fileId;
 	private String fileName;
 	//private String fileType;
 

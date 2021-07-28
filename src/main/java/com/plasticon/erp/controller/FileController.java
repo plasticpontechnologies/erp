@@ -53,7 +53,6 @@ public class FileController {
 	
 
 
-
 	@DeleteMapping(value = "/delete/{fileId}")
 	public void delete(@PathVariable int fileId) {
 		fileStorageService.deleteFile(fileId);

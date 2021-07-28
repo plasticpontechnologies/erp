@@ -48,13 +48,11 @@ public class FileStorageServiceImpl implements FileStorageService {
 		return dbFileRepository.findById(fileId)
 		  .orElseThrow(() -> new MyFileNotFoundException("File not found with id " + fileId));
 	}
-
 	@Override
 	public void deleteFile(int fileId) {
 		// TODO Auto-generated method stub
 		 dbFileRepository.deleteById(fileId);
 	}
-
 	@Override
 	public Optional<FileModel> getFile1(int fileId) {
 		// TODO Auto-generated method stub
