@@ -3,6 +3,7 @@ package com.plasticon.erp.service;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.util.StringUtils;
 
@@ -11,6 +12,7 @@ import com.plasticon.erp.exception.MyFileNotFoundException;
 import com.plasticon.erp.model.FileModel;
 import com.plasticon.erp.repository.DBFileRepository;
 
+@Service
 public class FileStorageServiceImpl implements FileStorageService {
 
 	@Autowired
