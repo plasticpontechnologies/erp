@@ -227,7 +227,7 @@ export default class Admaster extends Component {
                           id="addsubject"
                           method="post"
                           action="#"
-                          className="smart-form ng-pristine ng-valid"
+                          className="smart-form ng-pristine ng-valid biome"
                           onSubmit={this.Submitdata}
                         >
                           <fieldset>
@@ -297,7 +297,9 @@ export default class Admaster extends Component {
                         </form>
                         <br />
                         <hr />
-                        <div>
+                        <br/>
+                        <div className="biome">
+                          <div>
                           <table className="table table-striped">
                             <thead>
                               <tr>
@@ -370,6 +372,7 @@ export default class Admaster extends Component {
                             </div>
                           </div>
                         </footer>
+                        </div>
                       </div>
                     )}
                   </div>

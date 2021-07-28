@@ -19,9 +19,56 @@ export default class Staff_reg extends Component {
   constructor(props) {
     super(props);
     this.fullscreenModal = React.createRef();
-    this.state = { isActive: true, issActive: true, iyActive: true, ieyActive: false, values: [], name: 'React', };
+    this.state = {
+      isActive: true,
+      issActive: true,
+      iyActive: true,
+      ieyActive: false,
+      staff_usertype: [],
+      staff_position: [],
+      staff_dept: [],
+      name: 'React',
+    };
     this.handleBack = this.handleBack.bind(this);
   }
+  componentDidMount() {
+    this.fetchusertype();
+    this.fetchposition();
+    this.fetchdept();
+  }
+  fetchusertype() {
+    fetch("http://83.136.219.101:8080/erp/userpermission/getmanageusertypeandpermission")
+      .then(function (res) {
+        return res.json();
+      })
+      .then((json) => {
+        this.setState({
+          staff_usertype: json,
+        });
+      });
+  }
+  fetchposition() {
+    fetch("http://83.136.219.101:8080/erp/p/getPositionDetails")
+      .then(function (res) {
+        return res.json();
+      })
+      .then((json) => {
+        this.setState({
+          staff_position: json,
+        });
+      });
+  };
+  fetchdept() {
+    fetch("http://83.136.219.101:8080/erp/schoolDept/getSchoolDepartmentDetails")
+      .then(function (res) {
+        return res.json();
+      })
+      .then((json) => {
+        this.setState({
+          staff_dept: json,
+        });
+      });
+  };
   handleBack() {
     this.props.history.goBack();
   }
@@ -160,57 +207,70 @@ export default class Staff_reg extends Component {
                           <fieldset className="biome master">
                             <section>
                               <label >User type</label>
-                              <select>
-                                <option value="0">Select...!!</option>
-                                <option value=">Admin">Admin</option>
-                                <option value="Driver">Driver</option>
-                                <option value="Conductor">Conductor</option>
-                                <option value="Lecture">Lecture</option>
-                                <option value="Attender">Attender</option>
-                                <option value="hod">Head Of The Department</option>
-                                <option value="Assistent">Assistent</option>
-                                <option value="pet">Physical Teacher</option>
-
+                              <select
+                                className="select2-container select2"
+                                id="usertype"
+                                name="usertype"
+                                required
+                                placeholder="select"
+                              >
+                                <option value="" >Select user Type</option>
+                                {this.state.staff_usertype.map((obj) => {
+                                  return (
+                                    <option value={obj.slno}>{obj.userType}</option>
+                                  );
+                                })}
                               </select>
                             </section>
                             <section>
                               <label >Staff Name</label>
 
-                              <input type="text" name="staff_reg" id="" placeholder="Staff Name"></input>
+                              <input type="text" name="staffName" id="" placeholder="Staff Name"></input>
 
                             </section>
                             <section>
                               <label >User Name</label>
 
-                              <input type="text" className="input-sm" name="staff_reg" id="" placeholder="User Name"></input>
+                              <input type="text" className="input-sm" name="userName" id="" placeholder="User Name"></input>
 
                             </section>
                             <section>
                               <label > Password</label>
 
-                              <input type="text" className="input-sm" name="staff_reg" id="" placeholder="Password"></input>
+                              <input type="text" className="input-sm" name="password" id="" placeholder="Password"></input>
 
                             </section>
                             <section>
                               <label >Mobile</label>
 
-                              <input type="text" className="input-sm" value="+91" name="countryCode" id="countryCode" placeholder="countryCode"></input>
+                              
 
-
-                              <input type="text" className="input-sm" name="ContactNo" id="ContactNo" placeholder="Mobile"></input>
+                              <input type="text" className="input-sm" name="mobileNumber" id="ContactNo" placeholder="Mobile"></input>
 
                             </section>
                             <section>
                               <label >Joining Date</label>
 
-                              <input type="date" className="input-sm" name="staff_reg" id="" placeholder="Joining Date"></input>
+                              <input type="date" className="input-sm" name="joiningDate" id="" placeholder="Joining Date"></input>
 
                             </section>
                             <section>
                               <label >Position</label>
 
-                              <input type="text" className="input-sm" name="staff_reg" id="" placeholder=""></input>
-
+                              <select
+                                className="select2-container select2"
+                                id="position"
+                                name="position"
+                                required
+                                placeholder="select"
+                              >
+                                <option value="" >Select position</option>
+                                {this.state.staff_position.map((obj) => {
+                                  return (
+                                    <option value={obj.pid}>{obj.staffPosition}</option>
+                                  );
+                                })}
+                              </select>
                             </section>
                             <section>
                               <label ng-init="Abbreviation='Abbreviation'">Email</label>
@@ -221,8 +281,20 @@ export default class Staff_reg extends Component {
                             <section>
                               <label ng-init="Abbreviation='Abbreviation'">Department</label>
 
-                              <input type="text" className="input-sm" name="abbreviation" id="Abbreviation" placeholder=""></input>
-
+                              <select
+                                className="select2-container select2"
+                                id="department"
+                                name="department"
+                                required
+                                placeholder="select"
+                              >
+                                <option value="" >Select Department</option>
+                                {this.state.staff_dept.map((obj) => {
+                                  return (
+                                    <option value={obj.schoolDeptId}>{obj.schoolDept}</option>
+                                  );
+                                })}
+                              </select>
                             </section>
 
                           </fieldset>

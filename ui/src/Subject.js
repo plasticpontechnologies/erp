@@ -11,6 +11,8 @@ import {
 } from "react-icons/bi";
 import { MdDeleteSweep } from "react-icons/md"
 import axios from "axios";
+import { GrUpdate } from "react-icons/gr";
+import { AiFillDelete } from "react-icons/ai";
 
 export default class Subject extends Component {
   refresh = () => {
@@ -22,24 +24,17 @@ export default class Subject extends Component {
     this.state = {
       isActive: true,
       issActive: true,
-      sclass: [
-        {
-        clas:{
-
-      
-          'clId':parseInt([]) 
-           }
-          }
-      ],
+      sclass: [ ],
+      subject:[],
+      subjectName:"",
+      clas: {
+        clId: "",
+        className: "",
+      }
 
 
 
-      subjectName: "",
-     
 
-
-
-      
 
     };
     this.changeHandler = this.changeHandler.bind(this);
@@ -69,33 +64,38 @@ export default class Subject extends Component {
       [e.target.name]: e.target.value
     });
   };
+  changeHandlerr = (e, clId) => {
+    this.setState({ clas: { clId: ([clId] = e.target.value) } });
+  };
 
   submitHandler = (e) => {
     e.preventDefault();
-
-    if (this.state.sclass.clId !== ""&& this.state.sclass.className !== "") {
+    if (this.state.clas.clId !== "" && this.state.clas.className !== "" ) {
       console.log(this.state);
       axios
         .post(
           "http://83.136.219.101:8080/erp/subject/saveSubjectDetails",
-          this.state
-        )
+          this.state,{ headers:{ 
+'Content-Type': 'application/json;' } })
         .then((res) => {
           this.setState({
-            clas:{
-            'clId':"",
-            'className':""
+            clas: {
+              clId: "",
+              className: "",
             }
+      
+            
           });
+         
         })
         .catch((err) => {
           console.log(err);
         });
     } else {
+      //const errors = <span style="color:red">All fields are required</span>
       alert("All fields are required ");
     }
-  };
-
+  }
   componentDidMount() {
     this.fetchclass();
     // this.fetchdata();
@@ -112,58 +112,55 @@ export default class Subject extends Component {
         });
       });
   }
-  // fetchdata() {
-  //   fetch("http://83.136.219.101:8080/erp/subject/getSubjectDetails")
-  //     .then(function (resdata) {
-  //       return resdata.json();
-  //     })
-  //     .then((json) => {
-  //       this.setState({
-  //         subject: json,
-  //       });
-  //     });
-  // }
-  delete = (ItemId) => {
+  fetchdata() {
+    fetch("http://83.136.219.101:8080/erp/subject/getSubjectDetails")
+      .then(function (resdata) {
+        return resdata.json();
+      })
+      .then((json) => {
+        this.setState({
+          subject: json,
+        });
+      });
+  }
+  delete = (subId) => {
     if (window.confirm("aer you sure you want to delete"))
       axios
         .delete(
-          "http://83.136.219.101:8080/erp/subject/removeSubjectDetails/" + ItemId
+          "http://83.136.219.101:8080/erp/subject/removeSubjectDetails/" + subId
         )
 
-        .then((res) => {
-          console.log(res);
-          alert("data deleted successfully");
+        // .then((res) => {
+        //   console.log(res);
+        //   alert("data deleted successfully");
 
-        })
+        // })
         .catch((error) => {
           console.log(error);
         });
 
   };
-  getRecord = (referenceTypeName) => {
-    const obj = this.state.reference.find((item) => item.referenceTypeName === referenceTypeName);
+  
+  getRecord = (subjectName) => {
+    const obj = this.state.subject.find((item) => item.subjectName === subjectName);
     return obj;
   };
-  onEdit = (referenceTypeName) => {
-    const tempProduct = this.state.reference;
-    const index = tempProduct.indexOf(this.getRecord(referenceTypeName));
+  onEdit = (subjectName) => {
+    const tempProduct = this.state.subject;
+    const index = tempProduct.indexOf(this.getRecord(subjectName));
     const selectedRecord = tempProduct[index];
     this.setState({
-      apId: selectedRecord["apId"],
-      referenceTypeName: selectedRecord["referenceTypeName"],
-      status: selectedRecord["status"],
+      subId: selectedRecord["subId"],
+      subjectName: selectedRecord["subjectName"],
+      className: selectedRecord["className"],
     });
   };
-
   render() {
     const {
-      subjectName, 
+      className, subjectName
     } = this.state;
-    const {
-      sclass:{clas:{clId,className}}
-    } = this.state;
-    
-    console.log(clId,);
+
+
 
     return (
       <div className="App">
@@ -268,31 +265,33 @@ export default class Subject extends Component {
                           action="#"
                           className="smart-form ng-pristine ng-valid"
                           onSubmit={this.submitHandler}
-                        >
+                          >
                           <fieldset>
                             <section>
                               <label
                                 className="label ng-binding"
-                                ng-init="subjectName='SubjectName'"
+                              
                               >
                                 Create Sudject
                               </label>
-                              <label className="input">
+                              <label className="input" >
                                 <input
+                                
                                   type="text"
-                                  title="Add Reference"
-                                  addonBefore="First Name"
-                                  className="input-sm"
                                   name="subjectName"
                                   data-parse="uppercase"
-                                  value={subjectName}
-                                  placeholder="Add Subject"
-                                  onChange={this.changeHandler}
+                                  required
+                                  placeholder="subjectName"
+                                  value={this.state.subjectName}
+                                 
+                                  onChange={(event) =>
+                                    this.changeHandler(event)
+                                  }
                                   required
                                 ></input>
                               </label>
                             </section>
-
+                            
                             <section>
                               <label
                                 className="label ng-binding"
@@ -300,13 +299,13 @@ export default class Subject extends Component {
                               >
                                 Class
                               </label>
-                              <label className="input" value={clId} name="clId">
-                                <select value={className} name="className" onChange={this.changeHandler} title="select your option">
-                                  <option>---select---</option>
-                                  {this.state.sclass.map((obj) => { 
+                              <label className="input" >
 
+                                <select value={this.state.clas.clId} name="clId" onChange={this.changeHandlerr} title="select your option">
+                                  <option>---select---</option>
+                                  {this.state.sclass.map((obj) => {
                                     return (
-                                      <option value={obj.className}  key={(obj.clId)}> 
+                                      <option value={obj.clId} key={(obj.clId)}>
                                         {obj.className}</option>
                                     );
                                   })
@@ -321,10 +320,9 @@ export default class Subject extends Component {
                           <footer>
                             <button
                               type="submit"
-                              id="submit"
-                              class="btn btn-primary ng-binding"
-                              ng-init="Save='Save'"
-                            // onClick={this.fetchdata()}
+                              className="btn btn-primary ng-binding"
+                              onClick={this.fetchdata()}
+                            
                             >
                               Save
                             </button>
@@ -340,43 +338,113 @@ export default class Subject extends Component {
                         <br />
                         <hr />
                         <div>
-                          <table className="table table-striped">
-                            <thead>
+                        <div style={{ paddingTop: "10px" }}>
+                            <table>
                               <tr>
                                 <th>Action</th>
-                                <th>Reference Type</th>
-                                <th>Status</th>
-
+                                <th>subjectName</th>
+                               
+                              
                               </tr>
-                            </thead>
-                            {/* {this.state.class.map((obj) => {
-                              return (
-                                <tr key={obj.apId}>
-                                  <th>
-                                    <i style={{ fontSize: "20px" }} title="Delete"
-                                      onClick={() =>
-                                        this.delete(obj.apId)
-                                      }
-                                    >
-                                      <MdDeleteSweep />
-
-                                    </i>
-
-                                    <i style={{ fontSize: "20px" }} title="Edit"
-                                      onClick={() => this.onEdit(obj.referenceTypeName)}
-                                    >
-                                      <BiEdit />
-
-                                    </i>
-                                  </th>
-                                  <th>{obj.referenceTypeName}</th>
-                                  <th>{obj.status}</th>
-
-
-                                </tr>
-                              );
-                            })} */}
-                          </table>
+                              {this.state.subject.map((obj) => {
+                                return (
+                                  <tr key={obj.subId}>
+                                    
+                                    <th>
+                                      <button
+                                        onClick={() => this.onEdit(obj.subjectName)}
+                                        className="btn"
+                                      >
+                                        <GrUpdate />{" "}
+                                      </button>
+                                      <button
+                                        style={{ marginLeft: "10px" }}
+                                        onClick={() =>
+                                          this.delete(obj.subId)
+                                        }
+                                        className="btnndanger"
+                                      >
+                                        <AiFillDelete />{" "}
+                                      </button>
+                                    </th>
+                                    <th>{obj.subjectName}</th>
+                                    {/* <th>{obj.clas.className}</th> */}
+                                   
+                                  </tr>
+                                );
+                              })}
+                              {/* <tr>
+                                <td>
+                                  <i className="fa">
+                                    <BiPencil />
+                                  </i>
+                                  <i className="bix">
+                                    <BiX />
+                                  </i>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <i className="fa">
+                                    <BiPencil />
+                                  </i>
+                                  <i className="bix">
+                                    <BiX />
+                                  </i>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <i className="fa">
+                                    <BiPencil />
+                                  </i>
+                                  <i className="bix">
+                                    <BiX />
+                                  </i>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <i className="fa">
+                                    <BiPencil />
+                                  </i>
+                                  <i className="bix">
+                                    <BiX />
+                                  </i>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <i className="fa">
+                                    <BiPencil />
+                                  </i>
+                                  <i className="bix">
+                                    <BiX />
+                                  </i>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr> */}
+                            </table>
+                          </div>
                         </div>
                         <footer>
                           <div className="col-xs-12 col-sm-6">
@@ -397,7 +465,6 @@ export default class Subject extends Component {
                           </div>
                         </footer>
                       </div>
-
                     )}
                   </div>
                 </article>

@@ -25,7 +25,7 @@ export const SidebarData = [
 
   {
     title: "Admission process",
-    path: "/overview",
+    // path: "/overview",
     icon: <FaIcons.FaGraduationCap />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -33,7 +33,7 @@ export const SidebarData = [
     subNav: [
       {
         title: "Admissions process entry",
-        path: "/overview/users",
+        path: "/Admitionmasterentry",
         icon: <IoIcons.IoIosPaper />,
       },
       {
@@ -114,7 +114,7 @@ export const SidebarData = [
     subNav: [
       {
         title: "Canteen master entry",
-        path: "/master entry",
+        path: "/canteen",
       },
       {
         title: "Dishes",
@@ -122,15 +122,15 @@ export const SidebarData = [
       },
       {
         title: "Menu",
-        path: "/Menu",
+        path: "/canteen/Menu",
       },
       {
         title: "Mess schedule",
-        path: "/Mess schedule",
+        path: "",
       },
       {
         title: "View menu",
-        path: "/View menu",
+        path: "/canteen/ViewMenu",
       },
     ],
   },

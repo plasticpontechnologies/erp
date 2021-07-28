@@ -177,7 +177,7 @@ export default class Staffposition extends Component {
                         <section>
                             <div className="row">
                                 <article className="col-sm-12 col-md-12 col-lg-5">
-                                    <div className="biome master">
+                                    <div className="shadow master">
                                         <header role="heading">
                                             <div className="jarviswidget-ctrls" role="menu">
                                                 <a

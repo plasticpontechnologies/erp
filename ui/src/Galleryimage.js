@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import { FaUpload } from "react-icons/fa";
 import { BiMinus, BiExpand, BiX, BiEdit,BiStar,BiRefresh,BiPlus } from "react-icons/bi";
+import axios from "axios";
 
 
 export default class Gallery_image extends Component{
    
-    refresh = () => {
-    
+    refresh = () => {    
         window.location.reload(false);
       };
+
       constructor(props) {
         super(props);
         this.fullscreenModal = React.createRef();
-        this.state ={isActive: true, close: true, file: null};
+        this.state ={isActive: true, close: true, file: null, selectedFile:'',};
         this.handleBack=this.handleBack.bind(this);
         this.handleChange = this.handleChange.bind(this)
 
@@ -44,9 +45,21 @@ export default class Gallery_image extends Component{
         };
         handleChange(event) {
           this.setState({
-            file: URL.createObjectURL(event.target.files[0])
+            file: URL.createObjectURL(event.target.files[0]),
+            selectedFile: event.target.files[0],
           })
         }
+        submit(){
+          const data = new FormData() 
+          data.append('file', this.state.selectedFile)
+          console.log(this.state.selectedFile); 
+          let url = "http://83.136.219.101:8080/erp/up/uploadFile";
+          axios.post(url, data, {  
+          })
+          .then(res => {
+              console.log(res);
+          })
+      }
 
 render(){
     return(
@@ -136,7 +149,7 @@ render(){
 
                             </fieldset>
                             <footer>
-                                <button type="button" id="submit" class="btn btn-primary ng-binding" >Save</button>
+                                <button type="button" id="submit" class="btn btn-primary ng-binding" onClick={()=>this.submit()}>Save</button>
                                 <button type="button" class="btn btn-default ng-binding" onClick={this.handleBack} >Back</button>
                             </footer>
                           </form>

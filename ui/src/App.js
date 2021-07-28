@@ -28,12 +28,15 @@ import StudentOfTheMonth from "./StudentOfTheMonth";
 import Demo from "./Demo";
 import Softwaredetails from "./Softwaredetails";
 import BasicDetails from "./BasicDetails";
-import Dishes from "./Dishes";
+import Dishes from "./Canteen/Dishes";
 import viewstudent from "./Viewstudent";
 import Admaster from "./Admissionmasterentry";
 import Staffposition from "./staffPosition";
 import staffDocument from "./staffDocument";
 import Schooldepartment from "./schoolDepartment";
+import Canteen from "./Canteen/Canteen";
+import Menu from "./Canteen/Menu";
+import View from "./Canteen/View"
 
 
 function App() {
@@ -59,14 +62,17 @@ function App() {
         <Route path="/Demo" exact component={Demo} />
         <Route path="/Softwaredetails" exact component={Softwaredetails} />
         <Route path="/Gallery/ClassWiseImage" exact component={Classwiseimage} />
-        <Route path="/Gallery/StudentOfTheMonth" exact component={StudentOfTheMonth} />
-        <Route path="/Canteen/Dishes" exact component={Dishes}/>
+        <Route path="/Gallery/StudentOfTheMonth" exact component={StudentOfTheMonth} />        
         <Route path="/BasicDetails" exact component={BasicDetails}/>
         <Route path="/viewstudent" exact component={viewstudent}/>
         <Route path="/Admitionmasterentry" exact component={Admaster}/>
         <Route path="/Staffposition" exact component={Staffposition}/>
         <Route path="/StaffDocument" exact component={staffDocument}/>
         <Route path="/SchoolDepartment" exact component={Schooldepartment}/>
+        <Route path="/canteen" exact component={Canteen}/>
+        <Route path="/Canteen/Dishes" exact component={Dishes}/>
+        <Route path="/canteen/Menu" exact component={Menu}/>
+        <Route path="/canteen/ViewMenu" exact component={View}/>
       </Switch>
     </Router>
   );

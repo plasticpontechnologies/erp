@@ -10,6 +10,8 @@ import {
   BiExpand,
   BiX,
 } from "react-icons/bi";
+import { GrUpdate } from "react-icons/gr";
+import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
 
 class Dishes extends Component {
@@ -20,12 +22,9 @@ class Dishes extends Component {
     super(props);
     this.fullscreenModal = React.createRef();
     this.state = {
+      isAActive: true,
       isActive: true,
       issActive: true,
-      // canteenId: '',
-      canteenMealType: "",
-      CanteenStatus: "",
-      values: [],
 
       dishId: "",
       dishName: "",
@@ -41,7 +40,6 @@ class Dishes extends Component {
   };
   submitHandler = (e) => {
     e.preventDefault();
-
     if (this.state.dishName !== "" && this.state.dishPrice !== "") {
       console.log(this.state);
       axios
@@ -55,11 +53,13 @@ class Dishes extends Component {
             dishName: "",
             dishPrice: "",
           });
+          // this.props.history.push("/ShowAll");
         })
         .catch((err) => {
           console.log(err);
         });
     } else {
+      //const errors = <span style="color:red">All fields are required</span>
       alert("All fields are required ");
     }
   };
@@ -78,12 +78,18 @@ class Dishes extends Component {
   handleBack() {
     this.props.history.goBack();
   }
-
   openContentFullscreen = () => {
     const elem = this.fullscreenModal.current;
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
     }
+  };
+
+  handleeShow = () => {
+    this.setState({ isAActive: false });
+  };
+  handleeHide = () => {
+    this.setState({ isAActive: true });
   };
   handleShow = () => {
     this.setState({ isActive: false });
@@ -97,17 +103,20 @@ class Dishes extends Component {
   haandleHide = () => {
     this.setState({ issActive: false });
   };
+
   deleteEmployee(dishId) {
-    if (window.confirm("Are You Sure You Want To Delete?")) {
+    if (window.confirm("Sure You Want To Delete This one?")) {
       return axios.delete(
         "http://83.136.219.101:8080/erp/canteen/removeDishDetails/" + dishId
       );
     }
   }
+
   getRecord = (dishName) => {
     const obj = this.state.menu.find((item) => item.dishName === dishName);
     return obj;
   };
+
   onEdit = (dishName) => {
     const tempProduct = this.state.menu;
     const index = tempProduct.indexOf(this.getRecord(dishName));
@@ -123,22 +132,22 @@ class Dishes extends Component {
     const { dishName, dishPrice, dishId } = this.state;
     return (
       <div className="App">
-        <div id="canteen">
-          <span className="canteen-button-alignment">
-            <span className="btn btn-canteen">
+        <div id="masterE">
+          <span className="masterE-button-alignment">
+            <span className="btn btn-masterE">
               <i className="fa">
                 <BiFoodMenu onClick={this.refresh} />
               </i>
             </span>
           </span>
           <ol className="crumb">
-            <li style={{ fontSize: "13px" }}>Canteen</li>
-            <li style={{ fontSize: "13px" }}>Canteen Master Entry</li>
+            <li>Canteen</li>
+            <li>Dishes</li>
           </ol>
 
           <div style={{ float: "right" }}>
-            <span className="canteen-button-alignment">
-              <span className="btn btn-canteen">
+            <span className="masterE-button-alignment">
+              <span className="btn btn-masterE">
                 <i className="fa">
                   <BiStar />
                 </i>
@@ -153,7 +162,7 @@ class Dishes extends Component {
               }}
             >
               <span>
-                <a href="#" style={{ fontSize: "13px" }}>
+                <a href="#" style={{ fontSize: "12px" }}>
                   My Favorite
                 </a>
               </span>
@@ -173,17 +182,20 @@ class Dishes extends Component {
             <section>
               <div className="row">
                 <article className="col-sm-12 col-md-12 col-lg-5">
-                  <div className="shadow master">
+                  <div className="biome master">
                     <header role="heading">
                       <div className="jarviswidget-ctrls" role="menu">
                         <a
                           href="#"
                           className="button-icon jarviswidget-toggle-btn"
                         >
-                          {this.state.isActive ? (
-                            <BiMinus className="fa" onClick={this.handleShow} />
+                          {this.state.isAActive ? (
+                            <BiMinus
+                              className="fa"
+                              onClick={this.handleeShow}
+                            />
                           ) : (
-                            <BiPlus className="fa" onClick={this.handleHide} />
+                            <BiPlus className="fa" onClick={this.handleeHide} />
                           )}
                         </a>
                         <a
@@ -210,51 +222,66 @@ class Dishes extends Component {
                           <BiEdit />
                         </i>
                       </span>
-                      <h2>Canteen Master Entry</h2>
+                      <h2>Add Dishes</h2>
                     </header>
-                    <div>
-                      {this.state.isActive && (
+                    
+                      {this.state.isAActive && (
                         <div>
                           <form
-                            
+                            className="entry-form"
                             onSubmit={this.submitHandler}
                           >
                             <section>
-                              Dish Name
-                              <input
-                                className="input-sm"
-                                type="text"
-                                name="dishName"
-                                data-parse="uppercase"
-                                required
-                                placeholder="Dish Name"
-                                value={this.state.dishName}
-                                onChange={(event) => this.changeHandler(event)}
-                              />
+                              <label class="label ng-binding">Meal Type</label>
+                              <label class="input">
+                                <input
+                                  className="input-sm"
+                                  type="text"
+                                  name="dishName"
+                                  data-parse="uppercase"
+                                  required
+                                  placeholder="Dish Name"
+                                  value={this.state.dishName}
+                                  onChange={(event) =>
+                                    this.changeHandler(event)
+                                  }
+                                />
+                              </label>
+                              <div style={{ paddingTop: "30px" }}>
+                                <hr />
+                              </div>
                             </section>
 
-                            <section>
-                              Dish Price
-                              <input
-                                type="text"
-                                name="dishPrice"
-                                required
-                                placeholder="Dish Price"
-                                value={this.state.dishPrice}
-                                onChange={(event) => this.changeHandler(event)}
-                              />
+                            <section style={{ paddingTop: "20px" }}>
+                              <label class="label ng-binding">Dish Price</label>
+                              <label class="input">
+                                <input
+                                  type="text"
+                                  name="dishPrice"
+                                  required
+                                  placeholder="Dish Price"
+                                  value={this.state.dishPrice}
+                                  onChange={(event) =>
+                                  this.changeHandler(event)
+                                  }
+                                />
+
+                                <div style={{ paddingTop: "30px" }}>
+                                  <hr />
+                                </div>
+                              </label>
                             </section>
                             <footer>
                               <button
                                 type="submit"
-                                class="btn btn-primary ng-binding"
+                                className="btn btn-primary ng-binding"
                                 onClick={this.fetchmenu()}
                               >
-                                Submit
+                                Save
                               </button>
                               <button
                                 type="button"
-                                class="btn btn-default ng-binding"
+                                className="btn btn-default ng-binding"
                               >
                                 Back
                               </button>
@@ -262,12 +289,13 @@ class Dishes extends Component {
                           </form>
                         </div>
                       )}
-                    </div>
+                    
+                    
                   </div>
                 </article>
 
                 <article className="col-sm-12 col-md-12 col-lg-5">
-                  <div className="shad master">
+                  <div className="biome master">
                     <header role="heading">
                       <div className="jarviswidget-ctrls" role="menu">
                         <a
@@ -304,10 +332,10 @@ class Dishes extends Component {
                           <BiTable />
                         </i>
                       </span>
-                      <h2>Listing All Meal Type</h2>
+                      <h2>Dishes List</h2>
                     </header>
 
-                    {this.state.issActive && (
+                    {this.state.isActive && (
                       <div>
                         <div className="col-xs-12 col-sm-6">
                           <div
@@ -330,9 +358,9 @@ class Dishes extends Component {
                         <div style={{ paddingTop: "10px" }}>
                           <table>
                             <tr>
-                              <th>Actionn</th>
-                              <th>dishName</th>
-                              <th>dishPrice</th>
+                              <th>Action</th>
+                              <th>DishName</th>
+                              <th>DishPrice</th>
                             </tr>
 
                             {this.state.menu.map((obj) => {
@@ -343,7 +371,7 @@ class Dishes extends Component {
                                       onClick={() => this.onEdit(obj.dishName)}
                                       className="btn"
                                     >
-                                      Update{" "}
+                                      <GrUpdate />{" "}
                                     </button>
                                     <button
                                       style={{ marginLeft: "10px" }}
@@ -352,7 +380,7 @@ class Dishes extends Component {
                                       }
                                       className="btnndanger"
                                     >
-                                      Delete{" "}
+                                      <AiFillDelete />{" "}
                                     </button>
                                   </th>
 

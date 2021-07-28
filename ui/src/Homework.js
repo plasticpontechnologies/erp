@@ -20,11 +20,19 @@ export default class HomeWork extends Component {
     this.handleBack = this.handleBack.bind(this);
 
 
-    this.state = { isActive: true, issActive: true, homework: [], isdisable: true };
+    this.state = { 
+      isActive: true, 
+      issActive: true, 
+      homework: [],
+      cls_sub:[], 
+      isdisable: true };
   }
   handleBack() {
     this.props.history.goBack();
   }
+  // changeHandler = (e, clsId) => {
+  //   this.setState({clsId:[clsId]= e.target.value });
+  // };
   openContentFullscreen = () => {
     const elem = this.fullscreenModal.current;
     if (elem.requestFullscreen) {
@@ -40,12 +48,14 @@ export default class HomeWork extends Component {
   haandleShow = () => {
     this.setState({ issActive: false });
   };
-  componentDidMount() {
-    this.fetchOptions();
-  }
   mojaDisabled = () => {
     this.setState({ isdisable: false })
   }
+  componentDidMount() {
+    this.fetchOptions();
+    // this.getsubject();
+  }
+  
 
   fetchOptions() {
     fetch("http://83.136.219.101:8080/erp/classes/getClassDetails")
@@ -58,6 +68,19 @@ export default class HomeWork extends Component {
         });
       });
   }
+  getsubject(e) {
+    fetch("http://83.136.219.101:8080/erp/subject/getsubjectsbyid/" +e)
+  
+    
+        .then(function (res) {
+            return res.json();
+        })
+        .then((json) => {
+            this.setState({
+              cls_sub: json,
+            });
+        });
+};
 
 
   render() {
@@ -177,11 +200,13 @@ export default class HomeWork extends Component {
                                       name="class"
                                       required
                                       placeholder="select"
+                                      onChange={(e)=>this.getsubject(e.target.value)}
                                     >
                                       <option value="" >Select Class</option>
                                       {this.state.homework.map((obj) => {
                                         return (
-                                          <option value ={obj.clId}>{obj.className}</option>
+                                          <option key={obj.clId} value ={obj.clId}  
+                                        >{obj.className}</option>
                                         );
                                       })}
                                     </select>
@@ -202,7 +227,12 @@ export default class HomeWork extends Component {
                                       name="subject"
                                       required
                                     >
-                                      <option>Select Class</option>
+                                     <option value="" >Select Class</option>
+                                      {this.state.cls_sub.map((obje) => {
+                                        return (
+                                          <option value ={obje.subId}>{obje.subjectName}</option>
+                                        );
+                                      })}
                                     </select>
                                   </label>
                                 </section>
