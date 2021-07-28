@@ -7,6 +7,6 @@ import com.plasticon.erp.model.FileModel;
 
 @Repository
 
-public interface DBFileRepository extends JpaRepository<FileModel, String> {
+public interface DBFileRepository extends JpaRepository<FileModel, Integer> {
 
 }
