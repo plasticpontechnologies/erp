@@ -10,15 +10,13 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 import lombok.Data;
-
 @Entity
 @Data
 @Table(name="FILE_DB")
 public class FileModel {
-	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int fileId;
 	private String fileName;
 	//private String fileType;
 

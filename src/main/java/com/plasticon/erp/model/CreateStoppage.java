@@ -10,15 +10,10 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "define_fee")
-public class DefineFeeType {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int fId;
-	private String feeType;
-	private String frequency;
-	private String active;
-
-	
-
+@Table(name="create_stoppage")
+public class CreateStoppage {
+@Id
+@GeneratedValue(strategy=GenerationType.AUTO)
+private int crstId;
+private String stopName;
 }
