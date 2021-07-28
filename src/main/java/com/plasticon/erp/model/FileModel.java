@@ -10,7 +10,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 import lombok.Data;
-
 @Entity
 @Data
 @Table(name="FILE_DB")
