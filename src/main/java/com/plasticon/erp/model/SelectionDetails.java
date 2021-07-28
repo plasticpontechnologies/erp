@@ -17,6 +17,6 @@ public class SelectionDetails {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int seId;
 	private String seAll;
-	private String ClassWise;
+	// private String ClassWise;
 	
 }

@@ -1,19 +1,16 @@
 package com.plasticon.erp.service;
-
 import java.util.List;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.plasticon.erp.model.StaffDetails;
 import com.plasticon.erp.model.StudentAdmission;
+import com.plasticon.erp.model.SubjectDetails;
 import com.plasticon.erp.repository.StudentAdmissionRepository;
 
 
 @Service
-public class StudenAdmissiontService {
+public class StudentAdmissiontService {
 	@Autowired
 	StudentAdmissionRepository studentRepository;
 		public List<StudentAdmission> getStudentDetails() {
@@ -29,6 +26,10 @@ public class StudenAdmissiontService {
 		@Transactional
 		public void removeStudentDetails(int id) {
 			studentRepository.deleteById(id);
+		}
+		
+		public List<StudentAdmission> findByClassId(int clasId) {
+			return studentRepository.findByClassId(clasId);
 		}
 
 }

@@ -44,6 +44,7 @@ public class CreateOnlineExamInfo {
 	private String topic;
 	private String bookName;
 	
+	
    @OneToOne(fetch = FetchType.EAGER)
    @JoinColumn(name="td_fk")
    private ExamTypeDetails typedetails;
