@@ -61,10 +61,6 @@ public class FileStorageServiceImpl implements FileStorageService {
 		return  dbFileRepository.findById(fileId);
 	}
 
-	@Override
-	public List<FileModel> getFiles() {
-		// TODO Auto-generated method stub
-		return dbFileRepository.findAll();
-	}
+
 	
 }

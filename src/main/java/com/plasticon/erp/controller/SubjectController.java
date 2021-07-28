@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.plasticon.erp.model.ClassDetails;
 import com.plasticon.erp.model.SubjectDetails;
 import com.plasticon.erp.service.SubjectService;
 
@@ -28,10 +29,25 @@ public class SubjectController {
 		return subjectService.getSubjectDetails();
 }
 
-	@PostMapping(value = "/saveSubjectDetails", consumes = "application/json")
-	public void saveSubjectDetails(@RequestBody SubjectDetails sub) {
-		subjectService.saveSubjectDetails(sub);
-	}
+
+  @PostMapping(value = "/saveSubjectDetails", consumes = "application/json")
+  public void saveSubjectDetails(@RequestBody SubjectDetails sub) {
+  subjectService.saveSubjectDetails(sub);
+  }
+ 
+
+/*
+ * @PostMapping(value="/savesubjects/{clsId}/{subjectName}") public void
+ * saveSubjectDetails(@PathVariable("clsId")int
+ * clsId, @PathVariable("subjectName") String subjectName) {
+ * 
+ * //getsubjectsbyid/{clsId}/xyz/abb ClassDetails objClass = new ClassDetails();
+ * objClass.setClId(clsId); SubjectDetails obj = new SubjectDetails();
+ * obj.setClas(objClass); obj.setSubjectName(subjectName); //obj.set
+ * 
+ * subjectService.saveSubjectDetails(obj); }
+ */
+
 
 	@DeleteMapping(value = "/removeSubjectDetails/{id}")
 	public void removeSubjectDetails(@PathVariable("id") int Id) {

@@ -4,16 +4,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.plasticon.erp.model.StaffDetails;
 import com.plasticon.erp.model.StudentAdmission;
-import com.plasticon.erp.service.StudenAdmissiontService;
+import com.plasticon.erp.service.StudentAdmissiontService;
 
 
 @RestController
@@ -21,7 +20,7 @@ import com.plasticon.erp.service.StudenAdmissiontService;
 public class StudentAdmissionController {
 	
 @Autowired
-	StudenAdmissiontService studentService;
+	StudentAdmissiontService studentService;
 
 	@RequestMapping(value = "/getStudentDetails", method = RequestMethod.GET)
 	public List<StudentAdmission>  getStudentData() {
@@ -41,5 +40,11 @@ public class StudentAdmissionController {
 		  studentService.removeStudentDetails(Id);
 	    
 	    }
+	  
+	  @GetMapping(value="/getStudentDetailsById/{clasId}")
+		public List<StudentAdmission> getStudentAdmission(@PathVariable("clasId")int clasId) {
+			return studentService.findByClassId(clasId);
+		}
+
 
 }

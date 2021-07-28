@@ -33,7 +33,7 @@ import com.plasticon.erp.payload.UploadFileResponse;
 import com.plasticon.erp.service.FileStorageService;
 
 @RestController
-@RequestMapping(value = "/up")
+@RequestMapping("/upload")
 public class FileController {
 
 	@Autowired
@@ -43,15 +43,6 @@ public class FileController {
 	public String uploadFile(@RequestParam("file") MultipartFile file) {
 		FileModel fileModel = fileStorageService.storeFile(file);
 		return "Success";
-/*
-		String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/downloadFile/")
-				.path(fileModel.getId()).toUriString();
-		UploadFileResponse uploadFileResponse = new UploadFileResponse();
-		uploadFileResponse.setFileName(fileModel.getFileName());
-		uploadFileResponse.setFileType(file.getContentType());
-		uploadFileResponse.setSize(file.getSize());
-		uploadFileResponse.setFileDownloadUri(fileDownloadUri);
-		return uploadFileResponse;*/
 	}
 
 	@PostMapping(value = "/uploadMultipleFiles")
@@ -59,14 +50,9 @@ public class FileController {
 		return Arrays.asList(files).stream().map(file -> uploadFile(file)).collect(Collectors.toList());
 	}
 
-/*	@GetMapping(value = "/downloadFile/{fileId}")
-	public ResponseEntity<Resource> downloadFile(@PathVariable int fileId) {
+	
 
-		FileModel fileModel = fileStorageService.getFile(fileId);
-		return ResponseEntity.ok().contentType(MediaType.parseMediaType(fileModel.getFileType()))
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileModel.getFileName() + "\"")
-				.body(new ByteArrayResource(fileModel.getData()));
-	}*/
+
 
 	@DeleteMapping(value = "/delete/{fileId}")
 	public void delete(@PathVariable int fileId) {
@@ -85,30 +71,5 @@ public class FileController {
 		}
 
 	}
-
-	
-	  @GetMapping(value="/getall")
-	  public String getAll(HttpServletResponse response) throws IOException{ 
-		 response.setContentType("image/jpeg");
-	  for(FileModel file:fileStorageService.getFiles()) {
-	  byte[] image = file.getData();
-	  StreamUtils.copy(image, response.getOutputStream()); 
-	  } 
-	  return "ss";
-		  
-	  
-	  }
-		/*
-		 * @GetMapping("/files") public ResponseEntity<List<FileModel>> getListFiles() {
-		 * List<FileModel> files = fileStorageService.getFiles().map(dbFile -> { String
-		 * fileDownloadUri = ServletUriComponentsBuilder .fromCurrentContextPath()
-		 * .path("/files/") .fromPath(dbFile.getId()) .toUriString();
-		 * 
-		 * return new FileModel( dbFile.getName(), fileDownloadUri,
-		 * 
-		 * dbFile.getData().length); }).collect(Collectors.toList());
-		 * 
-		 * return ResponseEntity.status(HttpStatus.OK).body(files); }
-		 */
 
 }
