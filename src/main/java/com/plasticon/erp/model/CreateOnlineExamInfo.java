@@ -28,7 +28,7 @@ public class CreateOnlineExamInfo {
 	//private String examtype;
 	//private int selectmax_Marks;
 	private int examDuration;
-	private Date examOpenDate;
+	private Date examOpenDate; 
 	private Time examOpenTime;
 	private Date examCloseDate;
 	private Time examCloseTime;
