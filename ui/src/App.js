@@ -9,6 +9,7 @@ import "./all.css"
 import Sidebar from "./components/Sidebar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Dashboard from "./Dashboard";
+import Createclass from "./class";
 import Notice from "./Notice";
 import Expense from "./Expense";
 import Income from "./Income";
@@ -45,6 +46,7 @@ function App() {
       <Sidebar />
       <Switch>
         <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/Createclass" exact component={Createclass} />
         <Route path="/Homework/CreateHomework" exact component={Homework} />
         <Route path="/Subject/CreateSubject" exact component={Subject} />
         <Route path="/Events/EventsCalender" exact component={Events} />

@@ -24,9 +24,9 @@ export default class Subject extends Component {
     this.state = {
       isActive: true,
       issActive: true,
-      sclass: [ ],
-      subject:[],
-      subjectName:"",
+      sclass: [],
+      subject: [],
+      subjectName: "",
       clas: {
         clId: "",
         className: "",
@@ -70,23 +70,26 @@ export default class Subject extends Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    if (this.state.clas.clId !== "" && this.state.clas.className !== "" ) {
+    if (this.state.clas.clId !== "" && this.state.clas.className !== "") {
       console.log(this.state);
       axios
         .post(
           "http://83.136.219.101:8080/erp/subject/saveSubjectDetails",
-          this.state,{ headers:{ 
-'Content-Type': 'application/json;' } })
+          this.state, {
+            headers: {
+              'Content-Type': 'application/json;'
+            }
+        })
         .then((res) => {
           this.setState({
             clas: {
               clId: "",
               className: "",
             }
-      
-            
+
+
           });
-         
+
         })
         .catch((err) => {
           console.log(err);
@@ -140,7 +143,7 @@ export default class Subject extends Component {
         });
 
   };
-  
+
   getRecord = (subjectName) => {
     const obj = this.state.subject.find((item) => item.subjectName === subjectName);
     return obj;
@@ -265,25 +268,25 @@ export default class Subject extends Component {
                           action="#"
                           className="smart-form ng-pristine ng-valid"
                           onSubmit={this.submitHandler}
-                          >
+                        >
                           <fieldset>
                             <section>
                               <label
                                 className="label ng-binding"
-                              
+
                               >
                                 Create Sudject
                               </label>
                               <label className="input" >
                                 <input
-                                
+
                                   type="text"
                                   name="subjectName"
                                   data-parse="uppercase"
                                   required
                                   placeholder="subjectName"
                                   value={this.state.subjectName}
-                                 
+
                                   onChange={(event) =>
                                     this.changeHandler(event)
                                   }
@@ -291,7 +294,7 @@ export default class Subject extends Component {
                                 ></input>
                               </label>
                             </section>
-                            
+
                             <section>
                               <label
                                 className="label ng-binding"
@@ -322,7 +325,7 @@ export default class Subject extends Component {
                               type="submit"
                               className="btn btn-primary ng-binding"
                               onClick={this.fetchdata()}
-                            
+
                             >
                               Save
                             </button>
@@ -338,18 +341,18 @@ export default class Subject extends Component {
                         <br />
                         <hr />
                         <div>
-                        <div style={{ paddingTop: "10px" }}>
+                          <div style={{ paddingTop: "10px" }}>
                             <table>
                               <tr>
                                 <th>Action</th>
                                 <th>subjectName</th>
-                               
-                              
+
+
                               </tr>
                               {this.state.subject.map((obj) => {
                                 return (
                                   <tr key={obj.subId}>
-                                    
+
                                     <th>
                                       <button
                                         onClick={() => this.onEdit(obj.subjectName)}
@@ -368,81 +371,12 @@ export default class Subject extends Component {
                                       </button>
                                     </th>
                                     <th>{obj.subjectName}</th>
-                                    {/* <th>{obj.clas.className}</th> */}
-                                   
+                                    
+
                                   </tr>
                                 );
                               })}
-                              {/* <tr>
-                                <td>
-                                  <i className="fa">
-                                    <BiPencil />
-                                  </i>
-                                  <i className="bix">
-                                    <BiX />
-                                  </i>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i className="fa">
-                                    <BiPencil />
-                                  </i>
-                                  <i className="bix">
-                                    <BiX />
-                                  </i>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i className="fa">
-                                    <BiPencil />
-                                  </i>
-                                  <i className="bix">
-                                    <BiX />
-                                  </i>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i className="fa">
-                                    <BiPencil />
-                                  </i>
-                                  <i className="bix">
-                                    <BiX />
-                                  </i>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i className="fa">
-                                    <BiPencil />
-                                  </i>
-                                  <i className="bix">
-                                    <BiX />
-                                  </i>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                              </tr> */}
+                              
                             </table>
                           </div>
                         </div>

@@ -33,6 +33,13 @@ export default class Dashboard extends Component{
             <div>
                 <div className="dashcontainer">
                 
+                <div className="dashbox" >
+                    <Link to="/Createclass">
+                    <div className="inner" >
+                    <BsBookHalf className="icon_color"  /> Create Class 
+                    </div>
+                    </Link>
+                    </div>
                     <div className="dashbox" >
                     <Link to="/Homework/CreateHomework">
                     <div className="inner" >

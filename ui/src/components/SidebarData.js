@@ -135,14 +135,28 @@ export const SidebarData = [
     ],
   },
   {
-    title: "Class section",
-    path: "/messages",
+    title: "Class & Section",
+    // path: "/team",
     icon: <FaIcons.FaEdit />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: "Create Class",
+        path: "/Createclass",
+      },
+      {
+        title: "Create Section",
+        path: "",
+      },
+      
+    ],
   },
 
   {
     title: "communicate",
     // path: '/messages',
+    
     icon: <FaIcons.FaDesktop />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,

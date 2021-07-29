@@ -202,7 +202,7 @@ export default class HomeWork extends Component {
                                       placeholder="select"
                                       onChange={(e)=>this.getsubject(e.target.value)}
                                     >
-                                      <option value="" >Select Class</option>
+                                      <option>Select Class</option>
                                       {this.state.homework.map((obj) => {
                                         return (
                                           <option key={obj.clId} value ={obj.clId}  
