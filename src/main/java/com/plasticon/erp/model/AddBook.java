@@ -34,7 +34,6 @@ public class AddBook {
 	@JoinColumn(name="fk_bId")
 	private SubjectDetails subjectdetails;
 	
-	 
 	@JsonIgnore
 	@ManyToOne(targetEntity = StudentAdmission.class)
 	private List<StudentAdmission> stu;	
