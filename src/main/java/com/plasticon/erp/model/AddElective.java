@@ -25,7 +25,7 @@ public class AddElective {
 	private String student;
 	
 	@JsonIgnore
-	@OneToOne(targetEntity = ClassDetails.class)
+	@OneToMany(targetEntity = ClassDetails.class)
 	private List<ClassDetails> clas;
 	
 }
