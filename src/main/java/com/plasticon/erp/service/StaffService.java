@@ -19,6 +19,10 @@ public class StaffService {
 			return staffRepository.findAll();
 
 		}
+		
+		public List<StaffDetails> findByStaffDetails() {
+			return staffRepository.findByStaffDetails();
+		}
 
 		public void saveStaffDetails(StaffDetails staff) {
 			staffRepository.save(staff);

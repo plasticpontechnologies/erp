@@ -16,27 +16,23 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="subjects")
+@Table(name = "subjects")
 public class SubjectDetails {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int SubId;
 	private String subjectName;
-	private String abbreviation;
-	private String subjectClass;
-	
-	 @ManyToOne
-	 private ClassDetails clas;
-	 
-	 @JsonIgnore
-	 @OneToMany(targetEntity = QuestionsBank.class)
-	 private List<QuestionsBank> questions;
-	 
-		
-	  @JsonIgnore
-	  @OneToMany(targetEntity = CreateOnlineExamInfo.class) private
-	  List<CreateOnlineExamInfo> examinfo;
-		
-	 
+
+	@ManyToOne
+	private ClassDetails clas;
+
+	@JsonIgnore
+	@OneToMany(targetEntity = QuestionsBank.class)
+	private List<QuestionsBank> questions;
+
+	@JsonIgnore
+	@OneToMany(targetEntity = CreateOnlineExamInfo.class)
+	private List<CreateOnlineExamInfo> examinfo;
+
 }

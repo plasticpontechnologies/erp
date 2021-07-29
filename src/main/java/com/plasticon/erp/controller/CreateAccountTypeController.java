@@ -31,7 +31,7 @@ public class CreateAccountTypeController {
 		createAccountTypeService.createAccountType(createAccountType);
 	}
 	
-	@DeleteMapping(value="/deleteAccountType")
+	@DeleteMapping(value="/deleteAccountType/{id}")
 	public void deleteAccountType(@PathVariable int id) {
 		createAccountTypeService.deleteAccounttypeById(id);
 	}

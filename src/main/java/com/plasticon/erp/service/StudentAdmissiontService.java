@@ -10,7 +10,8 @@ import com.plasticon.erp.repository.StudentAdmissionRepository;
 
 
 @Service
-public class StudentAdmissionService {
+
+public class StudentAdmissiontService {
 	@Autowired
 	StudentAdmissionRepository studentRepository;
 		public List<StudentAdmission> getStudentDetails() {

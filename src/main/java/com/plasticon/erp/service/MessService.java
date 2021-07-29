@@ -31,5 +31,7 @@ public class MessService {
 			messRepository.deleteById(id);
 		}
 	
-
+		public List<MessSchedule> findByDayAndMealType(int dId,int cId) {
+		return	messRepository.findDishesById(dId,cId);
+		}
 }

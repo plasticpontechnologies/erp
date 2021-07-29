@@ -1,5 +1,7 @@
 package com.plasticon.erp.controller;
+
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.plasticon.erp.model.StudentAdmission;
-import com.plasticon.erp.service.StudentAdmissionService;
-
+import com.plasticon.erp.service.StudentAdmissiontService;
 
 
 @RestController
@@ -19,7 +20,8 @@ import com.plasticon.erp.service.StudentAdmissionService;
 public class StudentAdmissionController {
 	
 @Autowired
-	StudentAdmissionService studentService;
+
+	StudentAdmissiontService studentService;
 
 	@RequestMapping(value = "/getStudentDetails", method = RequestMethod.GET)
 	public List<StudentAdmission>  getStudentData() {
@@ -39,8 +41,11 @@ public class StudentAdmissionController {
 		  studentService.removeStudentDetails(Id);
 	    
 	    }
+
 	  @GetMapping(value="/getStudentDetailsById/{clasId}")
 		public List<StudentAdmission> getStudentAdmission(@PathVariable("clasId")int clasId) {
 			return studentService.findByClassId(clasId);
 		}
+
+
 }
