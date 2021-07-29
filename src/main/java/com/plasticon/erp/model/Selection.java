@@ -14,7 +14,7 @@ public class Selection {
 	@Id
 	private int sdId;
 	private String sdAll;
-	private String classWise;
+	// private String classWise;
 	
 	
 	

@@ -9,4 +9,5 @@ import com.plasticon.erp.model.SmsToRoute;
 public interface RouteRepository extends JpaRepository<SmsToRoute,Integer> {
 
 	
+	
 }

@@ -20,9 +20,8 @@ public class QuestionsBank {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
 	private int QuestionId;
-
+	
 	private String question;
 	private int marks;
 	private String hint;

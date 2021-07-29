@@ -9,13 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 import lombok.Data;
 
 @Entity
 @Data
 @Table(name="manage_enquiry")
 public class ManageEnquiry {
+	
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
 private int manageEnquiryId;
