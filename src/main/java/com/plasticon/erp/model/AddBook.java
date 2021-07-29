@@ -37,8 +37,7 @@ public class AddBook {
 	 
 	@JsonIgnore
 	@ManyToOne(targetEntity = StudentAdmission.class)
-	private List<StudentAdmission> stu;
-	
+	private List<StudentAdmission> stu;	
 	
 	@JsonIgnore
 	@OneToMany(targetEntity = StaffDetails.class)
