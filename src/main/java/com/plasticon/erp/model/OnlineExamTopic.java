@@ -23,6 +23,9 @@ public class OnlineExamTopic {
 	private String topic;
 	private String description;
 	private int numOfPeriods;
+	@OneToOne
+	@JoinColumn(name="subfk")
+	private SubjectDetails subs;
 
 	
 

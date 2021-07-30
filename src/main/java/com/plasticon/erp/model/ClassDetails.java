@@ -30,7 +30,7 @@ public class ClassDetails {
 	
 	@JsonIgnore
 	@OneToMany(targetEntity = SubjectDetails.class)
-	private List<SubjectDetails> sub;
+	private List<SubjectDetails> sub; 
 	
 	@JsonIgnore
 	@OneToMany(targetEntity = SectionDetails.class)
