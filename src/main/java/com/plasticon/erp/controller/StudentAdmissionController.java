@@ -20,6 +20,7 @@ import com.plasticon.erp.service.StudentAdmissiontService;
 public class StudentAdmissionController {
 	
 @Autowired
+
 	StudentAdmissiontService studentService;
 
 	@RequestMapping(value = "/getStudentDetails", method = RequestMethod.GET)
@@ -40,7 +41,7 @@ public class StudentAdmissionController {
 		  studentService.removeStudentDetails(Id);
 	    
 	    }
-	  
+
 	  @GetMapping(value="/getStudentDetailsById/{clasId}")
 		public List<StudentAdmission> getStudentAdmission(@PathVariable("clasId")int clasId) {
 			return studentService.findByClassId(clasId);
