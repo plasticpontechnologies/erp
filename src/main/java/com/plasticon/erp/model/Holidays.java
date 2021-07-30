@@ -26,7 +26,7 @@ public class Holidays {
 	private DayDetails day;
 	private String title;
 	private Date startDate;
-	private Date eneddd;
+	private Date endDate;
 	
 	
 
