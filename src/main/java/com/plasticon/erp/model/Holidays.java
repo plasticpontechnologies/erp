@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
@@ -19,10 +21,13 @@ public class Holidays {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int hId;
-	private String day;
-	
+	@OneToOne()
+	@JoinColumn(name="dayhID")
+	private DayDetails day;
 	private String title;
 	private Date startDate;
 	private Date endDate;
+	
+	
 
 }

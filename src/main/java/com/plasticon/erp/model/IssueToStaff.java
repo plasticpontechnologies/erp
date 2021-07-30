@@ -24,7 +24,6 @@ public class IssueToStaff {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int issueId;
 	private String bookIssue;
-	private String books;
 	private String selectStaff;
 	private Date dateOfIssue;
 	private Date dateOfReturn;
