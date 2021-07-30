@@ -1,5 +1,6 @@
 package com.plasticon.erp.model;
 import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,6 @@ public class BarCode {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int barId;
-	private String selectBook;
 	private int accessionNo;
 	private Date fromDate;
 	private Date toDate;
@@ -27,4 +27,5 @@ public class BarCode {
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="fk_barId")
 	private AddBook addbook;
+	
 }

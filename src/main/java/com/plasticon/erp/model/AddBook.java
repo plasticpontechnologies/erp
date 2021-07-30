@@ -21,7 +21,6 @@ public class AddBook {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int bId;
-	private String subject;
 	private String purpose;
 	private String bookName;
 	private String authorName;
