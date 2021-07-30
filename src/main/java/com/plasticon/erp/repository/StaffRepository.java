@@ -11,6 +11,6 @@ import com.plasticon.erp.model.StaffDetails;
 @Repository
 public interface StaffRepository extends JpaRepository<StaffDetails,Number> {
 	
-	@Query("Select * FROM StaffDetails s")
+	@Query("Select s FROM StaffDetails s")
 	 List<StaffDetails> getStaffNameAndUserNameAndPassword();
 }

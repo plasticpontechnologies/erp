@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.plasticon.erp.model.MenuDetails;
+import com.plasticon.erp.model.MessSchedule;
 import com.plasticon.erp.repository.MenuRepository;
 
 
@@ -29,5 +30,8 @@ public class MenuService {
 		public void removeMenuDetails(int id) {
 			menuRepository.deleteById(id);
 		}
+		public List<MenuDetails> findDishesByName(String mName) {
+			return	menuRepository.findDishesByMenuName(mName);
+			}
 
 }

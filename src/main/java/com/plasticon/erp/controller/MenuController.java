@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.plasticon.erp.model.MenuDetails;
+import com.plasticon.erp.model.MessSchedule;
 import com.plasticon.erp.service.MenuService;
 
 @RestController
@@ -38,5 +40,8 @@ public class MenuController {
 		    public void removeMenuDetails(@PathVariable("id")int Id){
 			  menuService.removeMenuDetails(Id);
 		    }
-
+		  @GetMapping(value="/get/{mName}")
+		  public List<MenuDetails> getDishesById(@PathVariable String mName) {
+			 return  menuService.findDishesByName(mName);
+		  }
 }
