@@ -19,7 +19,6 @@ public class BookList {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int  lId;
-	private String selectBook;
 	private String quantity;
 	
 	 @OneToOne(fetch = FetchType.EAGER)
