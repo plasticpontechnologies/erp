@@ -27,5 +27,7 @@ public class Holidays {
 	private String title;
 	private Date startDate;
 	private Date endDate;
+	
+	
 
 }
