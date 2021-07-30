@@ -18,7 +18,6 @@ public class SelectBook {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int sId;
-	private String books;
 	private int accessionNo;
 	
 	 @OneToOne(fetch = FetchType.EAGER)
