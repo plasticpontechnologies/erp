@@ -10,6 +10,7 @@ import Sidebar from "./components/Sidebar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Createclass from "./class";
+import Createsection from "./Createsection";
 import Notice from "./Notice";
 import Expense from "./Expense";
 import Income from "./Income";
@@ -37,7 +38,8 @@ import staffDocument from "./staffDocument";
 import Schooldepartment from "./schoolDepartment";
 import Canteen from "./Canteen/Canteen";
 import Menu from "./Canteen/Menu";
-import View from "./Canteen/View"
+import View from "./Canteen/View";
+import Mess from "./Canteen/Mess";
 
 
 function App() {
@@ -47,6 +49,7 @@ function App() {
       <Switch>
         <Route path="/dashboard" exact component={Dashboard} />
         <Route path="/Createclass" exact component={Createclass} />
+        <Route path="/Createsection" exact component={Createsection} />
         <Route path="/Homework/CreateHomework" exact component={Homework} />
         <Route path="/Subject/CreateSubject" exact component={Subject} />
         <Route path="/Events/EventsCalender" exact component={Events} />
@@ -75,6 +78,7 @@ function App() {
         <Route path="/Canteen/Dishes" exact component={Dishes}/>
         <Route path="/canteen/Menu" exact component={Menu}/>
         <Route path="/canteen/ViewMenu" exact component={View}/>
+        <Route path="/Canteen/Mess" exact component={Mess}/>
       </Switch>
     </Router>
   );

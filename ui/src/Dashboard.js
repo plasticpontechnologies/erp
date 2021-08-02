@@ -40,6 +40,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+                    
                     <div className="dashbox" >
                     <Link to="/Homework/CreateHomework">
                     <div className="inner" >
@@ -47,6 +48,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+
                     <div className="dashbox">
                     <Link to="/Subject/CreateSubject">
                     <div className="inner">
@@ -54,6 +56,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+
                     <div className="dashbox">
                     <Link to="/Events/EventsCalender">
                     <div className="inner">
@@ -61,6 +64,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+
                     <div className="dashbox">
                     <Link to="/Fee/Feepayment">
                     <div className="inner">
@@ -68,6 +72,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+
                     <div className="dashbox">
                     <Link to="/Student/Admission">
                     <div className="inner">
@@ -75,6 +80,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+
                     <div className="dashbox">
                     <Link to="/Communicate/Notice" >
                     <div className="inner">
@@ -82,6 +88,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+
                     <div className="dashbox">
                     <Link to="/Finance/Expense" >
                     <div className="inner">
@@ -89,6 +96,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+
                     <div className="dashbox">
                     <Link to="/Finance/Income" >
                     <div className="inner">
@@ -96,6 +104,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+
                     <div className="dashbox">
                     <Link to="/Attendance/Staffattendance">
                     <div className="inner">
@@ -103,6 +112,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+
                     <div className="dashbox">
                     <Link to="/Attendance/Studentattend">
                     <div className="inner">
@@ -110,6 +120,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+
                     <div className="dashbox">
                     <Link to="/Communicate/Sendmessage">
                     <div className="inner">
@@ -117,6 +128,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+
                     <div className="dashbox">
                     <Link to="/Staffregistration">
                     <div className="inner">
@@ -124,13 +136,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
-                    {/* <div className="dashbox">
-                    <Link to="/Gallery">
-                    <div className="inner">
-                    <h1>Gallery</h1>
-                    </div>
-                    </Link>
-                    </div> */}
+
                     <div className="dashbox">
                     <Link to="/Demo">
                     <div className="inner">
@@ -161,6 +167,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+
                     <div className="dashbox">
                     <Link to="/StaffDocument">
                     <div className="inner">
@@ -168,6 +175,7 @@ export default class Dashboard extends Component{
                     </div>
                     </Link>
                     </div>
+                    
                     <div className="dashbox">
                     <Link to="/SchoolDepartment">
                     <div className="inner">

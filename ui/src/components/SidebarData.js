@@ -126,7 +126,7 @@ export const SidebarData = [
       },
       {
         title: "Mess schedule",
-        path: "",
+        path: "/Canteen/Mess",
       },
       {
         title: "View menu",
@@ -147,7 +147,7 @@ export const SidebarData = [
       },
       {
         title: "Create Section",
-        path: "",
+        path: "/Createsection",
       },
       
     ],

@@ -294,7 +294,7 @@ export default class Createclass extends Component {
                                                         {this.state.class.map((obj) => {
                                                             return (
                                                                 <tr key={obj.clId}>
-                                                                    <th>
+                                                                    <td>
                                                                         <i style={{ fontSize: "20px" }} title="Delete"
                                                                             onClick={() =>
                                                                                 this.delete(obj.clId)
@@ -310,8 +310,8 @@ export default class Createclass extends Component {
                                                                             <BiEdit />
 
                                                                         </i>
-                                                                    </th>
-                                                                    <th>{obj.className}</th>
+                                                                    </td>
+                                                                    <td>{obj.className}</td>
 
 
 

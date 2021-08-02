@@ -9,7 +9,6 @@ import {
   BiX,
   BiEdit,
 } from "react-icons/bi";
-import { MdDeleteSweep } from "react-icons/md"
 import axios from "axios";
 import { GrUpdate } from "react-icons/gr";
 import { AiFillDelete } from "react-icons/ai";
@@ -91,17 +90,19 @@ export default class Subject extends Component {
           });
 
         })
+        .then(()=>{this.fetchdata()})
+
         .catch((err) => {
           console.log(err);
         });
     } else {
-      //const errors = <span style="color:red">All fields are required</span>
+      
       alert("All fields are required ");
     }
   }
   componentDidMount() {
     this.fetchclass();
-    // this.fetchdata();
+    
   }
 
   fetchclass() {
@@ -113,7 +114,9 @@ export default class Subject extends Component {
         this.setState({
           sclass: json,
         });
-      });
+      })
+      .then(this.fetchdata())
+      
   }
   fetchdata() {
     fetch("http://83.136.219.101:8080/erp/subject/getSubjectDetails")
@@ -133,11 +136,11 @@ export default class Subject extends Component {
           "http://83.136.219.101:8080/erp/subject/removeSubjectDetails/" + subId
         )
 
-        // .then((res) => {
-        //   console.log(res);
-        //   alert("data deleted successfully");
+        .then((res) => {
+          console.log(res);
+          alert("data deleted successfully");
 
-        // })
+        })
         .catch((error) => {
           console.log(error);
         });
@@ -324,7 +327,7 @@ export default class Subject extends Component {
                             <button
                               type="submit"
                               className="btn btn-primary ng-binding"
-                              onClick={this.fetchdata()}
+                              // onClick={this.fetchdata()}
 
                             >
                               Save
@@ -345,6 +348,7 @@ export default class Subject extends Component {
                             <table>
                               <tr>
                                 <th>Action</th>
+                                <th>Class</th>
                                 <th>subjectName</th>
 
 
@@ -353,7 +357,7 @@ export default class Subject extends Component {
                                 return (
                                   <tr key={obj.subId}>
 
-                                    <th>
+                                    <td>
                                       <button
                                         onClick={() => this.onEdit(obj.subjectName)}
                                         className="btn"
@@ -369,8 +373,9 @@ export default class Subject extends Component {
                                       >
                                         <AiFillDelete />{" "}
                                       </button>
-                                    </th>
-                                    <th>{obj.subjectName}</th>
+                                    </td>
+                                    <td>{obj.clas.className}</td>
+                                    <td>{obj.subjectName}</td>
                                     
 
                                   </tr>

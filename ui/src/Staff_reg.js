@@ -37,7 +37,7 @@ export default class Staff_reg extends Component {
     this.fetchdept();
   }
   fetchusertype() {
-    fetch("http://83.136.219.101:8080/erp/userpermission/getmanageusertypeandpermission")
+    fetch("http://83.136.219.101:8080/erp/type/getUserType")
       .then(function (res) {
         return res.json();
       })
@@ -114,8 +114,8 @@ export default class Staff_reg extends Component {
             </span>
           </span>
           <ol className="crumb">
-            <li>Master Entry</li>
-            <li>Front Office Master Entry</li>
+            <li>Manage Staff</li>
+            <li>Staff Registration</li>
           </ol>
 
           <div style={{ float: "right" }}>
@@ -217,7 +217,7 @@ export default class Staff_reg extends Component {
                                 <option value="" >Select user Type</option>
                                 {this.state.staff_usertype.map((obj) => {
                                   return (
-                                    <option value={obj.slno}>{obj.userType}</option>
+                                    <option value={obj.userId}>{obj.staffUserType}</option>
                                   );
                                 })}
                               </select>

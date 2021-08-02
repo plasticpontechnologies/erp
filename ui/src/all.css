@@ -235,7 +235,7 @@ element.style {
   padding-bottom: 80px;
 }
 .fixed-navigation nav {
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling:touch;
   overflow-y: auto;
   height: 100%;
   padding-bottom: 49px;
@@ -1872,8 +1872,8 @@ a {
 }
 input[type=date], select {
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    padding: 8px 20px;
+    
     display: block;
     border: 1px solid rgb(0, 17, 253);
     border-radius: 4px;
