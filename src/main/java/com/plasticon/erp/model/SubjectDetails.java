@@ -1,10 +1,10 @@
-package com.plasticon.erp.model;
+ package com.plasticon.erp.model;
 
 import java.util.List;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 import lombok.Data;
 
@@ -37,9 +37,14 @@ public class SubjectDetails {
 	 
 		
 	  @JsonIgnore
-	  @OneToMany(targetEntity = CreateOnlineExamInfo.class) private
-	  List<CreateOnlineExamInfo> examinfo;
-		 
+	  @OneToMany(targetEntity = CreateOnlineExamInfo.class)
+	  private List<CreateOnlineExamInfo> examinfo;
+		
+
+	  @JsonIgnore
+	  @OneToMany(targetEntity = PublishResultDetails.class)
+	  private List<PublishResultDetails> prd;
 	 
+	  
 
 }

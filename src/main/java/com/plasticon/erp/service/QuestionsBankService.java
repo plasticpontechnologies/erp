@@ -31,8 +31,8 @@ public class QuestionsBankService {
 		questionBankRepository.deleteById(id);
 	}
 	
-	  public List<QuestionsBank> findBySubId(int suId) { return
-	  questionBankRepository.findBySubId(suId); }
+	  public List<QuestionsBank> findBySubId(int suId) { 
+		  return questionBankRepository.findBySubId(suId); }
 	 
 	
 }

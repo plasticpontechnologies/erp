@@ -1,6 +1,9 @@
 package com.plasticon.erp.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.plasticon.erp.model.StudentAdmission;
@@ -8,5 +11,12 @@ import com.plasticon.erp.model.StudentAdmission;
 public interface StudentAdmissionRepository extends JpaRepository<StudentAdmission,Number> {
 
 	
+	@Query("Select s from StudentAdmission s where s.clasde.clId = :clasId")
+	public List<StudentAdmission> findByClassId(int clasId);
 
+	@Query("SELECT s FROM StudentAdmission s ORDER BY s.admissionNumber ASC")
+     List<StudentAdmission> findAllOrderByadmissionNumberAsc();
+
+	@Query("SELECT s FROM StudentAdmission s ORDER BY s.studentName ASC")
+    List<StudentAdmission> findAllOrderByStudentNameAsc();
 }
