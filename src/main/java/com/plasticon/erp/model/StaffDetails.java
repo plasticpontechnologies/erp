@@ -37,9 +37,6 @@ public class StaffDetails {
 	@JoinColumn(name="pId")
 	private PositionDetails positiondetails;
 
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "pId")
-	private PositionDetails pd;
 	
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ut_fk")
