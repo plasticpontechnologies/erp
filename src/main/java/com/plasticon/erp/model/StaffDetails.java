@@ -1,6 +1,7 @@
 package com.plasticon.erp.model;
 import java.sql.Date;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,18 +20,28 @@ public class StaffDetails {
 	private int staffId;
 	private String staffName;
 	private String userName;
-	private String password;
-	private Date dateOfBirth;
-	private String gender;
-	private Date joiningDate;
+	private String password;	
 	private Long mobileNumber;
+	private Date joinDate;
 	private String email;
-	private String position;
-	//private String Usertype;
-	private String Department;
+//	private String position;
+//	private String usertype;
+//	private String department;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "sd_fk")
+	private SchoolDepartmentDetails sdd;
+
 	
 	@OneToOne
 	@JoinColumn(name="pId")
 	private PositionDetails positiondetails;
 
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "pId")
+	private PositionDetails pd;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ut_fk")
+	private UserType ut;
 }

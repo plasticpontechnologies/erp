@@ -14,10 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.plasticon.erp.model.QuestionsBank;
 import com.plasticon.erp.service.QuestionsBankService;
 
-
-
-
-
 @RestController
 @RequestMapping("/questions")
 public class QuestionsBankController {
@@ -35,15 +31,14 @@ public class QuestionsBankController {
 		questionsBankService.saveQuestionsBank(questions);
 	}
 	
-	@DeleteMapping(value = "/removevquestionBank/{id}")
+	@DeleteMapping(value = "/removequestionBank/{id}")
 	public void removeQuestionBank(@PathVariable("id")int Id) {
 		questionsBankService.removeQuestionsBank(Id);
 	}
 	
 	  @GetMapping(value="/getsubjectsbyid/{suId}") 
 	  public List<QuestionsBank> getQuestionsBySub(@PathVariable("suId")int suId) {
-		  
-	 return questionsBankService.findBySubId(suId);
+		  return questionsBankService.findBySubId(suId);
 	  
 	  }
 	 

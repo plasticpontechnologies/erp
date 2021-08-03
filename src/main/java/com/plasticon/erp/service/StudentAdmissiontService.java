@@ -10,7 +10,6 @@ import com.plasticon.erp.repository.StudentAdmissionRepository;
 
 
 @Service
-
 public class StudentAdmissiontService {
 	@Autowired
 	StudentAdmissionRepository studentRepository;
@@ -32,5 +31,15 @@ public class StudentAdmissiontService {
 		public List<StudentAdmission> findByClassId(int clasId) {
 			return studentRepository.findByClassId(clasId);
 		}
+
+
+		public List<StudentAdmission> findByAdmissionNumber() {	
+			return studentRepository.findAllOrderByadmissionNumberAsc();
+		}
+
+		public List<StudentAdmission> findByStudentName() {
+			return studentRepository.findAllOrderByStudentNameAsc();
+		}
+
 
 }

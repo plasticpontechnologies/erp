@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.plasticon.erp.model.ResultSetupScholasticDetails;
+
 import com.plasticon.erp.repository.ResultSetupScholasticRepository;
 
 
@@ -17,6 +18,7 @@ public class ResultSetupScholasticService {
 
 	@Autowired
 	ResultSetupScholasticRepository resultSetupScholasticRepository;
+	
 	public List<ResultSetupScholasticDetails> getResultSetupScholasticDetails() {
 		return resultSetupScholasticRepository.findAll();
 
@@ -30,4 +32,6 @@ public class ResultSetupScholasticService {
 	public void removeResultSetupScholasticDetails(int id) {
 		resultSetupScholasticRepository.deleteById(id);
 	}
+	
+	
 }

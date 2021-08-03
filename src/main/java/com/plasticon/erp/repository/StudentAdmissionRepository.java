@@ -1,6 +1,5 @@
 package com.plasticon.erp.repository;
 
-
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,5 +13,12 @@ public interface StudentAdmissionRepository extends JpaRepository<StudentAdmissi
 	@Query("Select s from StudentAdmission s where s.clasde.clId = :clasId")
 	public List<StudentAdmission> findByClassId(int clasId);
 
+
+	@Query("SELECT s FROM StudentAdmission s ORDER BY s.admissionNumber ASC")
+     List<StudentAdmission> findAllOrderByadmissionNumberAsc();
+
+
+	@Query("SELECT s FROM StudentAdmission s ORDER BY s.studentName ASC")
+    List<StudentAdmission> findAllOrderByStudentNameAsc();
 }
 
