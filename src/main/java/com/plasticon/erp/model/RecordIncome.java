@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -18,11 +20,17 @@ public class RecordIncome {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int recordIncomeId;
 	private int manualRecieptNumber;
-	private String incomeHead;
-	private int amount;
-	private String account;
+	@OneToOne()
+	@JoinColumn(name="incId")
+	private IncomeHead incomeHead;
+	private double amount;
+	@OneToOne()
+	@JoinColumn(name="accId")
+	private CreateAccount account;
 	private Date dateOfIncome;
-	private String student;
+	@OneToOne()
+	@JoinColumn(name="stdId")
+	private StudentAdmission student;
 	private String remarks;
 	
 

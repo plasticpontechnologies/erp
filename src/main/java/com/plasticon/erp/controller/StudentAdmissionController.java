@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.plasticon.erp.model.StudentAdmission;
-import com.plasticon.erp.service.StudentAdmissionService;
+import com.plasticon.erp.service.StudentAdmissiontService;
 
 
 
@@ -22,9 +21,11 @@ import com.plasticon.erp.service.StudentAdmissionService;
 @RequestMapping("/student")
 public class StudentAdmissionController {
 	
- 
-	@Autowired
-	StudentAdmissionService studentService;
+
+@Autowired
+
+	StudentAdmissiontService studentService;
+
 
 	@RequestMapping(value = "/getStudentDetails", method = RequestMethod.GET)
 	public List<StudentAdmission>  getStudentData() {
@@ -44,13 +45,6 @@ public class StudentAdmissionController {
 		  studentService.removeStudentDetails(Id);
 	    
 	    }
-	  
-		
-		  @GetMapping(value="/getStudentDetailsById/{clasId}")
-		  public List<StudentAdmission> getStudentAdmission(@PathVariable("clasId")int clasId){ 
-			  return studentService.findByClassId(clasId);
-		  }
-		 
 
 	  @GetMapping(value= "/getByAdmissionNumber")
 	 public List<StudentAdmission> getAdmissionData(){
@@ -61,5 +55,11 @@ public class StudentAdmissionController {
 		 public List<StudentAdmission> getStudentNameData(){
 			 return studentService.findByStudentName();
 			 }
+
+	  @GetMapping(value="/getStudentDetailsById/{clasId}")
+		public List<StudentAdmission> getStudentAdmission(@PathVariable("clasId")int clasId) {
+			return studentService.findByClassId(clasId);
+		}
+
 
 }

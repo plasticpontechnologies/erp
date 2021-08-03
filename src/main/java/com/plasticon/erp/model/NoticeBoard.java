@@ -25,4 +25,5 @@ public class NoticeBoard {
 	private String  status;
 	private Date  expiryDate;
 	
+	
 }

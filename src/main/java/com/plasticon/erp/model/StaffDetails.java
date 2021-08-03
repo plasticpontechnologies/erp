@@ -14,6 +14,7 @@ import lombok.Data;
 @Data
 @Table(name = "staff_details")
 public class StaffDetails {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int staffId;
@@ -30,7 +31,11 @@ public class StaffDetails {
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "sd_fk")
 	private SchoolDepartmentDetails sdd;
+
 	
+	@OneToOne
+	@JoinColumn(name="pId")
+	private PositionDetails positiondetails;
 
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "pId")

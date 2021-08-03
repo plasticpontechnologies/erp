@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -17,9 +19,13 @@ public class AssignSalaryStructure {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
     private int assignSalaryId;
-	private String selectStaff;
-	private String salaryTemplates;
-	private String remarks;
+	@OneToOne()
+	@JoinColumn(name="stafId")
+	private StaffDetails selectStaff;
+	@OneToOne()
+	@JoinColumn(name="salstId")
+	private SalaryStructure salaryTemplates;
+	private String remarks; 	
 	private Date monthEffectiveFrom;
 
 	
