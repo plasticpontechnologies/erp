@@ -20,9 +20,8 @@ public class QuestionsBank {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
 	private int QuestionId;
-
+	
 	private String question;
 	private int marks;
 	private String hint;
@@ -33,13 +32,13 @@ public class QuestionsBank {
 	@JoinColumn(name="difId")
 	private OnlineExamDifficultyLevel difficulty;
 	
-   @OneToOne(fetch = FetchType.EAGER)
-   @JoinColumn(name="ab_fk")
-   private AddBook addbook;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="ab_fk")
+    private AddBook addbook;
    
-   @OneToOne(fetch = FetchType.EAGER)
-   @JoinColumn(name="qt_fk")
-   private OnlineExamTopic topic;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="qt_fk")
+    private OnlineExamTopic topic;
 	
 	
 	@ManyToOne

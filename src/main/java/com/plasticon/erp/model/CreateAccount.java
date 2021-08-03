@@ -24,7 +24,7 @@ private int accountId;
 @JoinColumn(name="acctypeId")
 private CreateAccountType accountType;
 private String accountName;
-private Integer balance;
+private double balance;
 private Date accountStartDate;
 private String status;
 

@@ -17,6 +17,7 @@ public class DefineFeeType {
 	private int fId;
 	private String feeType;
 	private String frequency;
+	private String status;
 
 	
 

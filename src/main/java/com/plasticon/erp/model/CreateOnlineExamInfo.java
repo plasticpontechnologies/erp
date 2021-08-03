@@ -28,7 +28,7 @@ public class CreateOnlineExamInfo {
 	//private String examtype;
 	//private int selectmax_Marks;
 	private int examDuration;
-	private Date examOpenDate;
+	private Date examOpenDate; 
 	private Time examOpenTime;
 	private Date examCloseDate;
 	private Time examCloseTime;
@@ -43,6 +43,7 @@ public class CreateOnlineExamInfo {
 	//private String className;
 	private String topic;
 	private String bookName;
+	
 	
    @OneToOne(fetch = FetchType.EAGER)
    @JoinColumn(name="td_fk")

@@ -1,11 +1,16 @@
 package com.plasticon.erp.model;
 
+import java.sql.Date;
+import java.sql.Time;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
@@ -20,10 +25,10 @@ public class Events {
 	private int eId;
 	private String title;
 	private String color;
-	private String startDate;
-	private String startTime;
-    private String endDate;
-	private String endTime;
+	private Date startDate;
+	private Time startTime;
+    private Date endDate;
+	private Time endTime;
 
 	
 }

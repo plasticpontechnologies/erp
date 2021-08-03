@@ -1,6 +1,7 @@
 package com.plasticon.erp.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -18,6 +19,10 @@ public class StaffService {
 		public List<StaffDetails> getStaffDetails() {
 			return staffRepository.findAll();
 
+		}
+		
+		public List<StaffDetails> getStaffNameAndUserNameAndPassword() {
+			return staffRepository.getStaffNameAndUserNameAndPassword();
 		}
 
 		public void saveStaffDetails(StaffDetails staff) {
