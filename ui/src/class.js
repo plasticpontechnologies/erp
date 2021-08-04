@@ -174,9 +174,9 @@ export default class Createclass extends Component {
                         style={{ opacity: "5" }}
                     >
                         <section>
-                            <div className="row">
+                            <div className="row biome">
                                 <article className="col-sm-12 col-md-12 col-lg-5">
-                                    <div className="shadow master">
+                                    <div className=" master">
                                         <header role="heading">
                                             <div className="jarviswidget-ctrls" role="menu">
                                                 <a

@@ -36,10 +36,6 @@ class Canteen extends Component {
     };
   }
 
-  // changeF() {
-  //   this.setState({ checked: !this.state.checked });
-  // }
-
   componentDidMount() {
     this.fetchmenu();
   }

@@ -35,8 +35,9 @@ export default class Gallery extends Component{
                 </div>
               </div>
             </div>
+            <br/>
                            
-                <div>
+                <div className="biome">
                     <h1>Gallery albums and images list</h1>
                     <Dropdown style={{float:"right" }} >
                         <Dropdown.Toggle title="Add image" variant="success" id="dropdown-basic" style={{marginLeft:"30px", backgroundColor:"#12BA09", color:"white"}} >
@@ -45,7 +46,7 @@ export default class Gallery extends Component{
 
                         <Dropdown.Menu style={{backgroundColor:"#619CE4", margin:"1px", color:"white", border: " 2px solid black"}}>
                           
-                            <Dropdown.Item style={{borderBottom: "1px solid black" }} >
+                            <Dropdown.Item >
                               <Link to ="/Gallery/Gallery_image">Gallery Image</Link>
                             </Dropdown.Item><br/>
                             <Dropdown.Item style={{borderTop: "1px solid black" }} >

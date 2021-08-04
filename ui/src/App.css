@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-::-webkit-scrollbar{
+/* ::-webkit-scrollbar{
   display: none;
-}
+} */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,18 +10,5 @@
   font-family: 'Lato', sans-serif;
 }
 
-.home,
-.reports,
-.products,
-.team,
-.reports {
-  display: flex;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  
-}
-/* body{
-  margin-left: 250px;
-} */
+
+
