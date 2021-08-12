@@ -149,14 +149,14 @@ export const SidebarData = [
         title: "Create Section",
         path: "/Createsection",
       },
-      
+
     ],
   },
 
   {
     title: "communicate",
     // path: '/messages',
-    
+
     icon: <FaIcons.FaDesktop />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -183,7 +183,7 @@ export const SidebarData = [
       },
       {
         title: "Suvery Quations",
-        path: "/Suvery Quations",
+        path: "/mojesh",
       },
       {
         title: "Create Suvery",
@@ -417,7 +417,7 @@ export const SidebarData = [
   },
   {
     title: "  Front Office",
-    path: "/ Front Office",
+    // path: "/ Front Office",
     icon: <FaDesktop.FaDesktop />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -432,11 +432,11 @@ export const SidebarData = [
       },
       {
         title: "  Complaint ",
-        path: "/ Complaint ",
+        path: "/frontoffice/complaint",
       },
       {
         title: "  Visitor Book ",
-        path: "/Visitor Book ",
+        path: "/frontoffice/visitor",
       },
       {
         title: " Student Late Arrival & Early Departure ",

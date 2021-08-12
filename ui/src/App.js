@@ -1,5 +1,6 @@
 import "./App.css";
 import "./Admin.css";
+
 // import "./Notice.css";
 // import "./Expense.css";
 // import "./Canteen.css";
@@ -40,6 +41,10 @@ import Canteen from "./Canteen/Canteen";
 import Menu from "./Canteen/Menu";
 import View from "./Canteen/View";
 import Mess from "./Canteen/Mess";
+import visitor from "./visitor";
+import complaint from "./complaint";
+import mojesh from "./mojeshkojja";
+import search from "./search";
 
 
 function App() {
@@ -48,6 +53,7 @@ function App() {
       <Sidebar />
       <Switch>
         <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/search" exact component={search} />
         <Route path="/Createclass" exact component={Createclass} />
         <Route path="/Createsection" exact component={Createsection} />
         <Route path="/Homework/CreateHomework" exact component={Homework} />
@@ -79,6 +85,9 @@ function App() {
         <Route path="/canteen/Menu" exact component={Menu}/>
         <Route path="/canteen/ViewMenu" exact component={View}/>
         <Route path="/Canteen/Mess" exact component={Mess}/>
+        <Route path="/frontoffice/visitor" exact component={visitor}/>
+        <Route path="/frontoffice/complaint" exact component={complaint}/>
+        <Route path="/mojesh" exact component={mojesh}/>
       </Switch>
     </Router>
   );
